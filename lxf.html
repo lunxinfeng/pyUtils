@@ -1,0 +1,156 @@
+[
+<script id="pizhudiv.html" type="text/ng-template">
+    <div
+    class="chessitem" ng-repeat="pz in pizhus">
+    <div class="chessstepnumber" ng-if="selfpz != 'curpizhus'">第[[pz.step]]手</a></div>
+    <div class="chessstepdiv">
+        <div class="col-md-12 chesscitem" ng-repeat="c in pz.commentlist" ng-if="selfpz == 'userpizhus' || c.is_share">
+            <span ng-if="selfpz == 'userpizhus'"><i class="fa fa-lock" ng-if="!c.is_share"></i></span><span><span
+                class="badge alert-success" ng-if="pz.commentlist.length > 1">[[$index+1]]</span><a
+                ng-click="gotobigstep(c)">[[c.comment]]</a></span><a ng-if="!c.showmore"
+                                                                     ng-click="showmore(c)">...</a><span
+                ng-if="c.showmore"><a ng-click="showmore(c)">隐藏</a><span style="padding-left:5px;"
+                                                                         ng-if="selfpz != 'userpizhus'">[[c.username]] 写于 [[c.updatestr]]</span><span
+                ng-if="selfpz == 'userpizhus'" style="padding-left:5px;">[[c.updatestr]]<a ng-click="removepizhu(c)">  删除</a>&nbsp;<a
+                ng-click="sharepizhu(c)" ng-if="!c.is_share">分享</a>&nbsp;<a ng-click="sharepizhu(c)" ng-if="c.is_share">取消分享</a></span></span>
+        </div>
+        <div class="col-md-12 chessbitem " ng-class="{'activebranch':an.isactive}" ng-repeat="an in pz.branchlist"
+             ng-if="selfpz == 'curpizhus' || selfpz == 'userpizhus' || an.is_share"><span
+                ng-if="selfpz == 'userpizhus'"><i class="fa fa-lock" ng-if="!an.is_share"></i></span><span
+                class="badge alert-info">[[::an.nu]]</span>&nbsp;&nbsp;<div class="btn-group chessbranch"
+                                                                            ng-if="!smallshow">
+            <button class="btn btn-default steppos" title="第一步" ng-click="gotofirst(an)"><span
+                    class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+            <button class="btn btn-default prevstep" ng-click="gotostep(an,-1)" title="上一步"><span
+                    class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
+            <button class="btn btn-default nextstep" ng-click="gotostep(an,1)" title="下一步"><span
+                    class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+            <button class="btn btn-default steppos" ng-click="gotoend(an)" title="最后一步"><span
+                    class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+        </div>
+            <span ng-if="!smallshow">[[an.stepindex]]/[[an.stepcount]]&nbsp;&nbsp;</span>
+            <div class="btn btn-success smbrach" ng-if="smallshow" ng-click="gotobranch(an)">[[an.stepcount]]步 变化图</div>
+            <span style="padding-left:5px;padding-right:5px;" ng-if="!smallshow && an.isactive > 0 "><a
+                    ng-click="closebranch(an)">关闭变化图</a></span><a ng-if="!an.showmore"
+                                                                  ng-click="showmore(an)">...</a><span
+                    ng-if="an.showmore"><a ng-click="showmore(an)">隐藏</a><span style="padding-left:5px;"
+                                                                               ng-if="selfpz != 'userpizhus'">[[an.username]] 于 [[an.updatestr]] 提交</span><span
+                    ng-if="selfpz == 'userpizhus'" style="padding-left:5px;">[[an.updatestr]] <a
+                    ng-click="removebranch(an)">  删除</a>&nbsp;<a ng-click="sharebranch(an)" ng-if="!an.is_share">分享</a>&nbsp;<a
+                    ng-click="sharebranch(an)" ng-if="an.is_share">取消分享</a></span></span>
+            <p class="text-success" ng-if="an.isactive && an.showtip != ''">[[an.showtip]]</p></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div></div></script>,
+<script>var g_userdata = {"islogin": false};
+var chessobj = {
+    "rangzi": 0,
+    "pos": ["pd", "dp", "pq", "dc", "ce", "qo", "pm", "oo", "np", "ed", "cq", "cp", "dq", "fq", "fr", "ep", "eq", "ci", "fp", "gq", "gr", "hq", "fo", "ho", "dn", "bq", "br", "bo", "aq", "cn", "dl", "en", "eo", "do", "fn", "dm", "em", "el", "fm", "dk", "cl", "ck", "ip", "lp", "no", "iq", "jp", "jq", "in", "ln", "hn", "mq", "bm", "dn"],
+    "pizhus": [],
+    "id": 568482,
+    "whitehead": "headicon_128.png",
+    "blackname": "\u4e95\u5c71\u88d5\u592a",
+    "blacklevelname": "\u4e5d\u6bb5",
+    "title": "",
+    "comments": [],
+    "imgpath": "qipu/2018/6/13/568482.png",
+    "lu": 19,
+    "blackhead": "headicon_128.png",
+    "blacklevel": "\u4e5d\u6bb5",
+    "status": 2,
+    "otherlink": "",
+    "whitename": "\u5c71\u4e0b\u656c\u543e",
+    "whitelevel": "\u4e5d\u6bb5",
+    "black_first": true,
+    "address": "",
+    "gamerule": 0,
+    "whiteurl": "/chessbook/player/171/",
+    "daotiemu": 0,
+    "isfav": false,
+    "gameid": 0,
+    "blackurl": "/chessbook/player/225/",
+    "name": "",
+    "mynextid": 0,
+    "userpizhus": [],
+    "myprevid": 0,
+    "prepos": [[], []],
+    "whitelevelname": "\u4e5d\u6bb5"
+};
+var static_server = "https://static.101weiqi.com";
+var bgcolor = "";
+var addonobj = {};
+var startstep = 0;
+var is_secure = true;</script>,
+<script src="https://static.101weiqi.com/static/cache/f45f909c7b979c6a8b6a2066cdaa405c.js"
+        type="text/javascript"></script>,
+<script src="https://static.101weiqi.com/static/cache/bfbf7fe26334848ea59c310beb8394d7.js"
+        type="text/javascript"></script>,
+<script type="text/javascript">var dots_of_star_19 = ["dd", "dj", "dp", "jd", "jj", "jp", "pd", "pj", "pp"];
+var dots_of_star_13 = ["dd", "dj", "gg", "jd", "jj"];
+var dots_of_star_9 = ["cc", "gc", "cg", "gg"];
+var dots_of_star_none = [];
+var vertline_img = null;
+var hertline_img = null;
+var point_img = null;
+var black_img = null;
+var white_img = null;
+var black_img_s = null;
+var white_img_s = null;
+var board_img = null;
+var luozi_img = null;
+var qok_img = null;
+var qfail_img = null;
+var tipok_img = new Image;
+var tiperror_img = new Image;
+var tipclose_img = new Image;
+var g_vertlineimgok = false;
+var g_hertlineimgok = false;
+var g_luoziimgok = false;
+var g_linecolor = "#000000";
+var g_linewidth = 1;
+var faceisblank = true;
+var g_qokimgok = false;
+var g_qfailimgok = false;
+faceisblank = false;
+board_img = new Image;
+board_img.src = "https://static.101weiqi.com/static/face/1/bg-04.jpg";
+$(".answerbody").css("background", 'url("' + board_img.src + '")');
+black_img = new Image;
+black_img.src = "https://static.101weiqi.com/static/face/1/black.png";
+white_img = new Image;
+white_img.src = "https://static.101weiqi.com/static/face/1/white.png";
+var fu_img = null;
+tipok_img.src = "https://static.101weiqi.com/static/images/tip_ok.png";
+tiperror_img.src = "https://static.101weiqi.com/static/images/tip_error2.png";
+tipclose_img.src = "https://static.101weiqi.com/static/images/close6.png";
+var g_blackimgok = false;
+var g_whiteimgok = false;
+var g_fuimgok = false;
+if (!faceisblank) {
+    black_img.onload = function () {
+        g_blackimgok = true;
+    };
+    black_img.onerror = black_img.onabort = function () {
+    };
+    white_img.onload = function () {
+        g_whiteimgok = true;
+    };
+    white_img.onerror = white_img.onabort = function () {
+    };
+}
+var g_tipokimgok = false;
+var g_tiperrorimgok = false;
+var g_tipcloseimgok = false;
+tipok_img.onload = function () {
+    g_tipokimgok = true;
+};
+tiperror_img.onload = function () {
+    g_tiperrorimgok = true;
+};
+tipclose_img.onload = function () {
+    g_tipcloseimgok = true;
+};</script>,
+<script type="text/javascript">$(document).ready(function () {
+    var x = 0;
+    var y = 0;
+});</script>]
