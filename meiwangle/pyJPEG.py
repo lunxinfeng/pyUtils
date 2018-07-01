@@ -4,11 +4,11 @@ import os
 import socket
 import time
 
-address = "http://video.djie.pw/20170805/wmaLGFJs/1000kb/hls/SzVw7973000.jpeg"
+address = "https://www2.youku00.com/20180318/FHUvAKei/1000kb/hls/wOH6s1229000.jpeg"
 file_type = ".jpeg"
-num = 35
+num = 258
 start = 0
-name = "029"
+name = "031"
 
 
 def get_html(url: str):
