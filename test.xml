@@ -1,0 +1,1195 @@
+<program>
+    <var name="static_server">
+        <string>https://static2.101weiqi.com</string>
+    </var>
+    <var name="g_userdata">
+        <object>
+            <property name="islogin">
+                <boolean>false
+                </boole
+                        an>
+            </property>
+        </object>
+    </var>
+    <var name="g_qq">
+        <object>
+            <property name="status">
+                <number value="2"/>
+            </property>
+            <property name="pos_y1">
+                <number value="0"/>
+            </property>
+            <pr
+                    operty name="pos_y2">
+                <number value="8"/>
+            </property>
+            <property name="islei">
+                <boolean>false</boolean>
+            </property>
+            <property name="myoper">
+                <object>
+                    <property name="mystar">
+                        <boolean>false</boolean>
+                    </property>
+                    <property name="tags">
+                        <array/>
+                    </property>
+                    <property name="mytags">
+                        <array/>
+                    </property>
+                </object>
+            </property>
+            <property name="taotaiid">
+                <number value="0"/>
+            </property>
+            <property name="qshids">
+                <array/>
+            </property>
+            <property name="orgid">
+                <number value="0"/>
+            </property>
+            <property name="signs">
+                <array/>
+            </proper
+                    ty>
+            <property name="vote">
+                <number value="4.7"/>
+            </property>
+            <property name="attr_type">
+                <number value="0"/>
+            </property>
+            <property name="qtype">
+                <number value="1"/>
+            </propert
+                    y>
+            <property name="id">
+                <number value="80868"/>
+            </property>
+            <property name="points">
+                <array/>
+            </property>
+            <property name="publicid">
+                <number value="80868"/>
+            </property>
+            <prope
+                    rty name="title">
+                <string></string>
+            </property>
+            <property name="ineb">
+                <boolean>false</boolean>
+            </property>
+            <property name="comments">
+                <array>
+                    <object>
+                        <property name="userna
+me">
+                            <string>&#65282;&#20013;&#65282;&#26497;&#22823;&#25361;&#25112;</string>
+                        </property>
+                        <property name="showcontent">
+                            <string>........</string>
+                        </property>
+                        <property na
+                                  me="douname">
+                            <string></string>
+                        </property>
+                        <property name="headpath">
+                            <string>headicon_128.png</string>
+                        </property>
+                        <property name="userid">
+                            <number value="113974"/>
+                        </prop
+                                erty>
+                        <property name="updated">
+                            <number value="1507263912"/>
+                        </property>
+                        <property name="doustatus">
+                            <number value="0"/>
+                        </property>
+                        <property name="id">
+                            <number value="2303
+03"/>
+                        </property>
+                        <property name="dou">
+                            <number value="0"/>
+                        </property>
+                    </object>
+                </array>
+            </property>
+            <property name="specs">
+                <array/>
+            </property>
+            <property name="lu">
+                <number
+                        value="19"/>
+            </property>
+            <property name="hasspec">
+                <boolean>false</boolean>
+            </property>
+            <property name="blackfirst">
+                <boolean>true</boolean>
+            </property>
+            <property name="luoz
+is">
+                <array/>
+            </property>
+            <property name="username">
+                <string>lst931207</string>
+            </property>
+            <property name="pos_x2">
+                <number value="18"/>
+            </property>
+            <property name="pos_x1">
+                <number value="9"/>
+            </property>
+            <property name="andata">
+                <object>
+                    <property name="0">
+                        <object>
+                            <property name="c">
+                                <number value="0"/>
+                            </property>
+                            <property name="subs">
+                                <arra
+                                        y>
+                                    <number value="1"/>
+                                </array>
+                            </property>
+                            <property name="pt">
+                                <string></string>
+                            </property>
+                            <property name="f">
+                                <number value="0"/>
+                            </property>
+                            <property name="tip">
+                                <string
+                                ></string>
+                            </property>
+                            <property name="o">
+                                <number value="0"/>
+                            </property>
+                            <property name="p">
+                                <number value="0"/>
+                            </property>
+                            <property name="u">
+                                <number value="0"/>
+                            </proper
+                                    ty>
+                            <property name="aids">
+                                <array/>
+                            </property>
+                            <property name="id">
+                                <number value="0"/>
+                            </property>
+                        </object>
+                    </property>
+                    <property name="1">
+                        <object>
+                            <property name="c">
+                                <numb
+                                        er value="0"/>
+                            </property>
+                            <property name="subs">
+                                <array>
+                                    <number value="2"/>
+                                </array>
+                            </property>
+                            <property name="pt">
+                                <string>nb</string>
+                            </property>
+                            <property name="f">
+                                <num
+                                        ber value="0"/>
+                            </property>
+                            <property name="tip">
+                                <string></string>
+                            </property>
+                            <property name="o">
+                                <number value="1"/>
+                            </property>
+                            <property name="p">
+                                <number value="0"/>
+                            </p
+                                    roperty>
+                            <property name="u">
+                                <number value="0"/>
+                            </property>
+                            <property name="aids">
+                                <array>
+                                    <number value="492424"/>
+                                </array>
+                            </property>
+                            <property name="id">
+                                <number value="1
+"/>
+                            </property>
+                        </object>
+                    </property>
+                    <property name="2">
+                        <object>
+                        <property name="c">
+                            <number value="0"/>
+                        </property>
+                        <property name="subs">
+                            <array>
+                                <number value="3"/>
+                            </array
+                            >
+                        </property>
+                        <property name="pt">
+                            <string>ob</string>
+                        </property>
+                        <property name="f">
+                            <number value="0"/>
+                        </property>
+                        <property name="tip">
+                            <string></string>
+                        </property>
+                        <prop
+                                erty name="o">
+                        <number value="1"/>
+                    </property>
+                    <property name="p">
+                        <number value="1"/>
+                    </property>
+                    <property name="u">
+                        <number value="0"/>
+                    </property>
+                    <property name="aids">
+                        <
+                                array>
+                            <number value="492424"/>
+                        </array>
+                    </property>
+                    <property name="id">
+                        <number value="2"/>
+                    </property>
+                </object>
+            </property>
+            <property name="3">
+                <object>
+                    <property name="c">
+                        <number value="0"/>
+                    </property>
+                    <property name="subs">
+                        <array/>
+                    </property>
+                    <property name="pt">
+                        <string>oa</string>
+                    </property>
+                    <property name="f">
+                        <number value="0"/>
+                    </prop
+                            erty>
+                    <property name="tip">
+                        <string></string>
+                    </property>
+                    <property name="o">
+                        <number value="1"/>
+                    </property>
+                    <property name="p">
+                        <number value="2"/>
+                    </property>
+                    <property nam
+                              e="u">
+                        <number value="0"/>
+                    </property>
+                    <property name="aids">
+                        <array>
+                            <number value="492424"/>
+                        </array>
+                    </property>
+                    <property name="id">
+                        <number value="3"/>
+                    </property>
+                </objec
+                        t>
+            </property>
+        </object>
+    </property>
+    <property name="edit_count">
+        <number value="0"/>
+    </property>
+    <property name="answers">
+        <array>
+            <object>
+                <property name="username">
+                    <string>
+                        wx_965481115930
+                    </string>
+                </property>
+                <property name="change_count">
+                    <number value="0"/>
+                </property>
+                <property name="ty">
+                    <number value="3"/>
+                </property>
+                <property name="nu">
+                    <number value="5"/>
+                </property>
+                <property name="userid">
+                    <number value="134566"/>
+                </property>
+                <property name="st">
+                    <number value="1"/>
+                </property>
+                <property name="ok_count">
+                    <number value="0"/>
+                </property>
+                <property name="error_count">
+                    <number value="0"/>
+                </property>
+                <property name="bad_count">
+                    <number value="1"/>
+                </property>
+                <property name="v">
+                    <number value="0"/>
+                </property>
+                <property name="pts">
+                    <array>
+                        <object>
+                            <property name="p">
+                                <string>ob</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>nb</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>oa</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>na</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </pro
+                                    perty>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>rb</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>qa
+                                </string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>pa</string>
+                            </property>
+                            <property name="c">
+                                <string></str
+                                        ing>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>oa</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <
+                                        string>ra
+                                </string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>pa</string>
+                            </property>
+                            <property name="c">
+                                <str
+                                        ing></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>mb</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property n
+                                      ame="p">
+                                <string>of</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                    </array>
+                </property>
+                <property name="id">
+                    <number value="720967"/>
+                </proper
+                        ty>
+            </object>
+            <object>
+                <property name="username">
+                    <string>wx_469295011516</string>
+                </property>
+                <property name="change_count">
+                    <number value="0"/>
+                </property>
+                <property name="
+ty">
+                    <number value="3"/>
+                </property>
+                <property name="nu">
+                    <number value="4"/>
+                </property>
+                <property name="userid">
+                    <number value="181929"/>
+                </property>
+                <property name="st">
+                    <n
+                            umber value="1"/>
+                </property>
+                <property name="ok_count">
+                    <number value="0"/>
+                </property>
+                <property name="error_count">
+                    <number value="0"/>
+                </property>
+                <property name="bad_co
+unt">
+                    <number value="1"/>
+                </property>
+                <property name="v">
+                    <number value="0"/>
+                </property>
+                <property name="pts">
+                    <array>
+                        <object>
+                            <property name="p">
+                                <string>ob</string>
+                            </prope
+                                    rty>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                        <property name="p">
+                            <string>nb</string>
+                        </property>
+                        <property name="c">
+                            <string></string>
+                        </property>
+                        <
+                        /object>
+                        <object>
+                            <property name="p">
+                                <string>oa</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>na
+                                </strin
+                                        g>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>qa</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </p
+                                    roperty>
+                        </object>
+                        <object>
+                            <property name="p">
+                                <string>rb</string>
+                            </property>
+                            <property name="c">
+                                <string></string>
+                            </property>
+                        </object>
+                    </array>
+                </property>
+                <property name="
+id">
+                    <number value="713963"/>
+                </property>
+            </object>
+            <object>
+                <property name="username">
+                    <string>username</string>
+                </property>
+                <property name="change_count">
+                    <number value="0"
+                    />
+                </property>
+                <property name="ty">
+                    <number value="3"/>
+                </property>
+                <property name="nu">
+                    <number value="3"/>
+                </property>
+                <property name="userid">
+                    <number value="109299"/>
+                </pr
+                        operty>
+                <property name="st">
+                    <number value="1"/>
+                </property>
+                <property name="ok_count">
+                    <number value="0"/>
+                </property>
+                <property name="error_count">
+                    <number value="0"/>
+                </pr
+                        operty>
+                <property name="bad_count">
+                    <number value="1"/>
+                </property>
+                <property name="v">
+                    <number value="0"/>
+                </property>
+                <property name="pts">
+                    <array>
+                    <object>
+                        <property name="
+p">
+                            <string>ob</string>
+                        </property>
+                        <property name="c">
+                            <string></string>
+                        </property>
+                    </object>
+                    <object>
+                        <property name="p">
+                            <string>nb</string>
+                        </property>
+                        <property name="c">
+                            <string></string>
+                        </property>
+                    </object>
+                    <object>
+                        <property name="p">
+                            <string>mb</string>
+                        </property>
+                        <property name="c">
+                            <string></string>
+                        </property>
+                    </object>
+                    <object>
+                    <proper
+                            ty name="p">
+                    <string>oa</string>
+                </property>
+                <property name="c">
+                    <string></string>
+                </property>
+            </object>
+            <object>
+                <property name="p">
+                    <string>ob</string>
+                </property>
+                <property
+                        name="c">
+                    <string></string>
+                </property>
+            </object>
+            <object>
+                <property name="p">
+                    <string>nf</string>
+                </property>
+                <property name="c">
+                    <string></string>
+                </property>
+            </object>
+        </arra
+                y>
+    </property>
+    <property name="id">
+        <number value="630521"/>
+    </property>
+</object><object>
+<property name="username">
+    <string>username</string>
+</property>
+<property name="ch
+ange_count">
+    <number value="0"/>
+</property>
+<property name="ty">
+    <number value="3"/>
+</property>
+<property name="nu">
+    <number value="2"/>
+</property>
+<property name="userid"
+>
+    <number value="109299"/>
+</property>
+<property name="st">
+    <number value="1"/>
+</property>
+<property name="ok_count">
+    <number value="0"/>
+</property>
+<property name="error_c
+ount">
+    <number value="0"/>
+</property>
+<property name="bad_count">
+    <number value="1"/>
+</property>
+<property name="v">
+    <number value="0"/>
+</property>
+<property name="pts">
+    <a
+            rray>
+        <object>
+            <property name="p">
+                <string>ob</string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+            <string>nb</string>
+            <
+            /property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+                <string>oa</string>
+            </property>
+            <property name="c">
+                <string></string>
+            </prop
+                    erty>
+        </object>
+        <object>
+            <property name="p">
+                <string>nf</string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+    </array>
+</property>
+<property name="id"
+>
+    <number value="630520"/>
+</property>
+</object><object>
+<property name="username">
+    <string>lst931207</string>
+</property>
+<property name="change_count">
+    <number value="0"/>
+</property>
+<property name="ty">
+    <number value="1"/>
+</property>
+<property name="nu">
+    <number value="1"/>
+</property>
+<property name="userid">
+    <number value="4339"/>
+</proper
+        ty>
+<property name="st">
+    <number value="2"/>
+</property>
+<property name="ok_count">
+    <number value="7"/>
+</property>
+<property name="error_count">
+    <number value="0"/>
+</proper
+        ty>
+<property name="bad_count">
+    <number value="0"/>
+</property>
+<property name="v">
+    <number value="0"/>
+</property>
+<property name="pts">
+    <array>
+        <object>
+            <property name="p">
+                <
+                        string>nb
+                </string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+                <string>ob</string>
+            </property>
+            <property name="c">
+                <str
+                        ing></string>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+                <string>oa</string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+    </array>
+</property>
+<property name="id">
+    <number value="492424"/>
+</property>
+</object><object>
+<property name="username">
+    <string>smart</string>
+</property>
+<property name="change_count">
+    <num
+            ber value="0"/>
+</property>
+<property name="ty">
+    <number value="3"/>
+</property>
+<property name="nu">
+    <number value="6"/>
+</property>
+<property name="userid">
+    <number value="
+154297"/>
+</property>
+<property name="st">
+    <number value="1"/>
+</property>
+<property name="ok_count">
+    <number value="0"/>
+</property>
+<property name="error_count">
+    <number va
+            lue="0"/>
+</property>
+<property name="bad_count">
+    <number value="1"/>
+</property>
+<property name="v">
+    <number value="0"/>
+</property>
+<property name="pts">
+    <array>
+    <object>
+    <pr
+            operty name="p">
+    <string>ob</string>
+</property>
+<property name="c">
+    <string></string>
+</property>
+</object><object>
+<property name="p">
+    <string>nb</string>
+</property>
+<prope
+        rty name="c">
+    <string></string>
+</property>
+</object><object>
+<property name="p">
+    <string>oa</string>
+</property>
+<property name="c">
+    <string></string>
+</property>
+</object><o
+bject>
+<property name="p">
+    <string>na</string>
+</property>
+<property name="c">
+    <string></string>
+</property>
+</object><object>
+<property name="p">
+    <string>rb</string>
+</proper
+        ty>
+<property name="c">
+    <string></string>
+</property>
+</object><object>
+<property name="p">
+    <string>qa</string>
+</property>
+<property name="c">
+    <string></string>
+</property>
+</
+        object></array></property><property name="id">
+<number value="741964"/>
+</property></object><object>
+<property name="username">
+    <string>zxcvbnm</string>
+</property>
+<prope
+        rty name="change_count">
+    <number value="0"/>
+</property>
+<property name="ty">
+    <number value="1"/>
+</property>
+<property name="nu">
+    <number value="7"/>
+</property>
+<property n
+          ame="userid">
+    <number value="20034"/>
+</property>
+<property name="st">
+    <number value="1"/>
+</property>
+<property name="ok_count">
+    <number value="1"/>
+</property>
+<property na
+          me="error_count">
+    <number value="0"/>
+</property>
+<property name="bad_count">
+    <number value="0"/>
+</property>
+<property name="v">
+    <number value="0"/>
+</property>
+<property na
+          me="pts">
+    <array>
+        <object>
+            <property name="p">
+                <string>nb</string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+                <string>o
+                    b
+                </string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+                <string>oa</string>
+            </property>
+            <property name="c">
+                <string></st
+                        ring>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+                <string>mb</string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+        <object>
+            <property name="p">
+                <string>oc</string>
+            </property>
+            <property name="c">
+                <string></string>
+            </property>
+        </object>
+    </array>
+</property>
+<property name="id">
+    <number value="745233"/>
+</property>
+</obj
+        ect></array></property><property name="is_share">
+<boolean>true</boolean>
+</property><property name="taskresult">
+<object>
+    <property name="ok_nums">
+        <array>
+            <number value=
+                            "261"/>
+            <number value="245"/>
+            <number value="254"/>
+            <number value="259"/>
+            <number value="219"/>
+            <number value="171"/>
+            <number value="137"/>
+            <number value="122"/>
+            <number val
+                    ue="98"/>
+            <number value="80"/>
+            <number value="68"/>
+            <number value="41"/>
+            <number value="40"/>
+            <number value="39"/>
+            <number value="27"/>
+            <number value="21"/>
+            <number value="1
+3"/>
+            <number value="7"/>
+            <number value="18"/>
+            <number value="4"/>
+            <number value="7"/>
+            <number value="7"/>
+            <number value="6"/>
+            <number value="5"/>
+            <number value="2"/>
+            <number
+                    value="3"/>
+            <number value="7"/>
+            <number value="2"/>
+            <number value="2"/>
+            <number value="2"/>
+        </array>
+    </property>
+    <property name="ok_total">
+        <number value="2167"/>
+    </property>
+    <property name="fail_nums">
+        <array>
+            <number value="87"/>
+            <number value="45"/>
+            <number value="35"/>
+            <number value="23"/>
+            <number value="22"/>
+            <number value="8"/>
+            <number valu
+                    e="6"/>
+            <number value="8"/>
+            <number value="7"/>
+            <number value="4"/>
+            <number value="2"/>
+            <number value="0"/>
+            <number value="3"/>
+            <number value="1"/>
+            <number value="0"/>
+            <numbe
+                    r value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+            <number value="0"/>
+        </array>
+    </property>
+    <property name="fail_total">
+        <num
+                ber value="251"/>
+    </property>
+</object>
+</property><property name="qtypename">
+<string>&#27515;&#27963;&#39064;</string>
+</property><property name="hasbook">
+<boolean>fals
+    e
+</boolean>
+</property><property name="issingle">
+<boolean>true</boolean>
+</property><property name="xuandians">
+<array/>
+</property><property name="sms_count">
+<number va
+        lue="2"/>
+</property><property name="sy">
+<number value="9"/>
+</property><property name="sx">
+<number value="10"/>
+</property><property name="name">
+<string></string>
+</pro
+        perty><property name="nexterrorurl">
+<string></string>
+</property><property name="ans_count">
+<number value="7"/>
+</property><property name="userid">
+<number value="4339"
+/>
+</property><property name="layoutnumber">
+<number value="1"/>
+</property><property name="is_public">
+<boolean>true</boolean>
+</property><property name="bookinfos">
+<arr
+        ay>
+    <object>
+        <property name="pinyin">
+            <string></string>
+        </property>
+        <property name="bookname">
+            <string>&#25163;&#31563;&#19987;&#39033;&#35757;&#32451;-10&#32423;&#21040;5
+                &#32423;
+            </string>
+        </property>
+        <property name="nodename">
+            <string>&#20108;&#27668;&#23545;&#20108;&#27668;&#23545;&#26432;</string>
+        </property>
+        <property name="bookid">
+            <nu
+                    mber value="2342"/>
+        </property>
+        <property name="bookurl">
+            <number value="2342"/>
+        </property>
+    </object>
+</array>
+</property><property name="disuse">
+<number value="0"/>
+</prop
+        erty><property name="isguess">
+<boolean>false</boolean>
+</property><property name="prepos">
+<array>
+    <array>
+        <string>rc</string>
+        <string>rd</string>
+        <string>qd</string>
+        <stri
+                ng>pe
+        </string>
+        <string>oe</string>
+        <string>ne</string>
+        <string>md</string>
+        <string>mc</string>
+        <string>pa</string>
+        <string>oc</string>
+        <string>qb</string>
+    </array>
+    <array>
+        <st
+                ring>qe
+        </string>
+        <string>qf</string>
+        <string>pf</string>
+        <string>mf</string>
+        <string>me</string>
+        <string>nc</string>
+        <string>nd</string>
+        <string>od</string>
+        <string>pd
+        </stri
+                ng>
+        <string>pc</string>
+        <string>qc</string>
+        <string>pb</string>
+    </array>
+</array>
+</property><property name="myan">
+<null/>
+</property><property name="options">
+<array/>
+</pro
+        perty><property name="levelname">
+<string>14K+</string>
+</property></object></var><var name="taskinfo">
+<null/>
+</var><var name="myq">
+<null/>
+</var><var name="lqanswerer"
+>
+<array/>
+</var><var name="lqid">
+<number value="0"/>
+</var><var name="lqstatus">
+<number value="0"/>
+</var><var name="leipage">
+<boolean>false</boolean>
+</var><var name="i
+ssharepage">
+<boolean>false</boolean>
+</var><var name="qshobj">
+<object/>
+</var><var name="sharesocketurl">
+<string></string>
+</var><var name="studentans">
+<array/>
+</var><v
+ar name="ebookid">
+<number value="0"/>
+</var><var name="orgid">
+<number value="0"/>
+</var><var name="classid">
+<number value="0"/>
+</var><var name="markcount">
+<number valu
+        e="0"/>
+</var><var name="doingtype">
+<number value="1"/>
+</var><var name="ok_images">
+<array/>
+</var><var name="error_images">
+<array/>
+</var><var name="dajie_images">
+<arra
+        y/>
+</var><var name="forbid_images">
+<array/>
+</var></program>

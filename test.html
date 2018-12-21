@@ -1,1518 +1,529 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>
-        73期日本本因坊战挑战赛7番4 - 棋谱 - 101围棋网
-    </title>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-type"/>
-    <meta content="显示 VS 对局" name="description"/>
-    <meta content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
-          name="viewport"/>
-    <link href="https://static.101weiqi.com/static/cache/7aeb904ec8044acf865d40cb11cc2164.css" rel="stylesheet"/>
-    <style type="text/css">
-        [ng-cloak] {
-            display: none !important
-        }
-    </style>
-    <style>
-        .qipan_bg3 {
-            background: url(https://static.101weiqi.com/static/images/qipan_10.jpg) no-repeat;
-            background-size: 100% 100%
-        }
+    <style type="text/css">[uib-typeahead-popup].dropdown-menu {
+        display: block;
+    }</style>
+    <style ty
+           pe="text/css">.uib-time input {
+        width: 50px;
+    }</style>
+    <style type="text/css">[uib-tooltip-popup].tooltip.top-left
 
-        .vsimg {
-            background: url(https://static.101weiqi.com/static/images/vs2.png);
-        }
+    &
+    gt
 
-        a {
-            cursor: pointer;
-        }
+    ;
+    .tooltip-arrow, [uib-tooltip-popup].tooltip.top-rig
+    ht & gt
 
-        #playresult {
-            font-size: 16px;
-            font-weight: bold;
-            margin: 20px 0 20px;
-            text-align: center;
-        }
+    ;
+    .tooltip-arrow, [uib-tooltip-popup].tooltip.bottom-left
 
-        #fullqipan {
-            display: none;
-        }
+    &
+    gt
 
-        #startfupan {
-            display: none;
-        }
+    ;
+    .tooltip-arrow, [uib-tooltip-popup].tooltip.bottom-right
 
-        .advanced-coupon {
-            background-color: #609DD6;
-            color: #ffffff;
-            font-weight: bold;
-            margin: 20px 0 20px;
-            text-align: center;
-            padding: 20px;
-        }
+    &
+    gt
 
-        .advanced-coupon span {
-            font-size: 20px;
-            display: block;
-        }
+    ;
+    .tooltip-arrow, [uib-tooltip-popup].t
+    ooltip.left-top
 
-        .chessbranch .btn {
-            padding: 1px 10px 1px 10px;
-        }
-    </style>
-</head>
-<body class="qipan_bg3" ng-app="wqapp" ng-cloak="" ng-controller="ChessCtrl" ng-keyup="keyfunc($event)"
-      ng-style="bodystyle">
-<div ng-show="!infullmode">
-    <div class="floatleft" ng-style="pmainstyle">
-        <div align="center" id="playtop" ng-if="smallshow" style="height:20px;width:100%;padding-bottom:5px;">
-            <div style="width:10%;float:left;">
-                <a href="/chessbook/">
-                    <i aria-hidden="true" class="fa fa-home">
-                    </i>
-                </a>
-            </div>
-            <div class="warptext" style="width:80%;float:left;">
-      <span>
-       <a href="/chessbook/mychess/">
-        我的棋谱库
-       </a>
-      </span>
-                <span class="active" ng-if="pp.myprevid &gt; 0 || pp.mynextid &gt; 0 ">
-       <a ng-href="/chessbook/mychess/[[::pp.myprevid]]/" ng-if="::pp.myprevid &gt; 0" title="">
-        <i aria-hidden="true" class="fa fa-angle-left">
-        </i>
-        上一局
-       </a>
-       <span class="onesplit" ng-if="pp.myprevid != 0 &amp;&amp; pp.mynextid != 0">
-        |
-       </span>
-       <a ng-href="/chessbook/mychess/[[::pp.mynextid]]/" ng-if="pp.mynextid" title="">
-        下一局
-        <i aria-hidden="true" class="fa fa-angle-right">
-        </i>
-       </a>
-      </span>
-                <span ng-if="pp.rangzi &gt; 1">
-       让[[::pp.rangzi]]子
-      </span>
-                <span ng-if="pp.rangzi == 1">
-       让先
-      </span>
-                <span ng-if="pp.rangzi == 0">
-       分先
-      </span>
-                <span class="actionnum_top" ng-click="show_actions()">
-       棋
-      </span>
-            </div>
-        </div>
-        <div class="moblie_top2 width100" ng-if="smallshow" style="margin-top:20px;">
-            <div ng-if="isscore">
-                <div class="width100 scoresmalldiv">
-                    <div class="float70">
-                        <div class="width100 scoreonediv">
-                            <div class="floatleft blackhead">
-                                <img class="black_play" src="https://static.101weiqi.com/static/images/hei_zi.png"/>
-                            </div>
-                            <div class="floatleft scoreusername warptext2">
-                                [[::pp.busername]]
-                            </div>
-                            <div class="floatleft">
-                                [[mu.bscore]]目 [[mu.bgcount]]块棋，提[[mu.bkill]]子
-                            </div>
-                        </div>
-                        <div class="width100 scoreonediv">
-                            <div class="floatleft whitehead">
-                                <img class="white_play" src="https://static.101weiqi.com/static/images/bai_zi.png"/>
-                            </div>
-                            <div class="floatleft scoreusername warptext2">
-                                [[::pp.wusername]]
-                            </div>
-                            <div class="floatleft">
-                                [[mu.wscore]]目 [[mu.wgcount]]块棋，提[[mu.wkill]]子
-                            </div>
-                        </div>
-                    </div>
-                    <div class="float30 scoremiddiv">
-                        <div class="muresult">
-         <span ng-if="mu.win == 2">
-          黑
-         </span>
-                            <span ng-if="mu.win != 2">
-          白
-         </span>
-                            [[mu.winmu]]
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ng-if="!isscore">
-                <dl ng-style="bwwidthstyle">
-                    <dt>
-                        <img ng-src="https://static.101weiqi.com/file/[[pp.blackhead]]"/>
-                        <span class="stoneimgshort1">
-         <img class="black_play" src="https://static.101weiqi.com/static/images/hei_zi.png"/>
-        </span>
-                    </dt>
-                    <dd class="shusername">
-                        <a ng-href="[[pp.blackeurl]]" ng-if="pp.blackeurl">
-                            [[pp.blackname]]
-                        </a>
-                        <span ng-if="!pp.blackeurl" style="padding-right:3px;">
-         [[pp.blackname]]
-        </span>
-                        <br/>
-                        [[pp.blacklevelname]]
-                    </dd>
-                </dl>
-                <div class="chessscorerel warptext" ng-style="scorerelstyle">
-                    首日封盘
-                </div>
-                <dl ng-style="bwwidthstyle">
-                    <dt>
-                        <img ng-src="https://static.101weiqi.com/file/[[pp.whitehead]]"/>
-                        <span class="stoneimgshort2">
-         <img class="white_play" src="https://static.101weiqi.com/static/images/bai_zi.png"/>
-        </span>
-                    </dt>
-                    <dd class="shusername">
-                        <a ng-href="[[pp.whiteurl]]" ng-if="pp.whiteurl">
-                            [[pp.whitename]]
-                        </a>
-                        <span ng-if="!pp.whiteurl" style="padding-right:3px;">
-         [[pp.whitename]]
-        </span>
-                        <br/>
-                        [[pp.whitelevelname]]
-                    </dd>
-                </dl>
-            </div>
-            <div class="clear">
-            </div>
-        </div>
-        <div msd-wheel="playmousewheel($event, $delta, $deltaX, $deltaY)">
-            <div align="center" class="qp_content2 width100" ng-style="pcanvasstyle">
-                <stonecanvas qq="qq" wobjid="wobjid">
-                </stonecanvas>
-                <div ng-class="{'lefttoolbar':barmethod == 1}" ng-if="!smallshow" ng-style="toolbarstyle">
-                    <div class="playbuttonlist" ng-class="{'bottombar':barmethod == 2}">
-                        <div aria-label="..." ng-class="{'btn-group-vertical':barmethod == 1}" role="group">
-                            <div class="btn-group">
-                                <button class="btn " ng-click="gotofirst()" title="第一手">
-           <span class="glyphicon glyphicon-step-backward">
-           </span>
-                                </button>
-                                <button class="btn " ng-click="movestep(-5)" title="前5手">
-           <span class="glyphicon glyphicon-backward">
-           </span>
-                                </button>
-                                <button class="btn " ng-click="movestep(-1)" title="前一手">
-           <span class="glyphicon glyphicon-triangle-left">
-           </span>
-                                </button>
-                                <button class="btn " ng-click="movestep(1)" title="后一手">
-           <span class="glyphicon glyphicon-triangle-right">
-           </span>
-                                </button>
-                                <button class="btn " ng-click="movestep(5)" title="后5手">
-           <span class="glyphicon glyphicon-forward">
-           </span>
-                                </button>
-                                <button class="btn " ng-click="gotoend()" title="最后一手">
-           <span class="glyphicon glyphicon-step-forward">
-           </span>
-                                </button>
-                                <button class="btn " ng-click="automove()" title="自动播放/停止">
-           <span ng-if="isauto">
-            停止播放
-           </span>
-                                    <span ng-if="!isauto">
-            自动播放
-           </span>
-                                </button>
-                            </div>
-                            <div class="btn-group" ng-style="btngroupstyle">
-                                <button class="btn " ng-click="scorechess()">
-           <span ng-show="isscore">
-            关闭
-           </span>
-                                    形势
-                                </button>
-                                <button class="btn " ng-click="testrun()">
-           <span ng-show="st.istest">
-            结束
-           </span>
-                                    试下
-                                </button>
-                                <button class="btn " ng-click="shownum()">
-           <span ng-if="st.numbermode == 0">
-            数字
-           </span>
-                                    <span ng-if="st.numbermode == 1">
-            全数字
-           </span>
-                                    <span ng-if="st.numbermode == 2">
-            无数字
-           </span>
-                                </button>
-                                <button class="btn " ng-click="rorate()">
-                                    旋转[[curroratename]]
-                                </button>
-                                <button class="btn " ng-click="startchar()">
-           <span ng-show="st.ischart">
-            结束
-           </span>
-                                    <span ng-show="!st.ischart">
-            字母
-           </span>
-                                    标记
-                                </button>
-                            </div>
-                            <div class="btn-group" ng-style="btngroupstyle">
-                                <button class="btn " ng-click="startfenzhi()">
-           <span ng-if="!isinfenzhi">
-            <i aria-hidden="true" class="fa fa-plus">
-            </i>
-            变化
-           </span>
-                                    <span ng-if="isinfenzhi">
-            关闭
-           </span>
-                                </button>
-                                <button class="btn " ng-click="startcomment()">
-           <span ng-if="!isincomment">
-            <i aria-hidden="true" class="fa fa-plus">
-            </i>
-            批注
-           </span>
-                                    <span ng-if="isincomment">
-            关闭
-           </span>
-                                </button>
-                            </div>
-                            <div class="btn-group" ng-style="btngroupstyle">
-                                <button class="btn " ng-click="setvolume()">
-           <span class="glyphicon glyphicon-volume-off" ng-if="!volumn_open">
-           </span>
-                                    <span class="glyphicon glyphicon-volume-up" ng-if="volumn_open">
-           </span>
-                                </button>
-                                <button class="btn " ng-click="showfull()">
-           <span ng-if="!isfull">
-            <i aria-hidden="true" class="fa fa-arrows-alt">
-            </i>
-            全屏
-           </span>
-                                    <span ng-if="isfull">
-            <i aria-hidden="true" class="fa fa-window-restore">
-            </i>
-            恢复
-           </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear">
-                </div>
-            </div>
-        </div>
-        <div class="width100 chatdiv4" ng-if="smallshow">
-            <div id="liaotianx" ng-style="pliaotianstyle2">
-                <div class="join_apply" ng-style="pjoinstyle">
-                    <div class="join-main">
-                        <div class="chatgametipdiv" ng-if="pp.gameid &gt; 0" ng-style="chatgametipstyle">
-                            <a ng-href="/game/[[pp.gameid]]/">
-                                [[pp.gamename]]
-                            </a>
-                        </div>
-                        <div class="col-md-12 pull-right smsplite">
-         <span class="chesslink" ng-click="enterfullmode(2)" ng-if="userpizhus.length &gt; 0">
-          我的注解
-          <span ng-if="userpizhucount &gt; 0">
-           （[[userpizhucount]]）
-          </span>
-         </span>
-                            <span class="chesslink" ng-click="enterfullmode(3)" ng-if="pizhus.length &gt; 0">
-          批注/分支
-          <span ng-if="pizhucount &gt; 0">
-           （[[pizhucount]]）
-          </span>
-         </span>
-                            <span class="chesslink" ng-click="enterfullmode(4)">
-          评论
-          <span ng-if="commentcount &gt; 0">
-           （[[commentcount]]）
-          </span>
-         </span>
-                        </div>
-                        <div class="width100" ng-if="showsmallbranch &amp;&amp; !isinfenzhi &amp;&amp; !isincomment">
-                            <div class="col-md-12" style="text-align:center;">
-                                <p>
-                                    第[[cur_branch.step]]手，变化图[[cur_branch.nu]]
-                                </p>
-                                <p>
-                                    [[cur_branch.stepindex]] / [[cur_branch.stepcount]]
-                                    <span style="padding-left:10px;">
-            <a ng-click="closebranch()">
-             关闭变化图
-            </a>
-           </span>
-                                </p>
-                                <p class="text-success" ng-if="cur_branch.showtip != ''">
-                                    [[cur_branch.showtip]]
-                                </p>
-                            </div>
-                        </div>
-                        <div class="clear">
-                        </div>
-                        <div class="col-md-12" ng-if="!showsmallbranch &amp;&amp; !isinfenzhi &amp;&amp; !isincomment">
-                            <div class="col-md-12">
-                                第[[cur_pz.step]]手
-                            </div>
-                            <div class="col-md-12 pizhuitem" ng-repeat="c in cur_pz.commentlist">
-                                [[c.comment]]
-                            </div>
-                            <div class="floatpizhu pizhuitem" ng-repeat="b in cur_pz.branchlist">
-                                <div class="btn btn-success smbrach" ng-click="putbranch(b)">
-                                    [[b.stepcount]]步 变化图
-                                </div>
-                            </div>
-                        </div>
-                        <div class="playtip width100" ng-if="isinfenzhi">
-                            <div align="center" class="tipdiv" style="text-align:center;">
-                                <div class="col-md-12">
-                                    添加分支变化图
-                                    <small ng-click="startfenzhi()" style="margin-right:5px;">
-                                        <button class="close" type="button">
-                                            ×
-                                        </button>
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="margin-top:10px;">
-                                <p>
-                                    请直接在棋盘上落子
-                                </p>
-                                <div class="col-md-12" ng-repeat="pt in pizhuobj.pts">
-                                    <div class="width100 stepstone">
-                                        <div class="smbranchnum">
-             <span class="" ng-class="{'blackstone':pt.color==2,'whitestone':pt.color == 1}">
-              [[$index+1]]
-             </span>
-                                            [[pt.ptname]]
-                                        </div>
-                                        <div class="smbranchtext">
-                                            <input ng-model="pt.comment" type="text"/>
-                                            <a ng-click="removeonept(pt)">
-                                                删除
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="clear">
-                                    </div>
-                                </div>
-                                <div class="clear">
-                                </div>
-                                <div class="col-md-12" style="margin-top:10px;">
-                                    <label class="checkbox">
-                                        <input ng-model="pizhuobj.is_share" type="checkbox"/>
-                                        共享我的分支变化图
-                                        <small class="pull-right" style="padding-left:10px;">
-                                            会员和老师/高权限棋友可以分享
-                                        </small>
-                                    </label>
-                                </div>
-                                <div class="col-md-12" style="margin-top:10px;">
-                                    <a class="btn btn-success" ng-click="savefenzhi()">
-                                        提交
-                                    </a>
-                                    <a class="btn btn-default" ng-click="startfenzhi()">
-                                        取消
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="width100" ng-if="isincomment">
-                            <div align="center" class="tipdiv" style="text-align:center;">
-                                <div class="col-md-12">
-                                    添加批注
-                                    <small ng-click="startcomment()" style="margin-right:5px;">
-                                        <button class="close" type="button">
-                                            ×
-                                        </button>
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="margin-top:10px;">
-                                <textarea class="form-control col-md-12" ng-model="pizhuobj.comment"
-                                          rows="3"></textarea>
-                                <div class="col-md-12">
-                                    <label class="checkbox">
-                                        <input ng-model="pizhuobj.is_share" type="checkbox"/>
-                                        共享我的批注
-                                        <small class="pull-right" style="padding-left:10px;">
-                                            会员和老师/高权限棋友可以分享
-                                        </small>
-                                    </label>
-                                </div>
-                                <div class="col-md-12" style="margin-top:10px;">
-           <span class="pull-right">
-            可以直接在棋盘上标识ABC点
-           </span>
-                                    <a class="btn btn-success" ng-click="savepizhu()">
-                                        提 交
-                                    </a>
-                                    <a class="btn btn-default" ng-click="startcomment()">
-                                        取 消
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </div>
-                <div id="bottom-panel" ng-show="showbottompanel">
-                    <div class="width100 yanjiusplit" ng-if="isshowchessmore">
-                        <div class="sixth " ng-click="testrun()">
-         <span ng-show="st.istest">
-          结束
-         </span>
-                            <span ng-show="!st.istest">
-          试下
-         </span>
-                        </div>
-                        <div class="sixth " ng-click="shownum()">
-         <span ng-if="st.numbermode == 0">
-          数字
-         </span>
-                            <span ng-if="st.numbermode == 1">
-          全数字
-         </span>
-                            <span ng-if="st.numbermode == 2">
-          无数字
-         </span>
-                        </div>
-                        <div class="sixth " ng-click="rorate()">
-         <span ng-if="curroratename">
-          [[curroratename]]
-         </span>
-                            <span ng-if="!curroratename">
-          旋转
-         </span>
-                        </div>
-                        <div class="sixth " ng-click="startchar()">
-         <span ng-show="st.ischart">
-          结束
-         </span>
-                            <span ng-show="!st.ischart">
-          标记
-         </span>
-                        </div>
-                        <div class="sixth " ng-click="startfenzhi()">
-         <span ng-if="!isinfenzhi">
-          <i aria-hidden="true" class="fa fa-plus">
-          </i>
-          分支
-         </span>
-                            <span ng-if="isinfenzhi">
-          关闭
-         </span>
-                        </div>
-                        <div class="sixth " ng-click="startcomment()">
-         <span ng-if="!isincomment">
-          <i aria-hidden="true" class="fa fa-plus">
-          </i>
-          批注
-         </span>
-                            <span ng-if="isincomment">
-          关闭
-         </span>
-                        </div>
-                        <div class="chessvolumn " ng-click="setvolume()">
-         <span class="glyphicon glyphicon-volume-off" ng-if="!volumn_open">
-         </span>
-                            <span class="glyphicon glyphicon-volume-up" ng-if="volumn_open">
-         </span>
-                        </div>
-                    </div>
-                    <div class="width100">
-                        <div class="eightth" ng-click="gotofirst()">
-                            <a>
-          <span class="glyphicon glyphicon-step-backward">
-          </span>
-                            </a>
-                        </div>
-                        <div class="eightth" ng-click="movestep(-5)">
-                            <a>
-          <span class="glyphicon glyphicon-backward">
-          </span>
-                            </a>
-                        </div>
-                        <div class="eightth" ng-click="movestep(-1)">
-                            <a>
-          <span class="glyphicon glyphicon-triangle-left">
-          </span>
-                            </a>
-                        </div>
-                        <div class="eightth" ng-click="automove()" style="display:none;">
-                            <a>
-                                <i aria-hidden="true" class="fa" ng-class="{'fa-play':!isauto,'fa-stop':isauto}">
-                                </i>
-                            </a>
-                        </div>
-                        <div class="eightth" ng-click="movestep(1)">
-                            <a>
-          <span class="glyphicon glyphicon-triangle-right">
-          </span>
-                            </a>
-                        </div>
-                        <div class="eightth" ng-click="movestep(5)">
-                            <a>
-          <span class="glyphicon glyphicon-forward">
-          </span>
-                            </a>
-                        </div>
-                        <div class="eightth" ng-click="gotoend()">
-                            <a>
-          <span class="glyphicon glyphicon-step-forward">
-          </span>
-                            </a>
-                        </div>
-                        <div class="eightth" ng-click="scorechess()">
-         <span>
-          <span ng-if="isscore">
-           关闭
-          </span>
-          <span ng-if="!isscore">
-           形势
-          </span>
-         </span>
-                        </div>
-                        <div class="chessmore" ng-click="showchessmore()">
-         <span>
-          <span ng-if="isshowchessmore">
-           关闭
-          </span>
-          <span ng-if="!isshowchessmore">
-           更多
-          </span>
-         </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clear">
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div class="chessrightbody" ng-if="!smallshow">
-        <div class="playrightbody">
-            <div class="width100 playhead">
-                <ul class="playheadul">
-                    <li>
-                        <a href="/chessbook/">
-                            <i aria-hidden="true" class="fa fa-home">
-                            </i>
-                            棋谱
-                        </a>
-                    </li>
-                    <li ng-if="islogin">
-                        <a href="/chessbook/mychess/">
-                            我的棋谱库
-                        </a>
-                    </li>
-                    <li class="active" ng-if="pp.myprevid &gt; 0 || pp.mynextid &gt; 0 ">
-                        <a ng-href="/chessbook/mychess/[[::pp.myprevid]]/" ng-if="::pp.myprevid &gt; 0" title="">
-                            <i aria-hidden="true" class="fa fa-angle-left">
-                            </i>
-                            上一局
-                        </a>
-                        <span class="onesplit" ng-if="pp.myprevid != 0 &amp;&amp; pp.mynextid != 0">
-         |
-        </span>
-                        <a ng-href="/chessbook/mychess/[[::pp.mynextid]]/" ng-if="pp.mynextid" title="">
-                            下一局
-                            <i aria-hidden="true" class="fa fa-angle-right">
-                            </i>
-                        </a>
-                    </li>
-                </ul>
-                <div class="rightmenutip">
-       <span class="actionnum" ng-click="show_actions()">
-        棋
-       </span>
-                    <a ng-click="showrightmenu()">
-        <span ng-if="is_showrightmenu">
-         关闭
-         <i aria-hidden="true" class="fa fa-caret-left">
-         </i>
-        </span>
-                        <span ng-if="!is_showrightmenu">
-         菜单
-         <i aria-hidden="true" class="fa fa-caret-right">
-         </i>
-        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="width100 liaotian" ng-style="pliaotianstyle">
-                <div class="lt_content">
-                    <div class="userhead">
-                        <div class="chessblackimg">
-         <span class="chessheadimg">
-          <img ng-src="https://static.101weiqi.com/file/[[pp.blackhead]]"/>
-         </span>
-                            <br/>
-                            <span>
-          <a href="[[pp.blackurl]]" ng-if="pp.blackurl">
-           [[pp.blackname]]
-          </a>
-          <span ng-if="!pp.blackurl" style="padding-right:3px;">
-           [[pp.blackname]]
-          </span>
-          [[pp.blacklevelname]]
-         </span>
-                            <span class="stoneimgshort3">
-          <img src="https://static.101weiqi.com/static/images/hei_zi.png"/>
-         </span>
-                        </div>
-                        <div class="playresult">
-         <span class="chessvsimg">
-          <img src="https://static.101weiqi.com/static/images/vs2.png"/>
-         </span>
-                            <br/>
-                            <span class="warptext" ng-style="">
-          首日封盘
-         </span>
-                        </div>
-                        <div class="chessblackimg">
-         <span class="chessheadimg">
-          <img ng-src="https://static.101weiqi.com/file/[[pp.whitehead]]"/>
-         </span>
-                            <br/>
-                            <span>
-          <a href="[[pp.whiteurl]]" ng-if="pp.whiteurl">
-           [[pp.whitename]]
-          </a>
-          <span ng-if="!pp.whiteurl" style="padding-right:3px;">
-           [[pp.whitename]]
-          </span>
-          [[pp.whitelevelname]]
-         </span>
-                            <span class="stoneimgshort4">
-          <img src="https://static.101weiqi.com/static/images/bai_zi.png"/>
-         </span>
-                        </div>
-                        <div class="clear">
-                        </div>
-                    </div>
-                    <div class="col-md-12" ng-if="addonobj.mainurl" style="padding-top:5px;padding-bottom:5px;">
-                        <a ng-href="[[addonobj.mainurl]]">
-                            [[addonobj.title]]
-                        </a>
-                        <span style="padding-left:10px;">
-         <span ng-if="addonobj.prevurl">
-          <a ng-href="[[addonobj.prevurl]]">
-           上一局
-          </a>
-         </span>
-         <span ng-if="addonobj.nexturl" style="padding-left:5px;">
-          <a ng-href="[[addonobj.nexturl]]">
-           下一局
-          </a>
-         </span>
-        </span>
-                    </div>
-                    <div class="col-md-12 " ng-if="pp.gameid != 0">
-                        <div class="chatgametipdiv1">
-         <span>
-          <a ng-href="/game/[[::pp.gameid]]/">
-           [[::pp.gamename]]
-          </a>
-          <span class="graytext">
-           第[[::pp.playindex]]场
-          </span>
-         </span>
-                            <span class="active">
-          <a ng-href="/play/p/[[pp.gameprevid]]/" ng-if="pp.gameprevid != 0" title="">
-           <i aria-hidden="true" class="fa fa-angle-left">
-           </i>
-           上一场
-          </a>
-          <span class="onesplit" ng-if="pp.gameprevid != 0 &amp;&amp; pp.gamenextid != 0">
-           |
-          </span>
-          <a ng-href="/play/p/[[pp.gamenextid]]/" ng-if="pp.gamenextid != 0" title="">
-           下一场
-           <i aria-hidden="true" class="fa fa-angle-right">
-           </i>
-          </a>
-         </span>
-                        </div>
-                    </div>
-                    <div class="chesstip2" ng-if="isscore || st.istest || isinfenzhi || isincomment">
-                        <div class="playtip width100" ng-if="isscore">
-                            <div class="tipdiv">
-                                <div class="scoretip ">
-                                    <div class="col-md-12 blackscorediv">
-                                        黑方：
-                                        <b>
-             <span>
-              [[mu.bscore]]
-              <span ng-if="mu.shuzi">
-               子
-              </span>
-              <span ng-if="!mu.shuzi">
-               目
-              </span>
-             </span>
-                                        </b>
-                                        <span class="muspan">
-             <span ng-if="mu.bgcount &gt; 0">
-              [[mu.bgcount]]块棋，
-             </span>
-             <span ng-if="mu.bkill &gt; 0">
-              提[[mu.bkill]]子
-             </span>
-            </span>
-                                        <small ng-click="scorechess()" style="margin-right:5px;">
-                                            <button class="close" type="button">
-                                                ×
-                                            </button>
-                                        </small>
-                                    </div>
-                                    <div class="col-md-12 whitescorediv">
-                                        白方：
-                                        <b>
-             <span>
-              [[mu.wscore]]
-              <span ng-if="mu.shuzi">
-               子
-              </span>
-              <span ng-if="!mu.shuzi">
-               目
-              </span>
-             </span>
-                                        </b>
-                                        <span class="muspan">
-             <span ng-if="mu.wgcount &gt; 0">
-              [[mu.wgcount]]块棋，
-             </span>
-             <span ng-if="mu.wkill &gt; 0">
-              提[[mu.wkill]]子
-             </span>
-            </span>
-                                    </div>
-                                    <div class="col-md-12">
-            <span ng-if="mu.win == 2">
-             黑
-            </span>
-                                        <span ng-if="mu.win != 2">
-             白
-            </span>
-                                        [[mu.winmu]]
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="playtip width100" ng-if="st.istest" style="height:30px;">
-                            <div align="center" class="tipdiv" style="text-align:center;">
-                                <div class="col-md-12">
-                                    试下中...
-                                    <small ng-click="testrun()" style="margin-right:5px;">
-                                        <button class="close" type="button">
-                                            ×
-                                        </button>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="playtip width100" ng-if="isinfenzhi">
-                            <div align="center" class="tipdiv" style="text-align:center;">
-                                <div class="col-md-12">
-                                    添加分支变化图
-                                    <small ng-click="startfenzhi()" style="margin-right:5px;">
-                                        <button class="close" type="button">
-                                            ×
-                                        </button>
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="margin-top:10px;">
-                                <p>
-                                    请直接在棋盘上落子
-                                </p>
-                                <div class="col-md-12" ng-repeat="pt in pizhuobj.pts">
-                                    <div class="col-md-3 stepstone">
-            <span class="" ng-class="{'blackstone':pt.color==2,'whitestone':pt.color == 1}">
-             [[$index+1]]
-            </span>
-                                        [[pt.ptname]]
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input ng-model="pt.comment" type="text"/>
-                                        <!--<a ng-click="biaozhuabc(pt)" ng-if="!b.showabc">标注ABC</a>&nbsp;<a ng-click="cancelbiaozhu(pt)" ng-if="b.showabc">清除</a>-->
-                                        <a ng-click="removeonept(pt)">
-                                            删除
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-12" style="margin-top:20px;">
-                                    <label class="checkbox">
-                                        <input ng-model="pizhuobj.is_share" type="checkbox"/>
-                                        共享我的分支变化图
-                                        <small class="pull-right" style="padding-left:10px;">
-                                            会员和老师/高权限棋友可以分享
-                                        </small>
-                                    </label>
-                                </div>
-                                <div class="col-md-12" style="margin-top:10px;">
-                                    <a class="btn btn-success" ng-click="savefenzhi()">
-                                        提交
-                                    </a>
-                                    <a class="btn btn-default" ng-click="startfenzhi()">
-                                        取消
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="playtip width100" ng-if="isincomment">
-                            <div align="center" class="tipdiv" style="text-align:center;">
-                                <div class="col-md-12">
-                                    添加批注
-                                    <small ng-click="startcomment()" style="margin-right:5px;">
-                                        <button class="close" type="button">
-                                            ×
-                                        </button>
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="col-md-12" style="margin-top:10px;">
-                                <textarea class="form-control col-md-12" ng-model="pizhuobj.comment"
-                                          rows="3"></textarea>
-                                <div class="col-md-12">
-                                    <label class="checkbox">
-                                        <input ng-model="pizhuobj.is_share" type="checkbox"/>
-                                        共享我的批注
-                                        <small class="pull-right" style="padding-left:10px;">
-                                            会员和老师/高权限棋友可以分享
-                                        </small>
-                                    </label>
-                                </div>
-                                <div class="col-md-12" style="margin-top:10px;">
-           <span class="pull-right">
-            可以用鼠标在棋盘上标识ABC点
-           </span>
-                                    <a class="btn btn-success" ng-click="savepizhu()">
-                                        提交
-                                    </a>
-                                    <a class="btn btn-default" ng-click="startcomment()">
-                                        取消
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chessjoin-main width100">
-                        <div class="tab-nav">
-                            <ul>
-                                <li ng-class="{'active':activetab == 0}">
-                                    <a ng-click="selectchattab(0)">
-                                        信息
-                                    </a>
-                                </li>
-                                <li ng-class="{'active':activetab == 1}" ng-if="testobj != null">
-                                    <a ng-click="selectchattab(1)">
-                                        测评
-                                    </a>
-                                </li>
-                                <li ng-class="{'active':activetab == 2}" ng-if="userpizhus.length &gt; 0">
-                                    <a ng-click="selectchattab(2)">
-                                        我的注解
-                                        <span ng-if="userpizhucount &gt; 0">
-             ([[userpizhucount]])
-            </span>
-                                    </a>
-                                </li>
-                                <li ng-class="{'active':activetab == 3}">
-                                    <a ng-click="selectchattab(3)">
-                                        批注/变化
-                                        <span ng-if="pizhucount &gt; 0">
-             ([[pizhucount]])
-            </span>
-                                    </a>
-                                </li>
-                                <li ng-class="{'active':activetab == 4}">
-                                    <a ng-click="selectchattab(4)">
-                                        棋友评论
-                                        <span ng-if="commentcount &gt; 0">
-             ([[commentcount]])
-            </span>
-                                    </a>
-                                </li>
-                                <div class="clear">
-                                </div>
-                            </ul>
-                        </div>
-                        <div id="tabparentdiv">
-                            <div class="tabparentdiv tab-container chesstabdiv" ng-show="activetab == 0"
-                                 ng-style="tabparentstyle">
-                                <div class="col-md-12">
-                                    第[[cur_pz.step]]手
-                                </div>
-                                <div class="col-md-12 pizhuitem" ng-repeat="c in cur_pz.commentlist">
-           <span class="badge alert-success">
-            [[$index+1]]
-           </span>
-                                    <a ng-click="putcomment(c)">
-                                        [[c.comment]]
-                                    </a>
-                                </div>
-                                <pizhudiv pizhus="cur_pz.pizhus" pz="curpizhus" smallshow="smallshow" st="st">
-                                </pizhudiv>
-                            </div>
-                            <div class="tabparentdiv tab-container chesstabdiv" ng-show="activetab == 1"
-                                 ng-style="tabparentstyle">
-                            </div>
-                            <div class="tabparentdiv tab-container chesstabdiv" ng-show="activetab == 2"
-                                 ng-style="tabparentstyle">
-                                <pizhudiv pizhus="userpizhus" pz="userpizhus" smallshow="smallshow" st="st">
-                                </pizhudiv>
-                            </div>
-                            <div class="tabparentdiv tab-container chesstabdiv" ng-show="activetab == 3"
-                                 ng-style="tabparentstyle">
-                                <pizhudiv pizhus="pizhus" pz="pizhus" smallshow="smallshow" st="st">
-                                </pizhudiv>
-                            </div>
-                            <div class="tabparentdiv tab-container chesstabdiv" ng-show="activetab == 4"
-                                 ng-style="tabparentstyle">
-                                <table class="table">
-                                    <tr ng-mouseout="out_comment(s)" ng-mouseover="over_comment(s)"
-                                        ng-repeat="s in comments track by $index">
-                                        <td class="head">
-                                            <img ng-show="!s.ishide"
-                                                 ng-src="https://static.101weiqi.com/file/[[s.headpath]]"
-                                                 style="width:60px;height:60px;"/>
-                                        </td>
-                                        <td class="commentblock">
-                                            <h6 ng-show="!s.ishide">
-              <span class="pull-left">
-               <a ng-href="/u/[[::s.username]]/">
-                [[::s.username]]
-               </a>
-               写于 [[::s.updatestr]]
-              </span>
-                                                <span class="pull-right text-info" style="margin-right:10px;">
-               <span class="rightdropmenu" ng-if="s.dou &gt; 0">
-                <span class="glyphicon glyphicon-ok" ng-if="s.doustatus == 2">
-                 [[::s.douname]]赢取[[s.dou]]围豆
-                </span>
-                <span ng-if="s.doustatus != 2">
-                 <span class="dropdown" ng-if="udata.userid == s.userid || udata.ismanager" on-toggle="show_douname(s)"
-                       uib-dropdown="">
-                  <a id="dLabel_[[::s.id]]" uib-dropdown-toggle="">
-                   <span class="glyphicon glyphicon-star">
-                   </span>
-                   [[::s.dou]]围豆
-                   <i class="caret">
-                   </i>
-                  </a>
-                  <ul aria-labelledby="dLabel_[[::s.id]]" class="dropdown-menu" role="menu" uib-dropdown-menu="">
-                   <li ng-if="un != udata.username" ng-repeat="un in dounames" role="menuitem">
-                    <a ng-click="douwin(s,un)">
-                     向 [[un]] 支付[[::s.dou]]围豆
-                    </a>
-                   </li>
-                   <li ng-if="udata.ismanager" role="menuitem">
-                    <a ng-click="canceldouwin(s)">
-                     取消
-                    </a>
-                   </li>
-                  </ul>
-                 </span>
-                 <span class="dropdown" ng-if="udata.userid !== s.userid &amp;&amp; !udata.ismanager">
-                  <i class="glyphicon glyphicon-star">
-                  </i>
-                  [[::s.dou]]围豆
-                 </span>
-                </span>
-               </span>
-               <span ng-if="isintopic">
-                [[$index + 1]]楼
-               </span>
-               <span ng-if="udata.userid === s.userid || udata.ismanager">
-                <span ng-if="s.dou === 0" ng-show="s.isover">
-                 <a ng-click="removecomment(s)">
-                  删除
-                 </a>
-                </span>
-               </span>
-              </span>
-                                            </h6>
-                                            <div class="clear">
-                                            </div>
-                                            <p ng-bind-html="s.contentHtml" ng-show="!s.ishide"
-                                               style="margin-top:10px;">
-                                            </p>
-                                            <span class="pull-right" ng-show="s.ishide" style="color:green;">
-              已经删除，
-              <a ng-click="restorecomment(s)">
-               撤销
-              </a>
-              |
-              <a ng-click="destorycomment(s)">
-               关闭
-              </a>
-             </span>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <div ng-if="udata.islogin" style="margin-top:20px;">
-                                    <p>
-                                        我的评论
-                                    </p>
-                                    <div>
-                                        <textarea class="form-control col-md-12" name="content"
-                                                  ng-model="newc.commenttext" rows="5"></textarea>
-                                    </div>
-                                    <div class="clear">
-                                    </div>
-                                    <div ng-if="!issharepage" style="margin-left:25px;">
-                                        <label class="checkbox">
-                                            <input name="weidou_q" ng-model="newc.weidoubox" type="checkbox"/>
-                                            <span>
-              使用围豆进行提问
-             </span>
-                                        </label>
-                                        <div ng-if="newc.weidoubox" style="margin-left:20px;margin-bottom:5px;">
-                                            围豆数量(至少30个)：
-                                            <input ng-model="newc.weidounumber" size="5" type="text"/>
-                                            我的围豆总数：[[::udata.dou]]
-                                            <a href="/help/weidou/">
-                                                关于围豆
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div style="margin-top:10px;">
-                                        <a class="addcomment btn btn-success" ng-click="addcomment()">
-                                            添加评论
-                                        </a>
-                                    </div>
-                                    <div class="clear">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </div>
-                <div class="clear">
-                </div>
-            </div>
-            <div class="rightmenu" ng-if="is_showrightmenu" ng-mouseleave="closerightmenu()">
-                <div class="list-group" style="margin-bottom:0px;">
-                    <a class="list-group-item" ng-click="favqipu()">
-        <span ng-if="pp.isfav">
-         已收藏，取消
-        </span>
-                        <span ng-if="!pp.isfav">
-         收藏本棋谱
-        </span>
-                    </a>
-                    <a class="list-group-item" ng-click="downloadqipu()">
-                        下载本棋谱
-                    </a>
-                    <a class="list-group-item" href="/myplaysetting/#playbackground" target="_blank">
-                        背景设置
-                    </a>
-                    <a class="list-group-item" href="/" target="_blank">
-                        101围棋网首页
-                    </a>
-                    <a class="list-group-item" href="/home/" target="_blank">
-                        我的首页
-                    </a>
-                    <a class="list-group-item" href="/book/" target="_blank">
-                        棋书
-                    </a>
-                    <a class="list-group-item" href="/play/" target="_blank">
-                        对弈
-                    </a>
-                    <a class="list-group-item" href="/forum/" target="_blank">
-                        讨论区
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="clear">
-    </div>
-</div>
-<div ng-show="infullmode">
-    <div class="chatdiv4" ng-style="fullstyle">
-        <div class="col-md-12 ">
-            <div class="fulltitle pull-left">
-      <span ng-if="activetab == 2">
-       我的注解
-       <span ng-if="userpizhucount &gt; 0">
-        （[[userpizhucount]]）
-       </span>
-      </span>
-                <span ng-if="activetab == 3">
-       批注/变化
-       <span ng-if="pizhucount &gt; 0">
-        （[[pizhucount]]）
-       </span>
-      </span>
-                <span ng-if="activetab == 4">
-       棋友评论
-       <span ng-if="commentcount &gt; 0">
-        （[[commentcount]]）
-       </span>
-      </span>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-default" ng-click="returnhome()">
-                    返 回
-                </a>
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-        <div class="width100 chesstabdiv" id="fullbody">
-            <div class="tabparentdiv" ng-show="activetab == 2" ng-style="fulldivstyle">
-                <pizhudiv pizhus="userpizhus" pz="userpizhus" smallshow="smallshow" st="st">
-                </pizhudiv>
-            </div>
-            <div class="tabparentdiv" ng-show="activetab == 3" ng-style="fulldivstyle">
-                <pizhudiv pizhus="pizhus" pz="pizhus" smallshow="smallshow" st="st">
-                </pizhudiv>
-            </div>
-            <div class="tabparentdiv" ng-show="activetab == 4" ng-style="fulldivstyle">
-                <table class="table">
-                    <tr ng-mouseout="out_comment(s)" ng-mouseover="over_comment(s)"
-                        ng-repeat="s in comments track by $index">
-                        <td class="head">
-                            <img ng-show="!s.ishide" ng-src="https://static.101weiqi.com/file/[[s.headpath]]"
-                                 style="width:60px;height:60px;"/>
-                        </td>
-                        <td class="commentblock">
-                            <h6 ng-show="!s.ishide">
-          <span class="pull-left">
-           <a ng-href="/u/[[::s.username]]/">
-            [[::s.username]]
-           </a>
-           写于 [[::s.updatestr]]
-          </span>
-                                <span class="pull-right text-info" style="margin-right:10px;">
-           <span class="rightdropmenu" ng-if="s.dou &gt; 0">
-            <span class="glyphicon glyphicon-ok" ng-if="s.doustatus == 2">
-             [[::s.douname]]赢取[[s.dou]]围豆
-            </span>
-            <span ng-if="s.doustatus != 2">
-             <span class="dropdown" ng-if="udata.userid == s.userid || udata.ismanager" on-toggle="show_douname(s)"
-                   uib-dropdown="">
-              <a id="dLabel_[[::s.id]]" uib-dropdown-toggle="">
-               <span class="glyphicon glyphicon-star">
-               </span>
-               [[::s.dou]]围豆
-               <i class="caret">
-               </i>
-              </a>
-              <ul aria-labelledby="dLabel_[[::s.id]]" class="dropdown-menu" role="menu" uib-dropdown-menu="">
-               <li ng-if="un != udata.username" ng-repeat="un in dounames" role="menuitem">
-                <a ng-click="douwin(s,un)">
-                 向 [[un]] 支付[[::s.dou]]围豆
-                </a>
-               </li>
-               <li ng-if="udata.ismanager" role="menuitem">
-                <a ng-click="canceldouwin(s)">
-                 取消
-                </a>
-               </li>
-              </ul>
-             </span>
-             <span class="dropdown" ng-if="udata.userid !== s.userid &amp;&amp; !udata.ismanager">
-              <i class="glyphicon glyphicon-star">
-              </i>
-              [[::s.dou]]围豆
-             </span>
-            </span>
-           </span>
-           <span ng-if="isintopic">
-            [[$index + 1]]楼
-           </span>
-           <span ng-if="udata.userid === s.userid || udata.ismanager">
-            <span ng-if="s.dou === 0" ng-show="s.isover">
-             <a ng-click="removecomment(s)">
-              删除
-             </a>
-            </span>
-           </span>
-          </span>
-                            </h6>
-                            <div class="clear">
-                            </div>
-                            <p ng-bind-html="s.contentHtml" ng-show="!s.ishide" style="margin-top:10px;">
-                            </p>
-                            <span class="pull-right" ng-show="s.ishide" style="color:green;">
-          已经删除，
-          <a ng-click="restorecomment(s)">
-           撤销
-          </a>
-          |
-          <a ng-click="destorycomment(s)">
-           关闭
-          </a>
-         </span>
-                        </td>
-                    </tr>
-                </table>
-                <div ng-if="udata.islogin" style="margin-top:20px;">
-                    <p>
-                        我的评论
-                    </p>
-                    <div>
-                        <textarea class="form-control col-md-12" name="content" ng-model="newc.commenttext"
-                                  rows="5"></textarea>
-                    </div>
-                    <div class="clear">
-                    </div>
-                    <div ng-if="!issharepage" style="margin-left:25px;">
-                        <label class="checkbox">
-                            <input name="weidou_q" ng-model="newc.weidoubox" type="checkbox"/>
-                            <span>
-          使用围豆进行提问
-         </span>
-                        </label>
-                        <div ng-if="newc.weidoubox" style="margin-left:20px;margin-bottom:5px;">
-                            围豆数量(至少30个)：
-                            <input ng-model="newc.weidounumber" size="5" type="text"/>
-                            我的围豆总数：[[::udata.dou]]
-                            <a href="/help/weidou/">
-                                关于围豆
-                            </a>
-                        </div>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <a class="addcomment btn btn-success" ng-click="addcomment()">
-                            添加评论
-                        </a>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="rightmenu" ng-if="is_showaction" ng-mouseleave="closeactions()" style="width:360px;background:white;">
-    <div class="col-md-12">
-        <h4>
-            棋谱信息
-            <span class="pull-right">
-      <a ng-click="closeactions()">
-       <i aria-hidden="true" class="fa fa-times">
-       </i>
-      </a>
-     </span>
-        </h4>
-        <hr style="margin-bottom:5px;margin-top:5px;"/>
-        <p>
-            比赛名称：73期日本本因坊战挑战赛7番4
-        </p>
-        <p>
-            对弈时间：2018年6月12日
-        </p>
-        <p>
-            共54手，首日封盘
-        </p>
-        <p>
-        </p>
-    </div>
-</div>
-<input name="csrfmiddlewaretoken" type="hidden"
-       value="bpTlwhLSHtLhScgnqSCQK2tqzZQRKonsgGJ15mV9RsZprE2FG39JTIvl4Nf81R81">
-<script id="pizhudiv.html" type="text/ng-template">
-    <div class="chessitem" ng-repeat="pz in pizhus">
-        <div class="chessstepnumber" ng-if="selfpz != 'curpizhus'">第[[pz.step]]手</a></div>
-        <div class="chessstepdiv">
-            <div class="col-md-12 chesscitem" ng-repeat="c in pz.commentlist"
-                 ng-if="selfpz == 'userpizhus' || c.is_share"><span ng-if="selfpz == 'userpizhus'"><i class="fa fa-lock"
-                                                                                                      ng-if="!c.is_share"></i></span><span><span
-                    class="badge alert-success" ng-if="pz.commentlist.length > 1">[[$index+1]]</span><a
-                    ng-click="gotobigstep(c)">[[c.comment]]</a></span><a ng-if="!c.showmore"
-                                                                         ng-click="showmore(c)">...</a><span
-                    ng-if="c.showmore"><a ng-click="showmore(c)">隐藏</a><span style="padding-left:5px;"
-                                                                             ng-if="selfpz != 'userpizhus'">[[c.username]] 写于 [[c.updatestr]]</span><span
-                    ng-if="selfpz == 'userpizhus'" style="padding-left:5px;">[[c.updatestr]]<a
-                    ng-click="removepizhu(c)">  删除</a>&nbsp;<a ng-click="sharepizhu(c)" ng-if="!c.is_share">分享</a>&nbsp;<a
-                    ng-click="sharepizhu(c)" ng-if="c.is_share">取消分享</a></span></span></div>
-            <div class="col-md-12 chessbitem " ng-class="{'activebranch':an.isactive}" ng-repeat="an in pz.branchlist"
-                 ng-if="selfpz == 'curpizhus' || selfpz == 'userpizhus' || an.is_share"><span
-                    ng-if="selfpz == 'userpizhus'"><i class="fa fa-lock" ng-if="!an.is_share"></i></span><span
-                    class="badge alert-info">[[::an.nu]]</span>&nbsp;&nbsp;<div class="btn-group chessbranch"
-                                                                                ng-if="!smallshow">
-                <button class="btn btn-default steppos" title="第一步" ng-click="gotofirst(an)"><span
-                        class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
-                <button class="btn btn-default prevstep" ng-click="gotostep(an,-1)" title="上一步"><span
-                        class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
-                <button class="btn btn-default nextstep" ng-click="gotostep(an,1)" title="下一步"><span
-                        class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
-                <button class="btn btn-default steppos" ng-click="gotoend(an)" title="最后一步"><span
-                        class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
-            </div>
-                <span ng-if="!smallshow">[[an.stepindex]]/[[an.stepcount]]&nbsp;&nbsp;</span>
-                <div class="btn btn-success smbrach" ng-if="smallshow" ng-click="gotobranch(an)">[[an.stepcount]]步 变化图
-                </div>
-                <span style="padding-left:5px;padding-right:5px;" ng-if="!smallshow && an.isactive > 0 "><a
-                        ng-click="closebranch(an)">关闭变化图</a></span><a ng-if="!an.showmore"
-                                                                      ng-click="showmore(an)">...</a><span
-                        ng-if="an.showmore"><a ng-click="showmore(an)">隐藏</a><span style="padding-left:5px;"
-                                                                                   ng-if="selfpz != 'userpizhus'">[[an.username]] 于 [[an.updatestr]] 提交</span><span
-                        ng-if="selfpz == 'userpizhus'" style="padding-left:5px;">[[an.updatestr]] <a
-                        ng-click="removebranch(an)">  删除</a>&nbsp;<a ng-click="sharebranch(an)"
-                                                                     ng-if="!an.is_share">分享</a>&nbsp;<a
-                        ng-click="sharebranch(an)" ng-if="an.is_share">取消分享</a></span></span>
-                <p class="text-success" ng-if="an.isactive && an.showtip != ''">[[an.showtip]]</p></div>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</script>
-<audio id="stoneaudio">
-    <source src="https://static.101weiqi.com/static/media/firststone.mp3" type="audio/mpeg"/>
-</audio>
-<audio id="eat1audio">
-    <source src="https://static.101weiqi.com/static/media/eat1.mp3" type="audio/mpeg"/>
-</audio>
-<audio id="eat2audio">
-    <source src="https://static.101weiqi.com/static/media/eat2.mp3" type="audio/mpeg"/>
-</audio>
-</input>
-</body>
-<script>
-    var g_userdata = {"islogin": false};
-    var chessobj = {
-        "rangzi": 0,
-        "pos": ["pd", "dp", "pq", "dc", "ce", "qo", "pm", "oo", "np", "ed", "cq", "cp", "dq", "fq", "fr", "ep", "eq", "ci", "fp", "gq", "gr", "hq", "fo", "ho", "dn", "bq", "br", "bo", "aq", "cn", "dl", "en", "eo", "do", "fn", "dm", "em", "el", "fm", "dk", "cl", "ck", "ip", "lp", "no", "iq", "jp", "jq", "in", "ln", "hn", "mq", "bm", "dn"],
-        "pizhus": [],
-        "id": 568482,
-        "whitehead": "headicon_128.png",
-        "blackname": "\u4e95\u5c71\u88d5\u592a",
-        "blacklevelname": "\u4e5d\u6bb5",
-        "title": "",
-        "comments": [],
-        "imgpath": "qipu/2018/6/13/568482.png",
-        "lu": 19,
-        "blackhead": "headicon_128.png",
-        "blacklevel": "\u4e5d\u6bb5",
-        "status": 2,
-        "otherlink": "",
-        "whitename": "\u5c71\u4e0b\u656c\u543e",
-        "whitelevel": "\u4e5d\u6bb5",
-        "black_first": true,
-        "address": "",
-        "gamerule": 0,
-        "whiteurl": "/chessbook/player/171/",
-        "daotiemu": 0,
-        "isfav": false,
-        "gameid": 0,
-        "blackurl": "/chessbook/player/225/",
-        "name": "",
-        "mynextid": 0,
-        "userpizhus": [],
-        "myprevid": 0,
-        "prepos": [[], []],
-        "whitelevelname": "\u4e5d\u6bb5"
-    };
-    var static_server = "https://static.101weiqi.com";
-    var bgcolor = "";
-    var addonobj = {};
-    var startstep = 0;
-    var is_secure = true;
-</script>
-<script src="https://static.101weiqi.com/static/cache/f45f909c7b979c6a8b6a2066cdaa405c.js" type="text/javascript">
-</script>
-<script src="https://static.101weiqi.com/static/cache/bfbf7fe26334848ea59c310beb8394d7.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-    var dots_of_star_19 = ["dd", "dj", "dp", "jd", "jj", "jp", "pd", "pj", "pp"];
-    var dots_of_star_13 = ["dd", "dj", "gg", "jd", "jj"];
-    var dots_of_star_9 = ["cc", "gc", "cg", "gg"];
-    var dots_of_star_none = [];
-    var vertline_img = null;
-    var hertline_img = null;
-    var point_img = null;
-    var black_img = null;
-    var white_img = null;
-    var black_img_s = null;
-    var white_img_s = null;
-    var board_img = null;
-    var luozi_img = null;
-    var qok_img = null;
-    var qfail_img = null;
-    var tipok_img = new Image;
-    var tiperror_img = new Image;
-    var tipclose_img = new Image;
-    var g_vertlineimgok = false;
-    var g_hertlineimgok = false;
-    var g_luoziimgok = false;
-    var g_linecolor = "#000000";
-    var g_linewidth = 1;
-    var faceisblank = true;
-    var g_qokimgok = false;
-    var g_qfailimgok = false;
-    faceisblank = false;
-    board_img = new Image;
-    board_img.src = "https://static.101weiqi.com/static/face/1/bg-04.jpg";
-    $(".answerbody").css("background", 'url("' + board_img.src + '")');
-    black_img = new Image;
-    black_img.src = "https://static.101weiqi.com/static/face/1/black.png";
-    white_img = new Image;
-    white_img.src = "https://static.101weiqi.com/static/face/1/white.png";
-    var fu_img = null;
-    tipok_img.src = "https://static.101weiqi.com/static/images/tip_ok.png";
-    tiperror_img.src = "https://static.101weiqi.com/static/images/tip_error2.png";
-    tipclose_img.src = "https://static.101weiqi.com/static/images/close6.png";
-    var g_blackimgok = false;
-    var g_whiteimgok = false;
-    var g_fuimgok = false;
-    if (!faceisblank) {
-        black_img.onload = function () {
-            g_blackimgok = true;
-        };
-        black_img.onerror = black_img.onabort = function () {
-        };
-        white_img.onload = function () {
-            g_whiteimgok = true;
-        };
-        white_img.onerror = white_img.onabort = function () {
-        };
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-popup].tooltip.left-bottom
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-popup].tooltip.right-top
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-toolti
+    p-popup
+
+    ]
+    .tooltip.right-bottom
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.top-left
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.top-right
+
+    &
+    gt
+
+    ;
+    .tool
+    tip-arrow, [uib-tooltip-html-popup].tooltip.bottom-left
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.bottom-right
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-html-popup]
+.tooltip.left-top
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.left-bottom
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.right-top
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.right-bottom
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.top-left
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-template-popup].too
+    ltip.top-right
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.bottom-left
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.bottom-right
+
+    &
+    gt
+
+    ;
+    .toolt
+    ip-arrow, [uib-tooltip-template-popup].tooltip.left-top
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.left-bottom
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-template
+    -popup
+
+    ]
+    .tooltip.right-top
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.right-bottom
+
+    &
+    gt
+
+    ;
+    .tooltip-arrow, [uib-popover-popup].popover.top-left
+
+    &
+    gt
+
+    ;
+    .arrow,
+    [uib-popover-popup].popover.top-right
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-popup].popover.bottom-left
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-popup].popover.bottom-right
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popov
+    er-popup
+
+    ]
+    .popover.left-top
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-popup].popover.left-bottom
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-popup].popover.right-top
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-popup].popo
+    ver.right-bottom
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup].popover.top-left
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup].popover.top-right
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup].po
+    pover.bottom-left
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup].popover.bottom-right
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup].popover.left-top
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup
+].popover.left-bottom
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup].popover.right-top
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-html-popup].popover.right-bottom
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-templ
+    ate-popup
+
+    ]
+    .popover.top-left
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-template-popup].popover.top-right
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-template-popup].popover.bottom-left
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-
+    popover-template-popup
+
+    ]
+    .popover.bottom-right
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-template-popup].popover.left-top
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-template-popup].popover.left-bottom
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-template-popup].popover.right-top
+
+    &
+    gt
+
+    ;
+    .arrow, [uib-popover-template-popup].popover.right-bottom
+
+    &
+    gt
+
+    ;
+    .arrow {
+        top: auto;
+        bottom: auto;
+        left: auto;
+        ri ght: auto;
+        margin: 0;
     }
-    var g_tipokimgok = false;
-    var g_tiperrorimgok = false;
-    var g_tipcloseimgok = false;
-    tipok_img.onload = function () {
-        g_tipokimgok = true;
-    };
-    tiperror_img.onload = function () {
-        g_tiperrorimgok = true;
-    };
-    tipclose_img.onload = function () {
-        g_tipcloseimgok = true;
-    };
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var x = 0;
-        var y = 0;
-    });
-</script>
+
+    [uib-popover-popup].popover, [uib-popover-html-popup].popover, [uib-popover-template-popup].popover {
+        display: block !important;
+    }</style>
+    <style type="t
+ext/css">.uib-datepicker-popup.dropdown-menu {
+        display: block;
+        float: none;
+        margin: 0;
+    }
+
+    .uib-button-bar {
+        padding: 10px 9px 2px;
+    }</style>
+    <style type="text/css">.uib-position-me
+    asure {
+        display: block !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+
+    .uib-position-scrollbar-meas
+    ure {
+        position: absolute !important;
+        top: -9999px !important;
+        width: 50px !important;
+        height: 50px !important;
+        overflow: scroll !important;
+    }
+
+    .uib-position-body-scrollbar-measure {
+        overflow: scroll !important;
+    }</style>
+    <style type="text/css">.uib-datepicker .uib-title {
+        width: 100%;
+    }
+
+    .uib-day button, .uib-month button, .uib-year button {
+        min-width: 100%;
+    }
+
+    .uib-left, .uib-right {
+        width: 100%
+    }</style>
+    <style type="text/css">.ng-animate.item:not(.left):not(.right) {
+        -webkit-transition: 0s ease-in-out left;
+        transition: 0s ease-in- out left
+    }</style>
+    <style type="text/css">@charset "UTF-8";
+    [ng\\:cloak
+
+    ]
+    ,
+    [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+        di splay: none !important;
+    }
+
+    ng\\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    }</style>
+    <title> \xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa
+        0 \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc\x88\xe4\xb8\x80\xef\xbc\x89 -
+        101\xe5\x9b\xb4\xe6\xa3\x8b\xe7\xbd\x91</title>
+    <meta http-equiv="Content-typ
+e" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=" \xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa0 \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc
+\x88\xe4\xb8\x80\xef\xbc\x89"/>
+    <meta name="description" content="\xe6\x98\xbe\xe7\xa4\xba \xe6\x89\x8b\xe7\xad\x8b\xe4\xb8\x93\xe9\xa1\xb9\xe8\xae\xad\xe7\xbb\x83-1
+0\xe7\xba\xa7\xe5\x88\xb05\xe7\xba\xa7\xe4\xb8\xad\xe7\x9a\x84\xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa0 \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc\x88\xe4\x
+b8\x80\xef\xbc\x89\xe3\x80\x82"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://stati
+c2.101weiqi.com/static/cache/079048a72f7211e99bc8a94bc4ffcc83.css"/>
+    \n
+    <style type="text/css">[ng-cloak] {
+        display: none !important
+    }</style>
+</head>
+<body ng-app="wqapp"
+      class="ng-scope">
+<nav class="navbar nav101 ng-scope" style="margin:0" id="whead" ng-controller="headctrl">
+    <div class="container" id="headid">
+        <script>var hlinks = [{
+            h
+            type
+        :
+        1, h
+        :\'/questionlib/\',name:\'\xe9\xa2\x98\xe5\xba\x93\'},{htype:1,h:\'/play/\',name:\'\xe5\xaf\xb9\xe5\xbc\x88\'},{htype:1,h:\'/forum/\',name:\'\xe8\xae\xa8\xe8
+\xae\xba\xe5\x8c\xba\'},{htype:1,h:\'/book/\',name:\'\xe6\xa3\x8b\xe4\xb9\xa6\'},{htype:1,h:\'/chessbook/\',name:\'\xe6\xa3\x8b\xe8\xb0\xb1\'},{htype:1,h:\'/game/\',
+        name:\
+        '\xe8\xb5\x9b\xe4\xba\x8b\'},];var rightlinks = [{htype:3,h:\'/register/\',name:\'\xe6\xb3\xa8\xe5\x86\x8c\'},{htype:3,h:\'/login/\',name:\'\xe7\x99\xbb\xe5\xb
+        d\x95\'}]</script>
+        <div class="navbar-header pull-left"><a class="navbar-brand" href="/"><img
+                src="https://static2.101weiqi.com/static/images/logo.png"/></a></div>
+        <d
+                iv class="pull-left" style="margin-left: 40px;"><!-- ngRepeat: h in activelinks -->
+            <div class="navbar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype
+== 1 --><a ng-href="/questionlib/" class="navbar-brand ng-scope" ng-if="h.htype == 1" href="/questionlib/">
+                <div class="navdiv ng-binding">\xe9\xa2\x98\xe5\xba\x93
+        </d
+                iv>
+        </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
+    <div class="navbar-item ng-scope" ng-repeat="h in activ
+elinks"><!-- ngIf: h.htype == 1 --><a ng-href="/play/" class="navbar-brand ng-scope" ng-if="h.htype == 1" href="/play/">
+        <div class="navdiv ng-binding">\xe5\xaf\xb9\x
+            e5\xbc\x88
+        </div>
+    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
+    <div class="navbar-item ng-scope" ng-repea
+         t="h in activelinks"><!-- ngIf: h.htype == 1 --><a ng-href="/forum/" class="navbar-brand ng-scope"
+                                                            ng-if="h.htype == 1" href="/forum/">
+        <div class="navdiv ng-binding"
+        >\xe8\xae\xa8\xe8\xae\xba\xe5\x8c\xba
+        </div>
+    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
+    <div class="nav
+bar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype == 1 --><a ng-href="/book/"
+                                                                              class="navbar-brand ng-scope"
+                                                                              ng-if="h.htype == 1" href="/book/">
+        <div
+                class="navdiv ng-binding">\xe6\xa3\x8b\xe4\xb9\xa6
+        </div>
+    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
+    <d
+            iv class="navbar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype == 1 --><a
+            ng-href="/chessbook/" class="navbar-brand ng-scope" ng-if="h.htype == 1" h
+            ref="/chessbook/">
+        <div class="navdiv ng-binding">\xe6\xa3\x8b\xe8\xb0\xb1</div>
+    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat:
+ h in activelinks -->
+        <div class="navbar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype == 1 --><a ng-href="/game/"
+                                                                                                     class="navbar-brand ng-scope"
+                                                                                                     ng-i
+                                                                                                     f="h.htype == 1"
+                                                                                                     href="/game/">
+            <div class="navdiv ng-binding">\xe8\xb5\x9b\xe4\xba\x8b</div>
+        </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!--
+end ngRepeat: h in activelinks --></div><!-- ngIf: hasright -->
+        <div class="pull-right ng-scope" ng-if="hasright"><!-- ngRepeat: h in rightlinks -->
+            <div class="navbar
+-item ng-scope" ng-repeat="h in rightlinks"><a ng-href="/register/" class="navbar-brand2" href="/register/"><span
+                    class="navspan ng-binding">\xe6\xb3\xa8\xe5\x86\x8c
+</span></a></div><!-- end ngRepeat: h in rightlinks -->
+            <div class="navbar-item ng-scope" ng-repeat="h in rightlinks"><a ng-href="/login/" class="navbar-brand2"
+                                                                             href=
+                                                                                     "/login/"><span
+                    class="navspan ng-binding">\xe7\x99\xbb\xe5\xbd\x95</span></a></div>
+            <!-- end ngRepeat: h in rightlinks --></div><!-- end ngIf: hasright --><!-- ngIf:
+ hasmore -->
+        <div class="clear"></div><!-- ngIf: is_showmore --></div>
+</nav>
+<div class="container tc-main " id="main">
+    <div class="height20" id="toph"></div>
+    <div class
+                 ="col-md-12">
+        <ul class="breadcrumb">
+            <li><a href="/book/2342/">\xe6\x89\x8b\xe7\xad\x8b\xe4\xb8\x93\xe9\xa1\xb9\xe8\xae\xad\xe7\xbb\x83-10\xe7\xba\xa7\xe5\x88\xb05\xe
+                7\xba\xa7</a></li>
+            <li class="active">\xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa0
+                \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc\x88\xe4\xb8\x80\xef\xbc\x89
+            </li>
+        </
+        ul>
+    </div>
+    <div class="clear"></div>
+</div>
+<footer id="myfooter">
+    <div class="container tc-main">
+        <div class="spliter"></div>
+        <span class="pull-left">\xc2\xa9 2012-2018 10
+1weiqi.com, all rights reserved</span><span class="pull-right" style="padding-right:10px;"><a
+            href="https://doc.101weiqi.com/">101\xe5\xb8\xae\xe5\x8a\xa9</a></span>
+    </div>
+    <input type="hidden" id="curuser" value="" login="/"/></footer>
+<script type="text/javascript">var is_secure = true;</script>
+<script type="text/javascript" src
+        ="https://static2.101weiqi.com/static/cache/51e94ee922c3d543ac1bf6a6c901812c.js"></script>
+\n
+<script type="text/javascript" src="https://static2.101weiqi.com/static/c
+ache/a70410df23b209714c31ec8053e82fc5.js"></script>
+\n
+<script type="text/javascript">$(document).ready(function () {
+    var x = 0;
+    var y = 0;
+});</script>
+</body>
 </html>

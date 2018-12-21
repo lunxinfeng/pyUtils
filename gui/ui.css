@@ -1,0 +1,17 @@
+QMainWindow{
+    border-image:url(./img/login_bg.png);
+    /*border-image:url(:/img/login_bg.png);*/
+}
+
+QWidget[name="Form"]{
+    background-color: #515151;
+}
+
+QLabel{
+    color: white;
+    font-size: 25pt;
+}
+
+QGroupBox{
+    color:white;
+}
