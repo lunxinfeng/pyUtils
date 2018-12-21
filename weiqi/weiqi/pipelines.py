@@ -11,18 +11,18 @@ import json
 class WeiqiPipeline(object):
     def __init__(self):
         self.connect = sqlite3.connect('books.db')
-        # self.connect.execute("CREATE TABLE book ("
-        #                      "book_name TEXT,"
-        #                      "book_sub_name TEXT,"
-        #                      "course_index TEXT,"
-        #                      "prepos_b TEXT,"
-        #                      "prepos_w TEXT,"
-        #                      "answers TEXT,"
-        #                      "board_size TEXT,"
-        #                      "black_first TEXT,"
-        #                      "qtypename TEXT,"
-        #                      "levelname TEXT"
-        #                      " ) ")
+        self.connect.execute("CREATE TABLE book ("
+                             "book_name TEXT,"
+                             "book_sub_name TEXT,"
+                             "course_index TEXT,"
+                             "prepos_b TEXT,"
+                             "prepos_w TEXT,"
+                             "answers TEXT,"
+                             "board_size TEXT,"
+                             "black_first TEXT,"
+                             "qtypename TEXT,"
+                             "levelname TEXT"
+                             " ) ")
 
     def process_item(self, item, spider):
         # print("result：" + str(item))
