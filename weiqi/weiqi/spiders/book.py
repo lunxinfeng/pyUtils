@@ -3,11 +3,8 @@ import scrapy
 from selenium import webdriver
 from scrapy import Request
 import re
-import json
 import js2xml
 from lxml import etree
-import os
-import sys
 
 from selenium.webdriver.chrome.options import Options
 from weiqi.items import WeiqiItem
@@ -32,10 +29,7 @@ class BookSpider(scrapy.Spider):
 
     def start_requests(self):
         start_urls = ['https://www.101weiqi.com/book/level/1']
-        # start_urls = ['https://www.101weiqi.com/book/2342/']
-        # start_urls = ['https://www.101weiqi.com/book/3833/']
-        # start_urls = ['https://www.101weiqi.com/book/zhu/3636/52865/']
-        # start_urls = ['https://www.101weiqi.com/book/zhu/3638/15823/']
+        # start_urls = ['https://www.101weiqi.com/book/3790/6346/108663/']
         for url in start_urls:
             yield Request(url=url, callback=self.parse)
 
@@ -45,15 +39,8 @@ class BookSpider(scrapy.Spider):
         url_list = [item for item in url_list if re.findall(r"([0-9]/)$", str(item)).__len__() > 0]
         base_url = "https://www.101weiqi.com"
 
-        print("parse +++++++++")
-        # return Request(url=base_url + url_list[0], callback=self.parse_2)
         for item in url_list:
-            # print(item)
-            # print(response.url)
             yield Request(url=base_url + item, callback=self.parse_2)
-
-        # book_name = response.css(".ng-binding a::text").extract()
-        # print("book_name：" + str(book_name))
 
     def parse_2(self, response):
         """分情况，有的书有二级目录，有的没有二级目录"""
@@ -65,8 +52,6 @@ class BookSpider(scrapy.Spider):
             has_sub_page = False
             url_list = response.css(".col-xs-6 a::attr(href)").extract()
         base_url = "https://www.101weiqi.com"
-        print("parse --------")
-        # return Request(url=base_url + url_list[0], callback=self.parse_3)
         if has_sub_page:
             for item in url_list:
                 yield Request(url=base_url + item, callback=self.parse_22)
@@ -78,7 +63,6 @@ class BookSpider(scrapy.Spider):
         """三级目录解析，有二级目录的情况下"""
         url_list = response.css(".questionitem a::attr(href)").extract()
         base_url = "https://www.101weiqi.com"
-        print("parse --------")
         print(url_list)
         # return Request(url=base_url + url_list[0], callback=self.parse_3)
         for item in url_list:
@@ -113,6 +97,9 @@ class BookSpider(scrapy.Spider):
         # print(prepos_b)
         prepos_w = selector.xpath("//property[@name='prepos']/array/array[2]/string/text()")
         # print(prepos_w)
+
+        signs = selector.xpath("//property[@name='signs']//string/text()")
+        print(signs)
 
         answers_type = selector.xpath("//property[@name='answers']//property[@name='ty']/number/@value")
         # print(answers_type)
@@ -168,4 +155,5 @@ class BookSpider(scrapy.Spider):
         item["levelname"] = levelname[0]
         item["status"] = status[0]
         item["title"] = "" if title.__len__() == 0 else title[0]
+        item["signs"] = signs
         yield item

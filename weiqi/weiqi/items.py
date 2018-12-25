@@ -24,5 +24,6 @@ class WeiqiItem(scrapy.Item):
     levelname = scrapy.Field()  # 题目等级
     status = scrapy.Field()  # 题目状态  1表示已淘汰
     title = scrapy.Field()  # 题目说明
+    signs = scrapy.Field()  # 题目标记
     # type = scrapy.Field()  # 答案类型  1表示正确答案  2表示变化答案  3表示失败答案
     # s_type = scrapy.Field()  # 答案审核状态  1表示待审核  2表示已审核

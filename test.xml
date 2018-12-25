@@ -50,8 +50,7 @@
             </property>
             <property name="signs">
                 <array/>
-            </proper
-                    ty>
+            </property>
             <property name="vote">
                 <number value="4.7"/>
             </property>
