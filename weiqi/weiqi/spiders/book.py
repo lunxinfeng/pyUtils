@@ -34,7 +34,8 @@ class BookSpider(scrapy.Spider):
         start_urls = ['https://www.101weiqi.com/book/level/1']
         # start_urls = ['https://www.101weiqi.com/book/2342/']
         # start_urls = ['https://www.101weiqi.com/book/3833/']
-        # start_urls = ['https://www.101weiqi.com/book/2342/4205/80868/']
+        # start_urls = ['https://www.101weiqi.com/book/zhu/3636/52865/']
+        # start_urls = ['https://www.101weiqi.com/book/zhu/3638/15823/']
         for url in start_urls:
             yield Request(url=url, callback=self.parse)
 
@@ -98,14 +99,16 @@ class BookSpider(scrapy.Spider):
         # 获取棋谱相关信息
         scripts = response.css("script:contains('g_qq')::text").get()
         # print("result:" + str(scripts.__len__()))
-        # print("result:" + str(scripts))
+        print("result:" + str(scripts))
         parsed = js2xml.parse(str(scripts))
         parsed = js2xml.pretty_print(parsed)
         # print(parsed)
         selector = etree.HTML(str(parsed))
         # print(etree.tostring(parsed))
-        prepos = selector.xpath("//property[@name='prepos']/array/array/string/text()")
+        # prepos = selector.xpath("//property[@name='prepos']/array/array/string/text()")
         # print(prepos)
+        title = selector.xpath("//property[@name='title']/string/text()")
+        status = selector.xpath("//property[@name='status']/number/@value")
         prepos_b = selector.xpath("//property[@name='prepos']/array/array[1]/string/text()")
         # print(prepos_b)
         prepos_w = selector.xpath("//property[@name='prepos']/array/array[2]/string/text()")
@@ -115,28 +118,43 @@ class BookSpider(scrapy.Spider):
         # print(answers_type)
         answers = []
         for index, value in enumerate(answers_type):
-            if value == '1':  # 只要正解
-                answer_pos = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='pts']//property[@name='p']/string/text()")
-                answers.append(answer_pos)
-                print(answer_pos)
+            answer = {}
+            ty = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='ty']/number/@value")
+            answer["ty"] = str(ty[0])
+            st = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='st']/number/@value")
+            answer["st"] = str(st[0])
 
-        # print(answers)
+            answer_pos = []
+
+            p = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='pts']//property[@name='p']/string/text()")
+            c = []
+            for i, v in enumerate(p):
+                s = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='pts']/array/object[" + str(i + 1) + "]/property[@name='c']/string/text()")
+                if s is None or s.__len__() == 0:
+                    c.append("")
+                else:
+                    c.append(str(s[0]))
+            # print(p)
+            # print(c)
+
+            for i, v in enumerate(p):
+                answer_pos.append({"p": str(v), "c": str(c[i])})
+            # print(answer_pos)
+
+            answer["pts"] = answer_pos
+            answers.append(answer)
 
         board_size = selector.xpath("//property[@name='lu']/number/@value")
-        print(board_size[0])
 
         black_first = selector.xpath("//property[@name='blackfirst']/boolean/text()")
         if black_first[0] == 'true':
-            black_first = 1
+            black_first = "1"
         else:
-            black_first = 0
-        print(black_first)
+            black_first = "0"
 
         qtypename = selector.xpath("//property[@name='qtypename']/string/text()")
-        print(qtypename[0])
 
         levelname = selector.xpath("//property[@name='levelname']/string/text()")
-        print(levelname[0])
 
         item["book_name"] = book_name
         item["book_sub_name"] = book_sub_name
@@ -148,4 +166,6 @@ class BookSpider(scrapy.Spider):
         item["black_first"] = black_first
         item["qtypename"] = qtypename[0]
         item["levelname"] = levelname[0]
+        item["status"] = status[0]
+        item["title"] = "" if title.__len__() == 0 else title[0]
         yield item
