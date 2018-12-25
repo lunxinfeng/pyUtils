@@ -99,7 +99,7 @@ class BookSpider(scrapy.Spider):
         # 获取棋谱相关信息
         scripts = response.css("script:contains('g_qq')::text").get()
         # print("result:" + str(scripts.__len__()))
-        print("result:" + str(scripts))
+        # print("result:" + str(scripts))
         parsed = js2xml.parse(str(scripts))
         parsed = js2xml.pretty_print(parsed)
         # print(parsed)
