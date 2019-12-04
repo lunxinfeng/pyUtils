@@ -1,526 +1,980 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <style type="text/css">[uib-typeahead-popup].dropdown-menu {
-        display: block;
-    }</style>
-    <style ty
-           pe="text/css">.uib-time input {
-        width: 50px;
-    }</style>
-    <style type="text/css">[uib-tooltip-popup].tooltip.top-left
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-popup].tooltip.top-rig
-    ht & gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-popup].tooltip.bottom-left
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-popup].tooltip.bottom-right
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-popup].t
-    ooltip.left-top
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-popup].tooltip.left-bottom
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-popup].tooltip.right-top
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-toolti
-    p-popup
-
-    ]
-    .tooltip.right-bottom
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.top-left
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.top-right
-
-    &
-    gt
-
-    ;
-    .tool
-    tip-arrow, [uib-tooltip-html-popup].tooltip.bottom-left
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.bottom-right
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-html-popup]
-.tooltip.left-top
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.left-bottom
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.right-top
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-html-popup].tooltip.right-bottom
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.top-left
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-template-popup].too
-    ltip.top-right
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.bottom-left
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.bottom-right
-
-    &
-    gt
-
-    ;
-    .toolt
-    ip-arrow, [uib-tooltip-template-popup].tooltip.left-top
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.left-bottom
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-template
-    -popup
-
-    ]
-    .tooltip.right-top
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-tooltip-template-popup].tooltip.right-bottom
-
-    &
-    gt
-
-    ;
-    .tooltip-arrow, [uib-popover-popup].popover.top-left
-
-    &
-    gt
-
-    ;
-    .arrow,
-    [uib-popover-popup].popover.top-right
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-popup].popover.bottom-left
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-popup].popover.bottom-right
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popov
-    er-popup
-
-    ]
-    .popover.left-top
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-popup].popover.left-bottom
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-popup].popover.right-top
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-popup].popo
-    ver.right-bottom
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup].popover.top-left
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup].popover.top-right
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup].po
-    pover.bottom-left
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup].popover.bottom-right
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup].popover.left-top
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup
-].popover.left-bottom
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup].popover.right-top
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-html-popup].popover.right-bottom
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-templ
-    ate-popup
-
-    ]
-    .popover.top-left
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-template-popup].popover.top-right
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-template-popup].popover.bottom-left
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-
-    popover-template-popup
-
-    ]
-    .popover.bottom-right
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-template-popup].popover.left-top
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-template-popup].popover.left-bottom
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-template-popup].popover.right-top
-
-    &
-    gt
-
-    ;
-    .arrow, [uib-popover-template-popup].popover.right-bottom
-
-    &
-    gt
-
-    ;
-    .arrow {
-        top: auto;
-        bottom: auto;
-        left: auto;
-        ri ght: auto;
-        margin: 0;
-    }
-
-    [uib-popover-popup].popover, [uib-popover-html-popup].popover, [uib-popover-template-popup].popover {
-        display: block !important;
-    }</style>
-    <style type="t
-ext/css">.uib-datepicker-popup.dropdown-menu {
-        display: block;
-        float: none;
-        margin: 0;
-    }
-
-    .uib-button-bar {
-        padding: 10px 9px 2px;
-    }</style>
-    <style type="text/css">.uib-position-me
-    asure {
-        display: block !important;
-        visibility: hidden !important;
-        position: absolute !important;
-        top: -9999px !important;
-        left: -9999px !important;
-    }
-
-    .uib-position-scrollbar-meas
-    ure {
-        position: absolute !important;
-        top: -9999px !important;
-        width: 50px !important;
-        height: 50px !important;
-        overflow: scroll !important;
-    }
-
-    .uib-position-body-scrollbar-measure {
-        overflow: scroll !important;
-    }</style>
-    <style type="text/css">.uib-datepicker .uib-title {
-        width: 100%;
-    }
-
-    .uib-day button, .uib-month button, .uib-year button {
-        min-width: 100%;
-    }
-
-    .uib-left, .uib-right {
-        width: 100%
-    }</style>
-    <style type="text/css">.ng-animate.item:not(.left):not(.right) {
-        -webkit-transition: 0s ease-in-out left;
-        transition: 0s ease-in- out left
-    }</style>
-    <style type="text/css">@charset "UTF-8";
-    [ng\\:cloak
-
-    ]
-    ,
-    [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
-        di splay: none !important;
-    }
-
-    ng\\:form {
-        display: block;
-    }
-
-    .ng-animate-shim {
-        visibility: hidden;
-    }
-
-    .ng-anchor {
-        position: absolute;
-    }</style>
-    <title> \xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa
-        0 \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc\x88\xe4\xb8\x80\xef\xbc\x89 -
-        101\xe5\x9b\xb4\xe6\xa3\x8b\xe7\xbd\x91</title>
-    <meta http-equiv="Content-typ
-e" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content=" \xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa0 \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc
-\x88\xe4\xb8\x80\xef\xbc\x89"/>
-    <meta name="description" content="\xe6\x98\xbe\xe7\xa4\xba \xe6\x89\x8b\xe7\xad\x8b\xe4\xb8\x93\xe9\xa1\xb9\xe8\xae\xad\xe7\xbb\x83-1
-0\xe7\xba\xa7\xe5\x88\xb05\xe7\xba\xa7\xe4\xb8\xad\xe7\x9a\x84\xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa0 \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc\x88\xe4\x
-b8\x80\xef\xbc\x89\xe3\x80\x82"/>
+<html>
+<head><title>Q-116661 - 110题 - 101围棋网</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="围棋死活题，围棋手筋题，围棋官子题"/>
+    <meta name="description" content="显示《权甲龙道场业余高段死活》中的围棋死活题Q-116661信息，题目标签:; 题目级别:1K+;题目质量:;"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no"/>
-    <link rel="stylesheet" href="https://stati
-c2.101weiqi.com/static/cache/079048a72f7211e99bc8a94bc4ffcc83.css"/>
-    \n
+    <link href="https://static2.101weiqi.com/static/images/apple_1442.png" rel="shortcut icon"/>
+    <link href="https://static2.101weiqi.com/static/images/apple_1442.png" rel="Bookmark"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="https://static2.101weiqi.com/static/images/apple_1142.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="https://static2.101weiqi.com/static/images/apple_1142.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="https://static2.101weiqi.com/static/images/apple_1442.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="https://static2.101weiqi.com/static/images/apple_1442.png"/>
+    <link rel="stylesheet" href="https://static2.101weiqi.com/static/cache/71f131bfb57a2bccafcc3d58b5a3a5bf.css">
+    <link rel="stylesheet" href="https://static2.101weiqi.com/static/cache/c9b56a5813ca3420a72b987c8c0b8fed.css">
     <style type="text/css">[ng-cloak] {
         display: none !important
     }</style>
+    <style>.zuoti_bg {
+        background: url(https://static2.101weiqi.com/static/images/bg-03.jpg) no-repeat;
+        background-size: 100% 100%;
+        padding-top: 10px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 10px;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    body {
+        font-family: '微软雅黑', Verdana, Arial, sans-serif;
+    }
+
+    .wrap {
+        width: 100%;
+        background-size: 1240px 902px;
+    }</style>
 </head>
-<body ng-app="wqapp"
-      class="ng-scope">
-<nav class="navbar nav101 ng-scope" style="margin:0" id="whead" ng-controller="headctrl">
+<body ng-app="wqapp">
+<nav class="navbar nav101" style="margin:0" id="whead" ng-controller="headctrl" ng-cloak>
     <div class="container" id="headid">
-        <script>var hlinks = [{
-            h
-            type
-        :
-        1, h
-        :\'/questionlib/\',name:\'\xe9\xa2\x98\xe5\xba\x93\'},{htype:1,h:\'/play/\',name:\'\xe5\xaf\xb9\xe5\xbc\x88\'},{htype:1,h:\'/forum/\',name:\'\xe8\xae\xa8\xe8
-\xae\xba\xe5\x8c\xba\'},{htype:1,h:\'/book/\',name:\'\xe6\xa3\x8b\xe4\xb9\xa6\'},{htype:1,h:\'/chessbook/\',name:\'\xe6\xa3\x8b\xe8\xb0\xb1\'},{htype:1,h:\'/game/\',
-        name:\
-        '\xe8\xb5\x9b\xe4\xba\x8b\'},];var rightlinks = [{htype:3,h:\'/register/\',name:\'\xe6\xb3\xa8\xe5\x86\x8c\'},{htype:3,h:\'/login/\',name:\'\xe7\x99\xbb\xe5\xb
-        d\x95\'}]</script>
+        <script>var hlinks = [{htype: 1, h: '/questionlib/', name: '题库'}, {
+            htype: 1,
+            h: '/playai/',
+            name: '训练营'
+        }, {htype: 1, h: '/play/', name: '对弈'}, {htype: 1, h: '/forum/', name: '讨论区'}, {
+            htype: 1,
+            h: '/book/',
+            name: '棋书'
+        }, {htype: 1, h: '/chessbook/', name: '棋谱'},];
+        var rightlinks = [{htype: 3, h: '/register/', name: '注册'}, {htype: 3, h: '/login/', name: '登录'}]</script>
         <div class="navbar-header pull-left"><a class="navbar-brand" href="/"><img
-                src="https://static2.101weiqi.com/static/images/logo.png"/></a></div>
-        <d
-                iv class="pull-left" style="margin-left: 40px;"><!-- ngRepeat: h in activelinks -->
-            <div class="navbar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype
-== 1 --><a ng-href="/questionlib/" class="navbar-brand ng-scope" ng-if="h.htype == 1" href="/questionlib/">
-                <div class="navdiv ng-binding">\xe9\xa2\x98\xe5\xba\x93
-        </d
-                iv>
-        </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
-    <div class="navbar-item ng-scope" ng-repeat="h in activ
-elinks"><!-- ngIf: h.htype == 1 --><a ng-href="/play/" class="navbar-brand ng-scope" ng-if="h.htype == 1" href="/play/">
-        <div class="navdiv ng-binding">\xe5\xaf\xb9\x
-            e5\xbc\x88
+                src="https://static2.101weiqi.com/static/images/logo.png"></a></div>
+        <div class="pull-left" style="margin-left: 40px;">
+            <div class="navbar-item" ng-repeat="h in activelinks"><a ng-href="[[h.h]]" class="navbar-brand"
+                                                                     ng-if="h.htype == 1">
+                <div class="navdiv">[[h.name]]</div>
+            </a><a ng-href="[[h.h]]" class="navbar-brand" style="position: relative;" ng-if="h.htype == 2"
+                   title="[[h.name]]">
+                <div class="navdiv">
+                    <dd ng-if="h.icon == '@'">@</dd>
+                    <i ng-if="h.icon != '@'" class="glyphicon glyphicon-[[h.icon]]"></i></div>
+                <dd class="headnumber">[[h.number]]</dd>
+            </a></div>
         </div>
-    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
-    <div class="navbar-item ng-scope" ng-repea
-         t="h in activelinks"><!-- ngIf: h.htype == 1 --><a ng-href="/forum/" class="navbar-brand ng-scope"
-                                                            ng-if="h.htype == 1" href="/forum/">
-        <div class="navdiv ng-binding"
-        >\xe8\xae\xa8\xe8\xae\xba\xe5\x8c\xba
+        <div class="pull-right" ng-if="hasright">
+            <div class="navbar-item" ng-repeat="h in rightlinks"><a ng-href="[[h.h]]" class="navbar-brand2"><span
+                    class="navspan">[[h.name]]</span></a></div>
         </div>
-    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
-    <div class="nav
-bar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype == 1 --><a ng-href="/book/"
-                                                                              class="navbar-brand ng-scope"
-                                                                              ng-if="h.htype == 1" href="/book/">
-        <div
-                class="navdiv ng-binding">\xe6\xa3\x8b\xe4\xb9\xa6
+        <div class="toggleright" ng-if="hasmore">
+            <button type="button" class="navbar-toggle2" ng-click="showmore()"><span class="sr-only">101围棋网</span><span
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
         </div>
-    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat: h in activelinks -->
-    <d
-            iv class="navbar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype == 1 --><a
-            ng-href="/chessbook/" class="navbar-brand ng-scope" ng-if="h.htype == 1" h
-            ref="/chessbook/">
-        <div class="navdiv ng-binding">\xe6\xa3\x8b\xe8\xb0\xb1</div>
-    </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!-- end ngRepeat:
- h in activelinks -->
-        <div class="navbar-item ng-scope" ng-repeat="h in activelinks"><!-- ngIf: h.htype == 1 --><a ng-href="/game/"
-                                                                                                     class="navbar-brand ng-scope"
-                                                                                                     ng-i
-                                                                                                     f="h.htype == 1"
-                                                                                                     href="/game/">
-            <div class="navdiv ng-binding">\xe8\xb5\x9b\xe4\xba\x8b</div>
-        </a><!-- end ngIf: h.htype == 1 --><!-- ngIf: h.htype == 2 --></div><!--
-end ngRepeat: h in activelinks --></div><!-- ngIf: hasright -->
-        <div class="pull-right ng-scope" ng-if="hasright"><!-- ngRepeat: h in rightlinks -->
-            <div class="navbar
--item ng-scope" ng-repeat="h in rightlinks"><a ng-href="/register/" class="navbar-brand2" href="/register/"><span
-                    class="navspan ng-binding">\xe6\xb3\xa8\xe5\x86\x8c
-</span></a></div><!-- end ngRepeat: h in rightlinks -->
-            <div class="navbar-item ng-scope" ng-repeat="h in rightlinks"><a ng-href="/login/" class="navbar-brand2"
-                                                                             href=
-                                                                                     "/login/"><span
-                    class="navspan ng-binding">\xe7\x99\xbb\xe5\xbd\x95</span></a></div>
-            <!-- end ngRepeat: h in rightlinks --></div><!-- end ngIf: hasright --><!-- ngIf:
- hasmore -->
-        <div class="clear"></div><!-- ngIf: is_showmore --></div>
-</nav>
-<div class="container tc-main " id="main">
-    <div class="height20" id="toph"></div>
-    <div class
-                 ="col-md-12">
-        <ul class="breadcrumb">
-            <li><a href="/book/2342/">\xe6\x89\x8b\xe7\xad\x8b\xe4\xb8\x93\xe9\xa1\xb9\xe8\xae\xad\xe7\xbb\x83-10\xe7\xba\xa7\xe5\x88\xb05\xe
-                7\xba\xa7</a></li>
-            <li class="active">\xe7\xac\xac\xe4\xb8\x80\xe7\xab\xa0
-                \xe5\xaf\xb9\xe6\x9d\x80\xe6\x89\x8b\xe7\xad\x8b\xef\xbc\x88\xe4\xb8\x80\xef\xbc\x89
-            </li>
-        </
-        ul>
+        <div class="clear"></div>
+        <div class="width100 headsplit" ng-if="is_showmore">
+            <div class="col-xs-4 navmore-item" ng-repeat="h in morelinks"><a ng-href="[[h.h]]" class="morelink"><i
+                    ng-if="h.icon != '@'" class="glyphicon glyphicon-[[h.icon]]"></i>[[h.name]]</a></div>
+            <div class="clear"></div>
+        </div>
     </div>
+</nav>
+<div class="container tc-main zuoti_bg" id="main" ng-controller="QuestionCtrl" ng-cloak>
+    <ul class="breadcrumb">
+        <li><a href="/book/5071/">权甲龙道场业余高段死活</a></li>
+        <li><a href="/book/5071/8874/">110题</a></li>
+        <li class="active">第8题&nbsp;Q-116661</li>
+        <div class="huati_lei"><span class="previous"><a class="btn btn-info" id="prevq" href="/book/5071/8874/127653/"><span
+                class="nextquestion"> 上 一 题 </span></a></span>&nbsp;<span><a class="btn btn-info" id="nextq"
+                                                                             href="/book/5071/8874/127656/"><span
+                class="nextquestion"> 下 一 题 </span></a></span></div>
+    </ul>
+    <div ng-if="qq.is_public" ng-show="qq.is_share || qq.userid == udata.userid || udata.ismanager || leipage">
+        <div id="questionbody" class="zt_qipan pull-left" align="center">
+            <div ng-show="smallshow && !aligncenter" style="text-align:center;background-color: rgba(255,255,255,0.5);"
+                 id="smallqtitle" ng-style="qleftstyle"><span style="font-size:24px;padding-left:10px;"><span
+                    ng-if="qq.name">[[::qq.name]]</span>&nbsp;<span ng-if="qq.blackfirst">黑先</span><span
+                    ng-if="!qq.blackfirst">白先</span> [[qq.qtypename]]<small ng-if="show_level" ng-show="taskdo"
+                                                                            style="font-size:65%;color: #777;">&nbsp;[[::qq.levelname]]</small></span>
+                <div><span class="text-success">[[::q.title]]</span></div>
+            </div>
+            <div class="zuoti_box">
+                <div class="zt_left" id="qipandiv" ng-class="{'fixed':!smallshow && fixed}" ng-style="qleftstyle"
+                     style="margin-top:5px;">
+                    <div id="canvasdiv" ng-if="qq.qtype < 18">
+                        <stonecanvas sclass="qcanvas" qq="qq" wobjid="wobjid"></stonecanvas>
+                        <div ng-show="smallshow">
+                            <div ng-if="qq.qtype != 11" role="toolbar" align="center" class="operbtn"
+                                 style="width:100%; text-align:center;margin-bottom:2px;">
+                                <div class="btn-group" ng-show="taskdo">
+                                    <button ng-click="saveopenmusic()" class="btn btn-default"><span ng-if="!openmusic"
+                                                                                                     class="glyphicon glyphicon-volume-off"></span><span
+                                            ng-if="openmusic" class="glyphicon glyphicon-volume-up"></span></button>
+                                </div>
+                                <div class="btn-group " ng-if="aligncenter" style="margin-right:2px;">
+                                    <button class="btn"><span ng-if="qq.name">[[::qq.name]]</span>&nbsp;<span
+                                            ng-if="qq.blackfirst">黑先</span><span ng-if="!qq.blackfirst">白先</span>
+                                        [[qq.qtypename]]
+                                    </button>
+                                    <button class="btn btn-default" ng-click="setlayout()">取消居中</button>
+                                    <button class="btn btn-default" ng-click="rorate()">旋转棋盘[[curroratename]]</button>
+                                </div>
+                                <div class="btn-group" ng-show="taskdo">
+                                    <button ng-if="!issharepage"
+                                            ng-show="qq.qtype != 3 && (qq.ans_count || qq.qtype == 16)"
+                                            class="btn btn-default questionmode "
+                                            ng-class="{'activestone': st.play_mode === 1}" ng-click="entermode(1)">对战
+                                    </button>
+                                    <button ng-if="!issharepage" class="btn btn-default questionmode"
+                                            ng-class="{'activestone': st.play_mode === 3}" ng-click="entermode(3)">试下
+                                    </button>
+                                    <button ng-if="!issharepage" class="btn btn-default questionmode"
+                                            ng-class="{'activestone': st.play_mode === 5}" ng-click="entermode(5)">研究
+                                    </button>
+                                    <button ng-if="qq.qtype != 16 && qq.enable_answer"
+                                            class="btn btn-default questionmode"
+                                            ng-class="{'activestone': st.play_mode === 2}" ng-click="entermode(2)">提交答案
+                                    </button>
+                                </div>
+                                <div class="btn-group " ng-show="st.answerend && st.steps.length > 0"
+                                     ng-if="qq.qtype != 16" style="margin-left:2px;">
+                                    <button class="btn btn-default tprevstep" ng-click="tprevstep()">上一步</button>
+                                </div>
+                            </div>
+                            <div ng-if="st.play_mode == 1 || st.play_mode == 5" ng-show="st.stonecomment != ''"
+                                 class="stonecomment">[[st.stonecomment]]
+                            </div>
+                            <div class="width100" ng-if="qq.qtype === 11">
+                                <div style="margin-top:10px;align:center;">
+                                    <button class="btn btn-default" ng-click="playprogres()"><span
+                                            ng-if="!clone_playing" class="glyphicon glyphicon-play"> 播放演进过程</span><span
+                                            ng-if="clone_playing" class="glyphicon glyphicon-stop"> 播放中...</span>
+                                    </button>&nbsp;&nbsp;<button class="btn btn-default" ng-click="answerclone()"><span
+                                        ng-if="!clone_answering" class="glyphicon glyphicon-pencil"> 开始解答</span><span
+                                        ng-if="clone_answering" class="glyphicon glyphicon-list-alt"> 解答中...</span>
+                                </button>&nbsp;&nbsp;
+                                </div>
+                                <div style="margin-top:10px;"><span class="text-success">请按照顺序在棋盘上落子</span></div>
+                                <!--<div style="margin-top:10px;"></div>--></div>
+                            <div class="clear"></div>
+                            <div role="toolbar" align="center"
+                                 ng-if="st.play_mode == 1 && qq.qtype != 16 && !aligncenter"
+                                 style="text-align:center;margin-top:5px;width:100%;">
+                                <div ng-click="start_droppos()" ng-if="udata.islogin"><a><span
+                                        ng-if="st.isdroppos"><span
+                                        class="glyphicon glyphicon-flag"> </span> 落子确认开启，关闭</span><span
+                                        ng-if="!st.isdroppos">落子确认关闭中，开启</span></a></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="qq.qtype == 18" id="canvasdiv" class="width100"
+                         style="background: rgba(255,255,255,0.5);">
+                        <div class="col-md-12 selectcontent" ng-bind-html="qq.contenthtml"></div>
+                        <div class="clear"></div>
+                        <div class="col-md-12 selectoptiondiv">
+                            <div class=" selectoptionitem selectoptionnormal" ng-repeat="op in qq.options"
+                                 ng-click="selectoneoption(op)"
+                                 ng-class="{'selectoptionok':op.status == 2,'selectoptionfail':op.status == 1}"><span>[[op.indexname]].</span><span
+                                    ng-if="op.status == 2" style="padding-left:5px;padding-right:5px;"><i
+                                    class="fa fa-check" aria-hidden="true"></i></span><span style="padding-left:10px;">[[op.content]]</span>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div ng-if="qq.qtype == 19" id="canvasdiv" class="width100"
+                         style="background: rgba(255,255,255,0.5);">
+                        <div class="col-md-12 selectcontent" ng-bind-html="qq.contenthtml"></div>
+                        <div class="clear"></div>
+                        <div id="optionimagediv" class="col-md-12 " style="margin-bottom:20px;margin-top:20px;">
+                            <div ng-style="imagestyle" class="imageoption" ng-repeat="op in qq.options">
+                                <div class="imagetip" ng-if="op.status == 2"><i class="fa fa-check"
+                                                                                aria-hidden="true"></i></div>
+                                <div class="imagetip" ng-if="op.status == 1"><i class="fa fa-remove"
+                                                                                aria-hidden="true"></i></div>
+                                <img ng-click="selectoneoption(op)" ng-src="[[op.content]]"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div ng-if="qq.qtype == 20" id="canvasdiv" class="width100" style="background: rgba(255,255,255,0.5);">
+            <canvasdiff diff="qq.diff" docount="taskinfo.qcount"></canvasdiff>
+            <div class="clear"></div>
+        </div>
+        <div id="operdiv" class="zt_right" ng-class="{'col-md-12 clear':smallshow || aligncenter}" ng-style="operstyle"
+             style="padding-left:20px;"><h2 ng-show="!smallshow"><span ng-if="qq.name">[[::qq.name]]&nbsp;</span><span
+                ng-if="qq.blackfirst">黑先</span><span ng-if="!qq.blackfirst">白先</span> [[qq.qtypename]]<small
+                ng-if="show_level" ng-show="taskdo">&nbsp;[[::qq.levelname]]</small></h2>
+            <p class="text-success"><span ng-if="qq.title">[[::qq.title]] &nbsp;&nbsp;</span><span ng-if="!issharepage"
+                                                                                                   ng-show="udata.userid == qq.userid || udata.iseditor"><span
+                    ng-show="taskdo"><a ng-if="qq.qtype < 18" ng-href="/changeqstone/127654/" target="_blank">编辑题目</a><a
+                    ng-if="qq.qtype == 18" ng-href="/inputtxt/127654/" target="_blank">编辑题目</a><a ng-if="qq.qtype == 19"
+                                                                                                  ng-href="/inputimage/127654/"
+                                                                                                  target="_blank">编辑题目</a><a
+                    ng-if="qq.qtype == 20" ng-href="/inputdiff/127654/" target="_blank">编辑题目</a></span></span></p>
+            <div ng-if="!issharepage"><p ng-show="taskdo" ng-if="qq.sms_count > 0 || qq.edit_count > 0"><a
+                    ng-if="qq.sms_count > 0" ng-href="/similarly/[[qq.id]]/" target="_blank">有[[qq.sms_count]]道类似题目</a>
+                &nbsp;&nbsp;<a ng-if="qq.edit_count > 0" ng-href="/qchange/[[qq.id]]/" target="_blank">有[[qq.edit_count]]条修改记录</a>
+            </p>
+                <p ng-if="qq.islei" ng-show="taskdo">本题属于 <a href="/lei/">死活题擂台</a></p></div>
+            <div class="width100" ng-if="taskdo && myan && !issharepage">
+                <div class="answerbody" ng-if="qq.attr_type != 2">
+                    <div class="col-md-12"><b>我的解答</b> &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            ng-if="myan.result == 1">正确</span><span ng-if="myan.result == 2">错误</span><span
+                            ng-if="myan.result == 4">待批改</span>&nbsp;&nbsp;[[myan.lasttime]]
+                    </div>
+                    <div class="col-md-12 answer">&nbsp;&nbsp;&nbsp;&nbsp; [[myan.stepindex]]/[[myan.stepcount]] &nbsp;&nbsp;<div
+                            class="btn-group">
+                        <button class="btn btn-default steppos" title="第一步" ng-click="gotofirst(myan)"><span
+                                class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+                        <button class="btn btn-default prevstep" ng-click="gotostep(myan,-1)" title="上一步"><span
+                                class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
+                        <button class="btn btn-default nextstep" ng-click="gotostep(myan,1)" title="下一步"><span
+                                class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+                        <button class="btn btn-default steppos" ng-click="gotoend(myan)" title="最后一步"><span
+                                class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+                    </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="answerbody" ng-if="qq.attr_type == 2">&nbsp;<b>我的解答</b> &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        ng-if="myan.result == 1">正确</span><span ng-if="myan.result == 2">错误</span>&nbsp;&nbsp;[[
+                    myan.selectval ]]&nbsp;&nbsp;[[myan.lasttime]]
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="width100" ng-if="!issharepage"><p ng-if="qq.ineb && taskdo"><span ng-if="remove_erroreok"
+                                                                                          style="color:blue;">已经清除</span><a
+                    ng-if="!remove_erroreok" ng-click="removeerror()">从错题本中删除</a></p>
+                <p><span ng-if="qq.userid != 1">由<a ng-href="/u/[[qq.username]]/" target="_blank">[[qq.username]]</a>提供&nbsp;</span><span
+                        ng-show="taskdo"><span ng-if="qq.orgid == 0">编号：Q-[[qq.publicid]]</span><span
+                        ng-if="qq.orgid != 0">内部编号：[[qq.publicid]]</span><span ng-if="qq.qtype === 6">&nbsp;来源于：<a
+                        ng-href="/chessbook/chess/[[qq.chessid]]/?step=[[qq.chessstep]]">[[qq.chessblack]] VS [[qq.chesswhite]]</a></span><span
+                        ng-if="qq.taskresult.ok_total > 10 || qq.taskresult.fail_total > 10">&nbsp; <a
+                        ng-click="showresultinfo()"><span ng-if="is_showresult">隐藏</span> [[qq.taskresult.ok_total]] 对 / [[qq.taskresult.fail_total]] 错</a></span></span>
+                </p></div>
+            <div class="width100">
+                <div class="boxwei" ng-show="is_showresult">
+                    <div id="resultchart" style="min-width:200px;height:300px;margin 0 auto;"></div>
+                </div>
+            </div>
+            <div class="width100" ng-if="qq.isguess"><p>请找出此局面下的最佳一手<span ng-show="taskdo">，本题录自 <a
+                    ng-href="/chessbook/chess/[[qq.chessid]]/?step=[[qq.chessstep]]">[[qq.chessblack]] VS [[qq.chesswhite]]</a> 对局</span>
+            </p></div>
+            <p><span ng-if="qq.qtype < 18"><a class="rototq" ng-click="rorate()">旋转棋盘[[curroratename]]</a>&nbsp;<a
+                    ng-click="setlayout()"><span ng-if="!aligncenter">棋盘居中</span><span ng-if="aligncenter">取消棋盘居中</span></a>&nbsp;&nbsp;<a
+                    ng-click="start_droppos()"><span ng-if="st.isdroppos"><span
+                    class="glyphicon glyphicon-flag"> </span> 落子确认开启，关闭</span><span
+                    ng-if="!st.isdroppos">落子确认关闭中，开启</span></a></span><span
+                    ng-if="qq.status === 0 && qq.userid === udata.userid && !issharepage">&nbsp;&nbsp;<a
+                    ng-click="removequestion()" style="color:red;">  淘汰此题</a><span style="padding-left:10px;color:blue">[[removeqtip]]</span></span>
+            </p>
+            <p class="bor" ng-if="qq.qtype < 18"></p>
+            <div class="width100" ng-if="qq.qtype != 16 && qq.qtype < 18 && qq.attr_type == 2">
+                <div class="text-success" style="margin-top:10px;">本题为选择题，请选择一个选项
+                    <table class="table table-condensed">
+                        <tr ng-repeat="p in st.options track by $index"
+                            ng-class="{'okoption':p.answer == 1,'failoption':p.answer == 2}">
+                            <td><label><input type="radio" name="option_[[::qq.id]]" ng-model="st.opanswerindex"
+                                              value="[[p.opindex]]"> [[p.indexname]]. &nbsp;[[p.content]]</label></td>
+                        </tr>
+                    </table>
+                    <p><a class="btn btn-success" ng-click="submitqoption()">提交</a></p></div>
+            </div>
+            <div ng-if="qq.qtype != 11 && qq.qtype < 18" class="width100">
+                <div ng-show="!smallshow" style="margin-bottom:10px;" class="operbtn">
+                    <div class="btn-group" ng-show="taskdo">
+                        <button ng-click="saveopenmusic()" class="btn btn-default"><span ng-if="!openmusic"
+                                                                                         class="glyphicon glyphicon-volume-off"></span><span
+                                ng-if="openmusic" class="glyphicon glyphicon-volume-up"></span></button>
+                    </div>
+                    <div class="btn-group" ng-show="taskdo">
+                        <button ng-if="!issharepage" ng-show="qq.qtype != 3 && (qq.ans_count || qq.qtype == 16)"
+                                class="btn btn-default questionmode " ng-class="{'activestone': st.play_mode === 1}"
+                                ng-click="entermode(1)">对战
+                        </button>
+                        <button ng-if="!issharepage" class="btn btn-default questionmode"
+                                ng-class="{'activestone': st.play_mode === 3}" ng-click="entermode(3)">试下
+                        </button>
+                        <button ng-if="!issharepage" class="btn btn-default questionmode"
+                                ng-class="{'activestone': st.play_mode === 5}" ng-click="entermode(5)">研究
+                        </button>
+                        <button ng-if="qq.qtype != 16 && qq.enable_answer" class="btn btn-default questionmode"
+                                ng-class="{'activestone': st.play_mode === 2}" ng-click="entermode(2)">提交答案
+                        </button>
+                    </div>
+                    <div class="btn-group " ng-show="st.answerend && st.steps.length > 0" ng-if="qq.qtype != 16"
+                         style="margin-left:2px;">
+                        <button class="btn btn-default tprevstep" ng-click="tprevstep()">上一步</button>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div ng-if="st.play_mode == 1 || st.play_mode == 5" ng-show="st.stonecomment != ''"
+                     class="stonecomment">[[st.stonecomment]]
+                </div>
+                <div id="submitgo" ng-if="st.play_mode === 2 || st.play_mode === 5 || st.play_mode === 3 "
+                     class="answerbody tijiao_daan" style="width:100%;float:left;padding-left:10px;">
+                    <div class="btn-group qipan" ng-if="st.stepobjs.length > 0">
+                        <button class="btn btn-default" ng-click="browfirst()" title="第一步"><span
+                                class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+                        <button class="btn btn-default" ng-click="browstep(-1)" title="上一步"><span
+                                class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
+                        <button class="btn btn-default" ng-click="browstep(1)" title="下一步"><span
+                                class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+                        <button class="btn btn-default" ng-click="browend()" title="最后一步"><span
+                                class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+                        <span ng-if="!issharepage && st.inputsimple && qq.enable_answer" style="padding-left:20px;"><a
+                                class="btn btn-primary" ng-click="submit_answer()">提交解答</a></span></div>
+                    <div class="clear"></div>
+                    <div ng-if="st.stepobjs.length > 0">
+                        <div class="stepitem" ng-repeat="s in st.stepobjs"><span ng-click="browposstep($index)"
+                                                                                 class="stepstone"
+                                                                                 ng-class="{'blackstone':s.isblack,'whitestone':!s.isblack}">[[$index + 1]]</span><input
+                                ng-show="!st.inputsimple" ng-if="st.play_mode === 2" type="text" ng-model="s.text"><span
+                                class="steptip" style="line-height:25px;">&nbsp;&nbsp;[[s.ptname]] &nbsp;&nbsp;<a
+                                ng-click="deleteanpt($index)">删除</a></span></div>
+                    </div>
+                    <div class="clear"></div>
+                    <div ng-if="st.play_mode === 2 || st.play_mode === 5 || st.play_mode === 3">
+                        <div ng-if="st.stepobjs.length === 0">请直接在棋盘上落子</div>
+                        <div id="submitgobody" style="margin-left:25px;"
+                             ng-if="st.stepobjs.length > 0 && (st.play_mode === 2 || st.play_mode === 5) && qq.enable_answer">
+                            <div ng-if="!st.inputsimple"><label class="radio"><input type="radio" name="answertype"
+                                                                                     ng-model="qsubmit.answertype"
+                                                                                     value="1"> 此为正解图</label><label
+                                    class="radio"><input type="radio" name="answertype" ng-model="qsubmit.answertype"
+                                                         value="2"> 此为变化图</label><label class="radio"><input
+                                    type="radio" name="answertype" ng-model="qsubmit.answertype" value="3">
+                                此为失败图</label><label class="checkbox" ng-class="{'weidoutip':qsubmit.isweidouanswer}"
+                                                    ng-if="!issharepage && st.play_mode === 2"><input type="checkbox"
+                                                                                                      name="weidou_answer"
+                                                                                                      ng-model="qsubmit.isweidouanswer">
+                                请求其他棋友审核，将花费30围豆</label></div>
+                            <span ng-if="!issharepage && !st.inputsimple"><a ng-if="caninput" class="btn btn-primary"
+                                                                             ng-click="submit_answer()">提交解答</a><span
+                                    ng-if="!caninput">注册三天之后，以及在 <a
+                                    href="/guan/">棋力测试</a> 中有通关记录的棋友才能提交答案。</span></span><span ng-if="issharepage"><span
+                                ng-if="!qshobj.cansubmit">注意：题目有限制范围，您无法提交解答。</span><span ng-if="qshobj.cansubmit"><a
+                                class="btn btn-primary" ng-click="submit_answer()">提交解答</a></span></span></div>
+                    </div>
+                </div>
+                <div ng-if="qq.qtype != 16 && show_allanswer" class="width100" ng-show="taskdo" id="answerbody"><p><a
+                        ng-click="show_answer()"><span ng-if="!is_showanswer"><i
+                        class="fa fa-plus-square-o"></i> 显示</span><span ng-if="is_showanswer"><i
+                        class="fa fa-minus-square-o"></i> 隐藏</span>答案([[answer_count]])</a></p>
+                    <div id="answerdiv" ng-show="is_showanswer">
+                        <div class="answerbody" ng-if="ok_answers.length > 0">正解答案
+                            <div ng-repeat="an in ok_answers" ng-include="'answer_item_renderer'"></div>
+                        </div>
+                        <div class="answerbody" ng-if="change_answers.length > 0">变化答案
+                            <div ng-repeat="an in change_answers" ng-include="'answer_item_renderer'"></div>
+                        </div>
+                        <div class="answerbody" ng-if="fail_answers.length > 0">失败答案
+                            <div ng-repeat="an in fail_answers" ng-include="'answer_item_renderer'"></div>
+                        </div>
+                    </div>
+                    <div ng-if="has_init_answer"><p><a ng-click="show_audit_answer()"><span ng-if="!is_showauditanswer"><i
+                            class="fa fa-plus-square-o"></i> 显示</span><span ng-if="is_showauditanswer"><i
+                            class="fa fa-minus-square-o"></i> 隐藏</span>待审核答案</a>([[audit_answer_count]])</p>
+                        <div ng-show="is_showauditanswer">
+                            <div class="answerbody" ng-if="init_ok_answers.length > 0">正解答案
+                                <div ng-repeat="an in init_ok_answers" ng-include="'answer_item_renderer'"></div>
+                            </div>
+                            <div class="answerbody" ng-if="init_change_answers.length > 0">变化答案
+                                <div ng-repeat="an in init_change_answers" ng-include="'answer_item_renderer'"></div>
+                            </div>
+                            <div class="answerbody" ng-if="init_fail_answers.length > 0">失败答案
+                                <div ng-repeat="an in init_fail_answers" ng-include="'answer_item_renderer'"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <p ng-if="disuse_count > 0"><a ng-click="showdisuse()"><span ng-if="!is_showdisuse"><i
+                            class="fa fa-plus-square-o"></i> </span><span ng-if="is_showdisuse"><i
+                            class="fa fa-minus-square-o"></i> </span>有[[disuse_count]]条答案被淘汰</a></p>
+                    <div class="answerbody" ng-if="is_showdisuse"><span class="pull-left " ng-if="disuedoing"><i
+                            class="fa fa-spinner fa-spin fa-x fa-fw"></i></span>
+                        <div ng-if="!disuedoing"><p style="padding-left:10px;"> 被淘汰的答案</p>
+                            <div ng-repeat="an in disuse_answers" ng-include="'answer_item_renderer'"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="width100" ng-if="qq.qtype === 11 && !smallshow">
+                <div style="margin-top:10px;align:center;">
+                    <button class="btn btn-default" ng-click="playprogres()"><span ng-if="!clone_playing"
+                                                                                   class="glyphicon glyphicon-play"> 播放演进过程</span><span
+                            ng-if="clone_playing" class="glyphicon glyphicon-stop"> 播放中...</span></button>&nbsp;&nbsp;<button
+                        class="btn btn-default" ng-click="answerclone()"><span ng-if="!clone_answering"
+                                                                               class="glyphicon glyphicon-pencil"> 开始解答</span><span
+                        ng-if="clone_answering" class="glyphicon glyphicon-list-alt"> 解答中...</span></button>&nbsp;&nbsp;
+                </div>
+                <div style="margin-top:10px;"><span class="text-success">请按照顺序在棋盘上落子</span></div>
+                <!--<div style="margin-top:10px;"></div>--></div>
+            <div class="width100" ng-show="taskdo" ng-if="!issharepage">
+                <div class="zt_jies" ng-if="qq.specs.length > 0 || qq.bookinfos.length > 0" style="margin-bottom:5px;">
+                    <p>本题收录于：</p><span ng-repeat="item in qq.bookinfos track by $index"><a
+                        ng-href="/book/[[::item.bookurl]]/">[[::item.bookname]]</a><span ng-if="item.nodename"
+                                                                                         style="display: inline;">[[item.nodename]]章节</span></span><span
+                        ng-repeat="item in qq.specs track by $index"><a ng-href="/spec/[[::item.pinyin]]/">[[::item.name]]</a> &nbsp;围棋知识点专辑</span>
+                    <div class="width100" style="margin-top:5px;"><p class="bor"></p></div>
+                </div>
+            </div>
+            <div class="width100" ng-if="!issharepage"><p class="alert alert-danger" ng-if="qq.status === 1">本题已经被<span
+                    ng-if="qq.taotaiid > 0">&nbsp;<a ng-href="/q/[[qq.taotaiid]]/">Q-[[qq.taotaiid]]</a> &nbsp;</span>淘汰
+            </p>
+                <p ng-if="qq.status === 0" class="alert alert-info">本题尚未入库</p></div>
+            <div class="width100" ng-show="taskdo" ng-if="!issharepage"><p
+                    ng-if="udata.hasbook > 0 || udata.hasspec > 0"><span ng-if="udata.hasbook > 0"><a
+                    ng-click="show_my_books()">添加此题到我的棋书中</a> &nbsp;&nbsp;<span
+                    style="color:blue;">[[addbooktip]]</span> &nbsp;</span><span ng-if="udata.hasspec > 0"><a
+                    ng-click="show_my_specs()">添加此题到围棋知识点专辑中</a> &nbsp;&nbsp;<span
+                    style="color:blue;">[[addspectip]]</span></span></p>
+                <div class="width100">
+                    <div ng-show="is_showmybooks" class="qfloatdiv"><span class="pull-left " ng-if="bookdoing"><i
+                            class="fa fa-spinner fa-spin fa-x fa-fw"></i></span>
+                        <div class="width50" ng-repeat="b in mybooks">
+                            <div class="mybookitem">
+                                <div ng-click="showchapter(b)"><span ng-if="!b.showchapter"><i
+                                        class="fa fa-plus-square-o"></i></span><span ng-if="b.showchapter"><i
+                                        class="fa fa-minus-square-o"></i></span>&nbsp;<span ng-if="b.hasselect"
+                                                                                            style="padding-left: 3px;padding-right: 30x;color:blue;"><i
+                                        class="fa fa-check"></i></span>[[b.bookname]]
+                                </div>
+                                <div class="mybookchapter" ng-if="b.showchapter"><label class="checkbox"
+                                                                                        ng-repeat="c in b.chapters"
+                                                                                        style="margin-top: 2px;margin-bottom: 2px;"><input
+                                        type="checkbox" class="chapter" ng-model="c.isin" ng-change="chapterchange(b)">
+                                    [[c.name]]</label></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="pull-right" style="margin-right:20px;"><a ng-click="addtobook()"
+                                                                              class="btn btn-success">保存到棋书</a>&nbsp;&nbsp;<a
+                                class="btn" ng-click="closemybooks()">取消</a></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div ng-show="is_showmyspecs" class="qfloatdiv"><span class="pull-left " ng-if="specdoing"><i
+                            class="fa fa-spinner fa-spin fa-x fa-fw"></i></span>
+                        <div class="col-md-4" ng-repeat="b in myspecs"><label class="checkbox"><input type="checkbox"
+                                                                                                      class="specitem"
+                                                                                                      ng-model="b.isin">
+                            [[b.name]]</label></div>
+                        <div class="clear"></div>
+                        <div class="pull-right" style="margin-right:20px;"><a ng-click="addtospec()"
+                                                                              class="btn btn-success">保存到围棋知识点专辑</a>&nbsp;&nbsp;<a
+                                class="btn" ng-click="closemyspecs()">取消</a></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="width100" style="margin-bottom:10px;"
+                     ng-if="qq.qtype != 11 && qq.qtype != 16 && qq.qtype < 18">
+                    <div ng-if="qq.userid == udata.userid || udata.iseditor ">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li ng-class="{'active':st.attr_type2 === 0}"><a ng-click="openoption(0)">无选点选项</a></li>
+                            <li ng-if="qq.qtype == 4 || qq.qtype == 13 || qq.qtype == 14 || qq.qtype == 15"
+                                ng-class="{'active':st.attr_type2 === 1}"><a ng-click="openoption(1)">选点管理</a></li>
+                            <li ng-class="{'active':st.attr_type2 === 2}"><a ng-click="openoption(2)">选择项管理</a></li>
+                        </ul>
+                        <div class="tab-content" ng-show="is_showoption">
+                            <div role="tabpanel" class="tab-pane" ng-class="{'active':st.attr_type2 === 0}"><p
+                                    class="text-success">无选点，无选择项 &nbsp;&nbsp;&nbsp;<a ng-click="savenopoint()"
+                                                                                       class="btn btn-success">确定</a>
+                            </p></div>
+                            <div role="tabpanel" class="tab-pane" ng-class="{'active':st.attr_type2 === 1}">
+                                <div>用鼠标直接在棋盘上选中一点，也可以&nbsp;<a ng-click="genpoint()">从答案中自动生成选点</a>
+                                    <p class="text-info">提示：每个选点的分值满分为10分，满分点为正确的选点</p></div>
+                                <table class="table table-condensed">
+                                    <tr class="pointitem" ng-repeat="p in st.xuandians">
+                                        <td class="pointname">[[p.name]]</td>
+                                        <td class="zuobiao">[[p.ptname]]</td>
+                                        <td>分值：<input type="text" size="5" ng-model="p.score"></td>
+                                        <td><a ng-click="removepoint($index)">删除</a></td>
+                                    </tr>
+                                </table>
+                                <div class="clear"></div>
+                                <div class="pull-right" style="margin-right:20px;"><a
+                                        ng-click="randompoint()">随机排列顺序</a>&nbsp;&nbsp;<a ng-click="savepoint()"
+                                                                                          class="btn btn-success">保存选点</a>&nbsp;&nbsp;<a
+                                        class="btn" ng-click="closebluepoint()">关闭</a></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" ng-class="{'active':st.attr_type2 === 2}"><p><a
+                                    ng-click="newoption()">增加选项</a></p>
+                                <table class="table">
+                                    <tr ng-repeat="p in st.options">
+                                        <td>[[p.indexname]].</td>
+                                        <td><input type="text" placeholder="选项文本内容" class="optiontext"
+                                                   ng-model="p.content"></td>
+                                        <td><label><input type="radio" name="optionok" ng-model="st.okindex"
+                                                          value="[[p.opindex]]"> 属于正确答案</label></td>
+                                        <td><a ng-click="optiondel($index)">删除</a></td>
+                                    </tr>
+                                </table>
+                                <div class="clear"></div>
+                                <div class="pull-right" style="margin-right:20px;"><a ng-click="saveselect()"
+                                                                                      class="btn btn-success">保存选择项</a>&nbsp;&nbsp;<a
+                                        class="btn" ng-click="closeselect()">关闭</a></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="play_pinglun width100" ng-if="taskdo"><p class="bor"></p>
+                <p ng-if="comments.length > 0"><a ng-click="showcomment()" ng-if="!is_showcomment"><i
+                        class="fa fa-plus-square-o"></i> 显示评论列表</a><a ng-click="showcomment()" ng-if="is_showcomment"><i
+                        class="fa fa-minus-square-o"></i> 隐藏评论列表</a><span style="padding-left:5px;">([[comments.length]])</span>
+                </p>
+                <div id="topicdiv" style="border-radius:10px; background:rgba(255,255,255,0.5);margin-bottom:10px;">
+                    <table class="table table-hover" ng-if="is_showcomment">
+                        <tr ng-repeat="s in comments track by $index" ng-mouseover="over_comment(s)"
+                            ng-mouseout="out_comment(s)">
+                            <td class="head"><img ng-show="!s.ishide" style="width:60px;height:60px;"
+                                                  ng-src="https://static2.101weiqi.com/file/[[s.headpath]]"></td>
+                            <td class="commentblock">
+                                <h6 ng-show="!s.ishide"><span class="pull-left"><a ng-href="/u/[[::s.username]]/">[[::s.username]]</a> 写于 [[::s.updatestr]]</span><span
+                                        class="pull-right text-info" style="margin-right:10px;"><span ng-if="s.dou > 0"
+                                                                                                      class="rightdropmenu"><span
+                                        ng-if="s.doustatus == 2" class="glyphicon glyphicon-ok">[[::s.douname]]赢取[[s.dou]]围豆 </span><span
+                                        ng-if="s.doustatus != 2"><span uib-dropdown on-toggle="show_douname(s)"
+                                                                       class="dropdown"
+                                                                       ng-if="udata.userid == s.userid || udata.ismanager"><a
+                                        uib-dropdown-toggle id="dLabel_[[::s.id]]"><span
+                                        class="glyphicon glyphicon-star"></span>[[::s.dou]]围豆 <i class="caret"></i></a><ul
+                                        class="dropdown-menu" uib-dropdown-menu role="menu"
+                                        aria-labelledby="dLabel_[[::s.id]]"><li role="menuitem"
+                                                                                ng-repeat="un in dounames"
+                                                                                ng-if="un != udata.username"><a
+                                        ng-click="douwin(s,un)">向 [[un]] 支付[[::s.dou]]围豆</a></li><li role="menuitem"
+                                                                                                     ng-if="udata.ismanager"><a
+                                        ng-click="canceldouwin(s)">取消</a></li></ul></span><span class="dropdown"
+                                                                                                ng-if="udata.userid !== s.userid && !udata.ismanager"><i
+                                        class="glyphicon glyphicon-star"></i>[[::s.dou]]围豆</span></span></span><span
+                                        ng-if="isintopic">[[$index + 1]]楼&nbsp;</span><span
+                                        ng-if="udata.userid === s.userid || udata.isoper || udata.ismanager"><span
+                                        ng-if="s.dou === 0" ng-show="s.isover"><a
+                                        ng-click="removecomment(s)">删除</a></span></span></span></h6>
+                                <div class="clear"></div>
+                                <div ng-show="!s.ishide" style="margin-top:10px;" class="width100 breakword ">
+                                    <div ng-bind-html="s.contentHtml"></div>
+                                </div>
+                                <span class="pull-right" ng-show="s.ishide" style="color:green;">已经删除，<a
+                                        ng-click="restorecomment(s)">撤销</a> | <a
+                                        ng-click="destorycomment(s)">关闭</a></span></td>
+                        </tr>
+                    </table>
+                    <div ng-if="udata.islogin" style="margin-top:20px;"><p>我的评论 </p>
+                        <div><textarea ng-model="newc.commenttext" name="content" rows="5"
+                                       class="form-control col-md-12"></textarea></div>
+                        <div class="clear"></div>
+                        <div style="margin-left:25px;" ng-if="!issharepage"><label class="checkbox"><input
+                                type="checkbox" name="weidou_q" ng-model="newc.weidoubox"> <span>使用围豆进行提问</span></label>
+                            <div ng-if="newc.weidoubox" style="margin-left:20px;margin-bottom:5px;">围豆数量(至少30个)：<input
+                                    type="text" ng-model="newc.weidounumber" size="5"> &nbsp;我的围豆总数：[[::udata.dou]]&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                    href="https://doc.101weiqi.com/member/weidou/">关于围豆</a></div>
+                        </div>
+                        <div style="margin-top:10px;" ng-if="caninput"><a class="addcomment btn btn-success"
+                                                                          ng-click="addcomment()">添加评论</a></div>
+                        <div style="margin-top:10px;" ng-if="!caninput">注册三天之后，以及在 <a href="/guan/">棋力测试</a>
+                            中有通关记录的棋友才能发言。
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <script type="text/ng-template" id="answer_item_renderer">
+            <div class="answer">
+                <div class="col-md-12 answershort " ng-class="{'answerdisuse':an.ty === 4,'destanswer':an.isdest}"><span
+                        class="badge">[[::an.nu]]</span>&nbsp;&nbsp;[[an.stepindex]]/[[an.stepcount]]&nbsp;&nbsp;<div
+                        class="btn-group" curindex="0">
+                    <button class="btn btn-default steppos" title="第一步" ng-click="gotofirst(an)"><span
+                            class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+                    <button class="btn btn-default prevstep" ng-click="gotostep(an,-1)" title="上一步"><span
+                            class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
+                    <button class="btn btn-default nextstep" ng-click="gotostep(an,1)" title="下一步"><span
+                            class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+                    <button class="btn btn-default steppos" ng-click="gotoend(an)" title="最后一步"><span
+                            class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+                </div>
+                    <span class="answername" style="padding-left:5px;"><span ng-if="an.username != 'admin' ">由<a
+                            ng-href="/u/[[::an.username]]/" target="_blank">[[::an.username]]</a>提供&nbsp;</span><span
+                            ng-if="udata.islogin && an.username == udata.username"><span
+                            ng-if="an.st == 1 || an.ty == 4"><a ng-click="removeanswer(an)">  删除</a>&nbsp;</span></span><a
+                            ng-click="show_pinjia(an)"><span ng-if="an.showpinjia">隐藏</span>评价</a></span></div>
+                <div class="clear"></div>
+                <div class="col-md-12" ng-if="an.showpinjia">
+                    <form autocomplete="off" style="margin-left:25px;"><label class="radio"><input type="radio"
+                                                                                                   name="an_[[::an.id]]"
+                                                                                                   ng-model="an.v"
+                                                                                                   value="1">属于正解答案
+                        ([[an.ok_count]])</label><label class="radio"><input type="radio" name="an_[[::an.id]]"
+                                                                             ng-model="an.v" value="2">属于变化答案
+                        ([[an.change_count]])</label><label class="radio"><input type="radio" name="an_[[::an.id]]"
+                                                                                 ng-model="an.v" value="3">属于失败答案
+                        ([[an.bad_count]])</label><label class="radio"><input type="radio" name="an_[[::an.id]]"
+                                                                              ng-model="an.v" value="4">答案有误
+                        ([[an.error_count]])</label></form>
+                    <a ng-click="submitacomment(an)">提交</a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue">[[an.submittip]]</span>
+                </div>
+                <div ng-if="an.isdest" class="answertip text-info col-md-12 ">[[an.showtip]]</div>
+                <div class="clear"></div>
+            </div></script>
+    </div>
+    <div style="text-align:center;margin-bottom:20px;" class="col-md-12"
+         ng-if="!qq.is_share && qq.userid != udata.userid && !udata.ismanager && !leipage"><p class="text-success">
+        本题非共享，不能查看</p></div>
+    <div style="text-align:center;margin-bottom:20px;" class="col-md-12" ng-if="!qq.is_public"><p class="text-success">
+        本题不公开，不能查看</p></div>
+    <input type='hidden' name='csrfmiddlewaretoken'
+           value='BtyNhnY1T8d9dAbmqMHdc1QXiv6yugnUqr4AEI1Gb4B36sEEbDKOwVTxhtIFMy4x'/>
+    <audio id="stoneaudio">
+        <source src="https://static2.101weiqi.com/static/media/newfirststone.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="eat1audio">
+        <source src="https://static2.101weiqi.com/static/media/neweat1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="eat2audio">
+        <source src="https://static2.101weiqi.com/static/media/neweat2.mp3" type="audio/mpeg">
+    </audio>
     <div class="clear"></div>
 </div>
 <footer id="myfooter">
-    <div class="container tc-main">
+    <div class="container tc-main" style="margin-bottom: 10px;">
         <div class="spliter"></div>
-        <span class="pull-left">\xc2\xa9 2012-2018 10
-1weiqi.com, all rights reserved</span><span class="pull-right" style="padding-right:10px;"><a
-            href="https://doc.101weiqi.com/">101\xe5\xb8\xae\xe5\x8a\xa9</a></span>
+        <span class="pull-left">© 2012-2019 101weiqi.com, all rights reserved</span><span class="pull-right"
+                                                                                          style="padding-right:10px;"><a
+            href="https://doc.101weiqi.com/">101帮助</a></span></div>
+    <input type="hidden" id="curuser" value="" login="/"></footer>
+<script type="text/ng-template" id="canvasdiff.html">
+    <div class="col-md-12 "><span ng-if="diff.isfinish">恭喜，查找完成</span><span ng-if="!diff.isfinish"><span
+            ng-if="diff.allowclick"><span ng-if="diff.hastwo">共有[[diff.totalcount]]处不同，请在图中找出来</span><span
+            ng-if="!diff.hastwo">[[diff.desc]]</span></span><span
+            ng-if="!diff.allowclick">查找错误，请等待3秒钟再找</span></span><span style="padding-left:20px;">[[diff.okcount]] / [[diff.totalcount]]</span>
     </div>
-    <input type="hidden" id="curuser" value="" login="/"/></footer>
+    <div class="diffshowimage" ng-style="canvasstyle"><img ng-src="[[diff.firstimgurl]]" ng-click="no_click()">
+        <div class="diffshowpositem" ng-repeat="d in diff.diffs" ng-class="{'diffactive':d.isok}" ng-style="d.posstyle"
+             ng-click="do_click(d)"></div>
+    </div>
+    <div class="diffshowimage" ng-style="canvasstyle" ng-if="diff.hastwo"><img ng-src="[[diff.secondimgurl]]"
+                                                                               ng-click="no_click()">
+        <div class="diffshowpositem" ng-repeat="d in diff.diffs" ng-class="{'diffactive':d.isok}" ng-style="d.posstyle"
+             ng-click="do_click(d)"></div>
+    </div></script>
 <script type="text/javascript">var is_secure = true;</script>
-<script type="text/javascript" src
-        ="https://static2.101weiqi.com/static/cache/51e94ee922c3d543ac1bf6a6c901812c.js"></script>
-\n
-<script type="text/javascript" src="https://static2.101weiqi.com/static/c
-ache/a70410df23b209714c31ec8053e82fc5.js"></script>
-\n
+<script type="text/javascript"
+        src="https://static2.101weiqi.com/static/cache/d3bc3b8805393ecf2a9e0f6d938a7e61.js"></script>
+<script>var static_server = "https://static2.101weiqi.com";
+var g_userdata = {"islogin": false};
+var g_qq = {
+    "status": 2,
+    "pos_y1": 0,
+    "pos_y2": 8,
+    "islei": false,
+    "myoper": {"mystar": false, "tags": [], "mytags": []},
+    "layoutnumber": 1,
+    "qshids": [],
+    "orgid": 0,
+    "vv": 5,
+    "signs": [],
+    "vote": 4.8,
+    "bookinfos": [{
+        "pinyin": "",
+        "bookname": "\u6743\u7532\u9f99\u9053\u573a\u4e1a\u4f59\u9ad8\u6bb5\u6b7b\u6d3b",
+        "nodename": "110\u9898",
+        "bookid": 5071,
+        "bookurl": 5071
+    }, {
+        "pinyin": "qiantian",
+        "bookname": "\u8bd8\u68cb\u540d\u5bb6\u4e13\u8457",
+        "nodename": "\u6743\u7532\u9f99 \u9053\u573a\u4e1a\u4f59\u9ad8\u6bb5\u6b7b\u6d3b",
+        "bookid": 201,
+        "bookurl": "qiantian"
+    }, {
+        "pinyin": "",
+        "bookname": "\u8001\u9648\u4e4b\u4e66",
+        "nodename": "\u6631\u8fbe\u592b",
+        "bookid": 28619,
+        "bookurl": 28619
+    }],
+    "qtype": 1,
+    "id": 127654,
+    "fine_status": 0,
+    "points": [],
+    "publicid": 116661,
+    "title": "",
+    "ineb": false,
+    "comments": [{
+        "username": "\u9752\u9752\u8349\u539f\u625b\u628a\u5b50OvO",
+        "showcontent": "\uff1f\uff1f\uff1f",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 315112,
+        "updated": 1557377388,
+        "doustatus": 0,
+        "id": 436120,
+        "dou": 0
+    }, {
+        "username": "\u674e\u5f08\u7fbd",
+        "showcontent": "\u8fd9\u9898\u6709\u95ee\u9898\u5427\uff0c\u7b54\u68483<a href=\"/u/kenny/\" target=\"_blank\">@kenny</a>\uff0c",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 402074,
+        "updated": 1563513275,
+        "doustatus": 0,
+        "id": 468225,
+        "dou": 0
+    }, {
+        "username": "\u5173\u5c79\u5929",
+        "showcontent": "\u5b98\u5b50\u9898\u5427",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 333015,
+        "updated": 1565483115,
+        "doustatus": 0,
+        "id": 483136,
+        "dou": 0
+    }, {
+        "username": "18\u4f59\u6cd3\u71b9",
+        "showcontent": "\u52ab\u6740\uff0c\u6ca1\u95ee\u9898\u5440\uff01",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 437694,
+        "updated": 1566267105,
+        "doustatus": 0,
+        "id": 489802,
+        "dou": 0
+    }, {
+        "username": "\u6bd5\u65af\u6db5",
+        "showcontent": "\u7b97\u4e0d\u6e05\u554a",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 332100,
+        "updated": 1572054440,
+        "doustatus": 0,
+        "id": 519412,
+        "dou": 0
+    }, {
+        "username": "\u4e5d\u70b9\u5706",
+        "showcontent": "\u6b63\u89e3\u6709\u70b9\u5c0f\u95ee\u9898",
+        "douname": "",
+        "headpath": "head/2015/8/3/2979_11289_54_34.png",
+        "userid": 2979,
+        "updated": 1572064298,
+        "doustatus": 0,
+        "id": 519513,
+        "dou": 0
+    }],
+    "specs": [],
+    "lu": 19,
+    "max_levelname": "",
+    "hasspec": false,
+    "blackfirst": true,
+    "luozis": [],
+    "username": "\u6211\u7231\u51fa\u52fa",
+    "pos_x2": 18,
+    "pos_x1": 8,
+    "edit_count": 0,
+    "answers": [{
+        "username": "\u6218\u795e\u9e92\u9e9f",
+        "change_count": 50,
+        "ty": 2,
+        "nu": 5,
+        "userid": 399743,
+        "st": 2,
+        "ok_count": 11,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "pts": [{"p": "pa", "c": ""}, {"p": "pb", "c": ""}, {"p": "ob", "c": ""}, {"p": "oa", "c": ""}, {
+            "p": "qb",
+            "c": ""
+        }],
+        "id": 973014
+    }, {
+        "username": "\u4e5d\u70b9\u5706",
+        "change_count": 0,
+        "ty": 1,
+        "nu": 7,
+        "userid": 2979,
+        "st": 2,
+        "ok_count": 11,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "pts": [{"p": "pa", "c": ""}, {"p": "ob", "c": ""}, {"p": "qb", "c": ""}, {"p": "pb", "c": ""}, {
+            "p": "ma",
+            "c": "\u4ee5\u4e0b\u9ed1\u53ef\u8d70\u6210\u4e07\u5e74\u52ab\u5f62\u72b6"
+        }],
+        "id": 1033828
+    }, {
+        "username": "\u4e5d\u70b9\u5706",
+        "change_count": 0,
+        "ty": 3,
+        "nu": 9,
+        "userid": 2979,
+        "st": 2,
+        "ok_count": 0,
+        "error_count": 0,
+        "bad_count": 10,
+        "v": 0,
+        "pts": [{"p": "ob", "c": ""}, {"p": "pa", "c": ""}],
+        "id": 1033830
+    }, {
+        "username": "\u4e5d\u70b9\u5706",
+        "change_count": 0,
+        "ty": 1,
+        "nu": 8,
+        "userid": 2979,
+        "st": 2,
+        "ok_count": 11,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "pts": [{"p": "pa", "c": ""}, {"p": "ob", "c": ""}, {"p": "qb", "c": ""}, {"p": "pb", "c": ""}, {
+            "p": "ma",
+            "c": ""
+        }, {"p": "rf", "c": ""}, {"p": "qa", "c": ""}, {"p": "pf", "c": ""}, {"p": "sb", "c": ""}, {
+            "p": "oa",
+            "c": ""
+        }, {"p": "qa", "c": ""}, {"p": "rb", "c": ""}, {"p": "ra", "c": ""}],
+        "id": 1033829
+    }],
+    "is_share": true,
+    "min_levelname": "",
+    "taskresult": {
+        "ok_nums": [3, 0, 1, 0, 1, 1, 8, 5, 2, 6, 3, 9, 18, 18, 18, 46, 43, 29, 14, 5, 1, 2, 7, 0, 5, 3, 1, 2, 2, 2],
+        "ok_total": 255,
+        "fail_nums": [1, 2, 2, 0, 0, 4, 2, 5, 6, 6, 9, 13, 12, 28, 27, 31, 21, 19, 13, 11, 3, 7, 3, 2, 1, 6, 2, 3, 0, 2],
+        "fail_total": 241
+    },
+    "qtypename": "\u6b7b\u6d3b\u9898",
+    "hasbook": false,
+    "issingle": true,
+    "xuandians": [],
+    "sms_count": 0,
+    "nexterrorurl": "",
+    "sy": 9,
+    "enable_answer": true,
+    "name": "",
+    "attr_type": 0,
+    "ans_count": 4,
+    "userid": 16956,
+    "taotaiid": 0,
+    "is_public": true,
+    "sx": 11,
+    "disuse": 5,
+    "isguess": false,
+    "prepos": [["ds", "as", "dr", "br", "ar", "dq", "dp", "do", "dn", "cn", "bm", "cl"], ["cs", "cr", "cq", "cp", "co", "bn", "an"]],
+    "myan": null,
+    "options": [],
+    "levelname": "1K+"
+};
+var taskinfo = null;
+var myq = null;
+var classt = null;
+var lqanswerer = [];
+var lqid = 0;
+var lqstatus = 0;
+var leipage = false;
+var issharepage = false;
+var qshobj = {};
+var sharesocketurl = "";
+var studentans = [];
+var ebookid = 0;
+var orgid = 0;
+var classid = 0;
+var markcount = 0;
+var doingtype = 1;
+var ok_images = [];
+var error_images = [];
+var dajie_images = [];
+var forbid_images = [];
+var caninput = false;</script>
+<script type="text/javascript"
+        src="https://static2.101weiqi.com/static/cache/7e04bc920af69c8316e01b58e4f96f09.js"></script>
+<script type="text/javascript"
+        src="https://static2.101weiqi.com/static/cache/3fb839dea19a53c7215ca0ee579645e1.js"></script>
+<script type="text/javascript">var dots_of_star_19 = ["dd", "dj", "dp", "jd", "jj", "jp", "pd", "pj", "pp"];
+var dots_of_star_13 = ["dd", "dj", "gg", "jd", "jj"];
+var dots_of_star_9 = ["cc", "gc", "cg", "gg"];
+var dots_of_star_none = [];
+var vertline_img = null;
+var hertline_img = null;
+var point_img = null;
+var black_img = null;
+var white_img = null;
+var black_img_s = null;
+var white_img_s = null;
+var board_img = null;
+var luozi_img = null;
+var qok_img = null;
+var qfail_img = null;
+var tipok_img = new Image;
+var tiperror_img = new Image;
+var tipclose_img = new Image;
+var g_vertlineimgok = false;
+var g_hertlineimgok = false;
+var g_luoziimgok = false;
+var g_linecolor = "#000000";
+var g_linewidth = 1;
+var faceisblank = true;
+var g_qokimgok = false;
+var g_qfailimgok = false;
+faceisblank = false;
+board_img = new Image;
+board_img.src = "https://static2.101weiqi.com/static/face/1/bg-04.jpg";
+$(".answerbody").css("background", 'url("' + board_img.src + '")');
+black_img = new Image;
+black_img.src = "https://static2.101weiqi.com/static/face/1/black.png";
+white_img = new Image;
+white_img.src = "https://static2.101weiqi.com/static/face/1/white.png";
+var fu_img = null;
+tipok_img.src = "https://static2.101weiqi.com/static/images/tip_ok.png";
+tiperror_img.src = "https://static2.101weiqi.com/static/images/tip_error2.png";
+tipclose_img.src = "https://static2.101weiqi.com/static/images/close6.png";
+var g_blackimgok = false;
+var g_whiteimgok = false;
+var g_fuimgok = false;
+if (!faceisblank) {
+    black_img.onload = function () {
+        g_blackimgok = true;
+    };
+    black_img.onerror = black_img.onabort = function () {
+    };
+    white_img.onload = function () {
+        g_whiteimgok = true;
+    };
+    white_img.onerror = white_img.onabort = function () {
+    };
+}
+var g_tipokimgok = false;
+var g_tiperrorimgok = false;
+var g_tipcloseimgok = false;
+tipok_img.onload = function () {
+    g_tipokimgok = true;
+};
+tiperror_img.onload = function () {
+    g_tiperrorimgok = true;
+};
+tipclose_img.onload = function () {
+    g_tipcloseimgok = true;
+};
+var finishimgurl = "";
+var taskscoreimgurl = "";</script>
 <script type="text/javascript">$(document).ready(function () {
     var x = 0;
     var y = 0;
