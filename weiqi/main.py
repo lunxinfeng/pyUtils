@@ -11,7 +11,6 @@ sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
 print(os.path.abspath(os.path.join(os.getcwd(), "../..")))
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "../..")))
 
-
 print(sys.path)
 
 execute(["scrapy", "crawl", "book"])

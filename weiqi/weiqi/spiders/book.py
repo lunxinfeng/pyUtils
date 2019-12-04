@@ -28,10 +28,10 @@ class BookSpider(scrapy.Spider):
         self.browser.quit()
 
     def start_requests(self):
-        start_urls = ['https://www.101weiqi.com/book/level/1']
-        # start_urls = ['https://www.101weiqi.com/book/3790/6346/108663/']
+        # start_urls = ['https://www.101weiqi.com/book/level/1']
+        start_urls = ['https://www.101weiqi.com/book/5071/']
         for url in start_urls:
-            yield Request(url=url, callback=self.parse)
+            yield Request(url=url, callback=self.parse_2)
 
     def parse(self, response):
         """解析第一个页面，书的列表页"""

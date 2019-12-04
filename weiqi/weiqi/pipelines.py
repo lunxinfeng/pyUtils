@@ -62,10 +62,10 @@ class WeiqiPipeline(object):
     def getSgf(self, answers, black_first, prepos_b, prepos_w, signs, title):
         sgf = "(;AB"
         for p in prepos_b:
-            sgf += ("[" + str(p) + "]")
+            sgf += ("[" + self.change(str(p)) + "]")
         sgf += "AW"
         for p in prepos_w:
-            sgf += ("[" + str(p) + "]")
+            sgf += ("[" + self.change(str(p)) + "]")
         if black_first == "1":
             sgf += "C[黑先"
         else:
@@ -115,3 +115,11 @@ class WeiqiPipeline(object):
         sgf += ")"
         # print(sgf)
         return sgf
+
+    def change(self, s):
+        array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s"]
+        first_index = array.index(s[0])
+        first_index = array.__len__() - 1 - first_index
+        second_index = array.index(s[1])
+        second_index = array.__len__() - 1 - second_index
+        return str(array[first_index]) + str(array[second_index])
