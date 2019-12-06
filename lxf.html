@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><title>Q-116653 - 110题 - 101围棋网</title>
+<head><title>吉祥势 - 角之部 - 101围棋网</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="围棋死活题，围棋手筋题，围棋官子题"/>
-    <meta name="description" content="显示《权甲龙道场业余高段死活》中的围棋死活题Q-116653信息，题目标签:; 题目级别:4D+;题目质量:;"/>
+    <meta name="description" content="显示《玄玄棋经-桥本宇太郎解说》中的围棋死活题吉祥势信息，题目标签:; 题目级别:1K;题目质量:;"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no"/>
     <link href="https://static2.101weiqi.com/static/images/apple_1442.png" rel="shortcut icon"/>
     <link href="https://static2.101weiqi.com/static/images/apple_1442.png" rel="Bookmark"/>
@@ -84,10 +84,12 @@
 </nav>
 <div class="container tc-main zuoti_bg" id="main" ng-controller="QuestionCtrl" ng-cloak>
     <ul class="breadcrumb">
-        <li><a href="/book/5071/">权甲龙道场业余高段死活</a></li>
-        <li><a href="/book/5071/8874/">110题</a></li>
-        <li class="active">第1题&nbsp;Q-116653</li>
-        <div class="huati_lei"><span><a class="btn btn-info" id="nextq" href="/book/5071/8874/127647/"><span
+        <li><a href="/book/xuanxuanqijin/">玄玄棋经-桥本宇太郎解说</a></li>
+        <li><a href="/book/xuanxuanqijin/90/">角之部</a></li>
+        <li class="active">第39题&nbsp;吉祥势</li>
+        <div class="huati_lei"><span class="previous"><a class="btn btn-info" id="prevq"
+                                                         href="/book/xuanxuanqijin/90/2601/"><span class="nextquestion"> 上 一 题 </span></a></span>&nbsp;<span><a
+                class="btn btn-info" id="nextq" href="/book/xuanxuanqijin/90/18354/"><span
                 class="nextquestion"> 下 一 题 </span></a></span></div>
     </ul>
     <div ng-if="qq.is_public" ng-show="qq.is_share || qq.userid == udata.userid || udata.ismanager || leipage">
@@ -211,11 +213,11 @@
                 ng-if="show_level" ng-show="taskdo">&nbsp;[[::qq.levelname]]</small></h2>
             <p class="text-success"><span ng-if="qq.title">[[::qq.title]] &nbsp;&nbsp;</span><span ng-if="!issharepage"
                                                                                                    ng-show="udata.userid == qq.userid || udata.iseditor"><span
-                    ng-show="taskdo"><a ng-if="qq.qtype < 18" ng-href="/changeqstone/127646/" target="_blank">编辑题目</a><a
-                    ng-if="qq.qtype == 18" ng-href="/inputtxt/127646/" target="_blank">编辑题目</a><a ng-if="qq.qtype == 19"
-                                                                                                  ng-href="/inputimage/127646/"
-                                                                                                  target="_blank">编辑题目</a><a
-                    ng-if="qq.qtype == 20" ng-href="/inputdiff/127646/" target="_blank">编辑题目</a></span></span></p>
+                    ng-show="taskdo"><a ng-if="qq.qtype < 18" ng-href="/changeqstone/18353/" target="_blank">编辑题目</a><a
+                    ng-if="qq.qtype == 18" ng-href="/inputtxt/18353/" target="_blank">编辑题目</a><a ng-if="qq.qtype == 19"
+                                                                                                 ng-href="/inputimage/18353/"
+                                                                                                 target="_blank">编辑题目</a><a
+                    ng-if="qq.qtype == 20" ng-href="/inputdiff/18353/" target="_blank">编辑题目</a></span></span></p>
             <div ng-if="!issharepage"><p ng-show="taskdo" ng-if="qq.sms_count > 0 || qq.edit_count > 0"><a
                     ng-if="qq.sms_count > 0" ng-href="/similarly/[[qq.id]]/" target="_blank">有[[qq.sms_count]]道类似题目</a>
                 &nbsp;&nbsp;<a ng-if="qq.edit_count > 0" ng-href="/qchange/[[qq.id]]/" target="_blank">有[[qq.edit_count]]条修改记录</a>
@@ -638,7 +640,7 @@
     <div style="text-align:center;margin-bottom:20px;" class="col-md-12" ng-if="!qq.is_public"><p class="text-success">
         本题不公开，不能查看</p></div>
     <input type='hidden' name='csrfmiddlewaretoken'
-           value='O27ygqZseRWziKBArXTararpPS6IHBvLD0DlDL27wNktbC4ScOWLL4uZOQIPZTco'/>
+           value='y4EQOERgBFJdgaz46nANkn8ewGiDCur8n2aDbZUVTB77922mReDoEhbOvEUKUM8L'/>
     <audio id="stoneaudio">
         <source src="https://static2.101weiqi.com/static/media/newfirststone.mp3" type="audio/mpeg">
     </audio>
@@ -678,89 +680,398 @@
 <script>var static_server = "https://static2.101weiqi.com";
 var g_userdata = {"islogin": false};
 var g_qq = {
+    "username": "admin",
+    "pos_y1": 0,
+    "pos_y2": 11,
+    "islei": false,
+    "myoper": {"mystar": false, "tags": [], "mytags": []},
+    "signs": [],
     "taotaiid": 0,
+    "qshids": [],
     "orgid": 0,
-    "vv": 6,
-    "disuse": 0,
-    "vote": 4.8,
+    "vv": 7,
+    "disuse": 2,
+    "vote": 4.3,
     "qtype": 1,
+    "specs": [],
     "fine_status": 0,
-    "publicid": 116653,
+    "publicid": 18353,
+    "title": "\u89d2\u4e4b\u6025\u6240\u5728\u6b64\u4e00\u95ee\u9898\u4e5f\u5e94\u7528\u5f97\u4e0a\u3002\u8bf7\u6269\u5927\u601d\u8003\u7a7a\u95f4\uff0c\u60f3\u51fa\u654c\u65b9\u4e4b\u6025\u6240\u4e3a\u6211\u65b9\u6025\u6240\u4e4b\u70b9\u3002",
     "ineb": false,
+    "comments": [{
+        "username": "peter123",
+        "showcontent": "\u597d\u50cf\u4e0d\u662f",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 82794,
+        "updated": 1494117641,
+        "doustatus": 0,
+        "id": 193085,
+        "dou": 0
+    }, {
+        "username": "17.\u674e\u627f\u9a8f",
+        "showcontent": "\u2018\u7384\u7384\u68cb\u7ecf\u2019\u662f\u5b8b\u5143\u65f6\u671f\uff0c\u4e0d\u662f\u67ef\u6d01\u9996\u521b",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 395756,
+        "updated": 1566829455,
+        "doustatus": 0,
+        "id": 494527,
+        "dou": 0
+    }, {
+        "username": "\u4e54\u5e2e\u4e3b2008",
+        "showcontent": "\u62b1\u6b49\u8fd9\u662f\u6211\u5f1f\u53d1\u7684",
+        "douname": "",
+        "headpath": "head/2019/12/1/11685_8479_25_43.png",
+        "userid": 11685,
+        "updated": 1566831683,
+        "doustatus": 0,
+        "id": 494532,
+        "dou": 0
+    }],
+    "id": 18353,
+    "options": [],
+    "max_levelname": "",
     "hasspec": false,
+    "blackfirst": false,
+    "luozis": [],
     "status": 2,
+    "pos_x2": 18,
+    "pos_x1": 9,
+    "andata": {
+        "0": {"c": 0, "subs": [1, 8, 16, 25], "pt": "", "f": 0, "tip": "", "o": 0, "p": 0, "u": 0, "aids": [], "id": 0},
+        "1": {"c": 0, "subs": [2], "pt": "rd", "f": 0, "tip": "", "o": 1, "p": 0, "u": 0, "aids": [138789], "id": 1},
+        "2": {"c": 0, "subs": [3], "pt": "sd", "f": 0, "tip": "", "o": 1, "p": 1, "u": 0, "aids": [138789], "id": 2},
+        "3": {"c": 0, "subs": [4], "pt": "sb", "f": 0, "tip": "", "o": 1, "p": 2, "u": 0, "aids": [138789], "id": 3},
+        "4": {"c": 0, "subs": [5], "pt": "ra", "f": 0, "tip": "", "o": 1, "p": 3, "u": 0, "aids": [138789], "id": 4},
+        "5": {"c": 0, "subs": [6], "pt": "sc", "f": 0, "tip": "", "o": 1, "p": 4, "u": 0, "aids": [138789], "id": 5},
+        "6": {"c": 0, "subs": [7], "pt": "sa", "f": 0, "tip": "", "o": 1, "p": 5, "u": 0, "aids": [138789], "id": 6},
+        "7": {"c": 0, "subs": [], "pt": "sc", "f": 0, "tip": "", "o": 1, "p": 6, "u": 0, "aids": [138789], "id": 7},
+        "8": {
+            "c": 0,
+            "subs": [9],
+            "pt": "ra",
+            "f": 1,
+            "tip": "\u5931\u8d252",
+            "o": 0,
+            "p": 0,
+            "u": 0,
+            "aids": [83442],
+            "id": 8
+        },
+        "9": {"c": 0, "subs": [10], "pt": "sb", "f": 1, "tip": "", "o": 0, "p": 8, "u": 0, "aids": [83442], "id": 9},
+        "10": {"c": 0, "subs": [11], "pt": "sd", "f": 1, "tip": "", "o": 0, "p": 9, "u": 0, "aids": [83442], "id": 10},
+        "11": {"c": 0, "subs": [12], "pt": "se", "f": 1, "tip": "", "o": 0, "p": 10, "u": 0, "aids": [83442], "id": 11},
+        "12": {"c": 0, "subs": [13], "pt": "rd", "f": 1, "tip": "", "o": 0, "p": 11, "u": 0, "aids": [83442], "id": 12},
+        "13": {"c": 0, "subs": [14], "pt": "qe", "f": 1, "tip": "", "o": 0, "p": 12, "u": 0, "aids": [83442], "id": 13},
+        "14": {"c": 0, "subs": [15], "pt": "qg", "f": 1, "tip": "", "o": 0, "p": 13, "u": 0, "aids": [83442], "id": 14},
+        "15": {
+            "c": 0,
+            "subs": [],
+            "pt": "pe",
+            "f": 1,
+            "tip": "\u767d\u82e51\u6273\uff0c\u88ab\u9ed12\u7acb\u5c31\u6d3b\u4e86\u3002\u767d\u68cb\u5373\u4f7f3\u30015\uff0c\u88ab\u9ed16\u30018\u7d27\u6c14\u8d77\u4e0d\u4e86\u4f5c\u7528\u3002\r\n\r\n\u6d3b\u7528\u89d2\u9685\u7684\u7279\u6b8a\u6027\uff0c\u9664\u4e86\u201c2\u4e4b\u4e00\u201d\u4e4b\u624b\u7b4b\u5916\uff0c\u518d\u6ca1\u6bd4\u5b83\u66f4\u6f02\u4eae\u7684\u4e86\u3002",
+            "o": 0,
+            "p": 14,
+            "u": 0,
+            "aids": [83442],
+            "id": 15
+        },
+        "16": {
+            "c": 0,
+            "subs": [17],
+            "pt": "sb",
+            "f": 0,
+            "tip": "\u4ecd\u7136\u662f\u201c2\u4e4b\u4e00\u201d\u7684\u624b\u7b4b \u6b63\u89e3",
+            "o": 1,
+            "p": 0,
+            "u": 0,
+            "aids": [133953, 83440],
+            "id": 16
+        },
+        "17": {
+            "c": 0,
+            "subs": [18],
+            "pt": "ra",
+            "f": 0,
+            "tip": "",
+            "o": 1,
+            "p": 16,
+            "u": 0,
+            "aids": [133953, 83440],
+            "id": 17
+        },
+        "18": {
+            "c": 0,
+            "subs": [19],
+            "pt": "rd",
+            "f": 0,
+            "tip": "",
+            "o": 1,
+            "p": 17,
+            "u": 0,
+            "aids": [133953, 83440],
+            "id": 18
+        },
+        "19": {
+            "c": 0,
+            "subs": [20],
+            "pt": "sd",
+            "f": 0,
+            "tip": "",
+            "o": 1,
+            "p": 18,
+            "u": 0,
+            "aids": [133953, 83440],
+            "id": 19
+        },
+        "20": {
+            "c": 0,
+            "subs": [21, 33],
+            "pt": "sc",
+            "f": 0,
+            "tip": "\u9ed12\u65f6\uff0c\u767d3\u30015\u8fdb\u884c\u4e3a\u624b\u987a\u3002",
+            "o": 1,
+            "p": 19,
+            "u": 0,
+            "aids": [133953, 83440],
+            "id": 20
+        },
+        "21": {
+            "c": 0,
+            "subs": [22],
+            "pt": "sa",
+            "f": 0,
+            "tip": "",
+            "o": 1,
+            "p": 20,
+            "u": 0,
+            "aids": [133953],
+            "id": 21
+        },
+        "22": {
+            "c": 0,
+            "subs": [23],
+            "pt": "sc",
+            "f": 0,
+            "tip": "",
+            "o": 1,
+            "p": 21,
+            "u": 0,
+            "aids": [133953],
+            "id": 22
+        },
+        "23": {
+            "c": 0,
+            "subs": [24],
+            "pt": "sb",
+            "f": 0,
+            "tip": "",
+            "o": 1,
+            "p": 22,
+            "u": 0,
+            "aids": [133953],
+            "id": 23
+        },
+        "24": {"c": 0, "subs": [], "pt": "qa", "f": 0, "tip": "", "o": 1, "p": 23, "u": 0, "aids": [133953], "id": 24},
+        "25": {
+            "c": 0,
+            "subs": [26],
+            "pt": "se",
+            "f": 1,
+            "tip": "\u5931\u8d251",
+            "o": 0,
+            "p": 0,
+            "u": 0,
+            "aids": [83441],
+            "id": 25
+        },
+        "26": {"c": 0, "subs": [27], "pt": "sd", "f": 1, "tip": "", "o": 0, "p": 25, "u": 0, "aids": [83441], "id": 26},
+        "27": {"c": 0, "subs": [28], "pt": "sb", "f": 1, "tip": "", "o": 0, "p": 26, "u": 0, "aids": [83441], "id": 27},
+        "28": {"c": 0, "subs": [29], "pt": "ra", "f": 1, "tip": "", "o": 0, "p": 27, "u": 0, "aids": [83441], "id": 28},
+        "29": {"c": 0, "subs": [30], "pt": "rd", "f": 1, "tip": "", "o": 0, "p": 28, "u": 0, "aids": [83441], "id": 29},
+        "30": {"c": 0, "subs": [31], "pt": "sf", "f": 1, "tip": "", "o": 0, "p": 29, "u": 0, "aids": [83441], "id": 30},
+        "31": {"c": 0, "subs": [32], "pt": "sc", "f": 1, "tip": "", "o": 0, "p": 30, "u": 0, "aids": [83441], "id": 31},
+        "32": {
+            "c": 0,
+            "subs": [],
+            "pt": "qe",
+            "f": 1,
+            "tip": "\u6b21\u767d\u82e5A\uff0c\u5219\u9ed1B\u63d0\u3002\u6545\u5bf9\u9ed18\u7d27\uff0c\u767d\u53ea\u6709C\u63d0\u52ab\u3002\r\n\r\n\u9ed1\u68cb\u6765\u4e0d\u53ca\u65bd\u5c55\u5012\u6251\u5403\u63a5\u4e0d\u5f52\u7684\u624b\u6bb5\uff0c\u4e43\u6c14\u7d27\u4e4b\u7978\u3002",
+            "o": 0,
+            "p": 31,
+            "u": 0,
+            "aids": [83441],
+            "id": 32
+        },
+        "33": {"c": 0, "subs": [34], "pt": "se", "f": 0, "tip": "", "o": 1, "p": 20, "u": 0, "aids": [83440], "id": 33},
+        "34": {
+            "c": 0,
+            "subs": [],
+            "pt": "qa",
+            "f": 0,
+            "tip": "\u767d7\u6b62\uff0c\u7528\u63a5\u4e0d\u5f52\u5403\u5230\u9ed1\u5b50\u3002\r\n\r\n\u7b2c\u4e00\u7740\u5982\u4e8e6\u6273\uff0c\u88ab\u9ed14\u6321\uff0c\u4ee5\u540e\u5373\u4f7f\u4f9d\u7167\u6b63\u89e3\u56fe\u8fdb\u884c\u4e5f\u4f1a\u6210\u52ab\u3002\u8bf7\u786e\u5b9a\u4e00\u4e0b\u3002",
+            "o": 1,
+            "p": 33,
+            "u": 0,
+            "aids": [83440],
+            "id": 34
+        }
+    },
     "is_public": true,
-    "sy": 8,
+    "sy": 12,
     "answers": [{
-        "username": "Chtholly97",
-        "change_count": 0,
-        "ty": 3,
-        "userid": 246276,
-        "id": 957140,
-        "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 10,
-        "v": 0,
-        "st": 2,
-        "pts": [{"p": "rb", "c": ""}, {"p": "sb", "c": ""}, {"p": "qb", "c": ""}, {"p": "pb", "c": ""}, {
-            "p": "ra",
-            "c": ""
-        }, {"p": "oa", "c": ""}],
-        "nu": 4
-    }, {
-        "username": "Chtholly97",
-        "change_count": 0,
-        "ty": 3,
-        "userid": 246276,
-        "id": 957139,
-        "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 10,
-        "v": 0,
-        "st": 2,
-        "pts": [{"p": "qb", "c": ""}, {"p": "rb", "c": ""}, {"p": "pa", "c": ""}, {"p": "oa", "c": ""}, {
-            "p": "ra",
-            "c": ""
-        }, {"p": "sc", "c": ""}],
-        "nu": 3
-    }, {
-        "username": "xjhxgxfg",
-        "change_count": 1,
-        "ty": 2,
-        "userid": 47420,
-        "id": 904223,
-        "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 0,
-        "v": 0,
-        "st": 1,
-        "pts": [{"p": "oa", "c": ""}, {"p": "sb", "c": ""}, {"p": "qb", "c": ""}, {"p": "pb", "c": ""}, {
-            "p": "ra",
-            "c": ""
-        }, {"p": "pa", "c": ""}, {"p": "rb", "c": ""}],
-        "nu": 2
-    }, {
-        "username": "\u6211\u7231\u51fa\u52fa",
+        "username": "cat1587",
         "change_count": 0,
         "ty": 1,
-        "userid": 16956,
-        "id": 745282,
-        "ok_count": 10,
+        "userid": 1326,
+        "id": 138789,
+        "ok_count": 12,
         "error_count": 0,
         "bad_count": 0,
         "v": 0,
         "st": 2,
-        "pts": [{"p": "oa", "c": ""}, {"p": "qb", "c": ""}, {"p": "sb", "c": ""}, {"p": "sc", "c": ""}, {
-            "p": "rb",
+        "pts": [{"p": "rd", "c": " "}, {"p": "sd", "c": " "}, {"p": "sb", "c": " "}, {"p": "ra", "c": " "}, {
+            "p": "sc",
+            "c": " "
+        }, {"p": "sa", "c": " "}, {"p": "sc", "c": " "}],
+        "nu": 5
+    }, {
+        "username": "admin",
+        "change_count": 0,
+        "ty": 3,
+        "userid": 1,
+        "id": 83442,
+        "ok_count": 0,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "st": 2,
+        "pts": [{"p": "ra", "c": "\u5931\u8d252"}, {"p": "sb", "c": ""}, {"p": "sd", "c": ""}, {
+            "p": "se",
             "c": ""
+        }, {"p": "rd", "c": ""}, {"p": "qe", "c": ""}, {"p": "qg", "c": ""}, {
+            "p": "pe",
+            "c": "\u767d\u82e51\u6273\uff0c\u88ab\u9ed12\u7acb\u5c31\u6d3b\u4e86\u3002\u767d\u68cb\u5373\u4f7f3\u30015\uff0c\u88ab\u9ed16\u30018\u7d27\u6c14\u8d77\u4e0d\u4e86\u4f5c\u7528\u3002\r\n\r\n\u6d3b\u7528\u89d2\u9685\u7684\u7279\u6b8a\u6027\uff0c\u9664\u4e86\u201c2\u4e4b\u4e00\u201d\u4e4b\u624b\u7b4b\u5916\uff0c\u518d\u6ca1\u6bd4\u5b83\u66f4\u6f02\u4eae\u7684\u4e86\u3002"
+        }],
+        "nu": 3
+    }, {
+        "username": "yixuesuifeng",
+        "change_count": 0,
+        "ty": 1,
+        "userid": 4341,
+        "id": 133953,
+        "ok_count": 13,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "st": 2,
+        "pts": [{"p": "sb", "c": " "}, {"p": "ra", "c": " "}, {"p": "rd", "c": " "}, {"p": "sd", "c": " "}, {
+            "p": "sc",
+            "c": " "
+        }, {"p": "sa", "c": " "}, {"p": "sc", "c": " "}, {"p": "sb", "c": " "}, {"p": "qa", "c": " "}],
+        "nu": 4
+    }, {
+        "username": "admin",
+        "change_count": 0,
+        "ty": 3,
+        "userid": 1,
+        "id": 83441,
+        "ok_count": 0,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "st": 2,
+        "pts": [{"p": "se", "c": "\u5931\u8d251"}, {"p": "sd", "c": ""}, {"p": "sb", "c": ""}, {
+            "p": "ra",
+            "c": ""
+        }, {"p": "rd", "c": ""}, {"p": "sf", "c": ""}, {"p": "sc", "c": ""}, {
+            "p": "qe",
+            "c": "\u6b21\u767d\u82e5A\uff0c\u5219\u9ed1B\u63d0\u3002\u6545\u5bf9\u9ed18\u7d27\uff0c\u767d\u53ea\u6709C\u63d0\u52ab\u3002\r\n\r\n\u9ed1\u68cb\u6765\u4e0d\u53ca\u65bd\u5c55\u5012\u6251\u5403\u63a5\u4e0d\u5f52\u7684\u624b\u6bb5\uff0c\u4e43\u6c14\u7d27\u4e4b\u7978\u3002"
+        }],
+        "nu": 2
+    }, {
+        "username": "admin",
+        "change_count": 0,
+        "ty": 1,
+        "userid": 1,
+        "id": 83440,
+        "ok_count": 0,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "st": 2,
+        "pts": [{
+            "p": "sb",
+            "c": "\u4ecd\u7136\u662f\u201c2\u4e4b\u4e00\u201d\u7684\u624b\u7b4b \u6b63\u89e3"
+        }, {"p": "ra", "c": ""}, {"p": "rd", "c": ""}, {"p": "sd", "c": ""}, {
+            "p": "sc",
+            "c": "\u9ed12\u65f6\uff0c\u767d3\u30015\u8fdb\u884c\u4e3a\u624b\u987a\u3002"
+        }, {"p": "se", "c": ""}, {
+            "p": "qa",
+            "c": "\u767d7\u6b62\uff0c\u7528\u63a5\u4e0d\u5f52\u5403\u5230\u9ed1\u5b50\u3002\r\n\r\n\u7b2c\u4e00\u7740\u5982\u4e8e6\u6273\uff0c\u88ab\u9ed14\u6321\uff0c\u4ee5\u540e\u5373\u4f7f\u4f9d\u7167\u6b63\u89e3\u56fe\u8fdb\u884c\u4e5f\u4f1a\u6210\u52ab\u3002\u8bf7\u786e\u5b9a\u4e00\u4e0b\u3002"
         }],
         "nu": 1
     }],
-    "prepos": [["se", "sd", "re", "qe", "pe", "oe", "nd", "nc", "nb", "na"], ["rc", "qd", "qa", "pc", "ob"]],
+    "is_share": true,
+    "lu": 19,
+    "min_levelname": "",
+    "taskresult": {
+        "ok_nums": [2, 2, 4, 1, 4, 4, 14, 9, 5, 7, 12, 16, 22, 39, 42, 85, 85, 88, 79, 46, 38, 36, 24, 12, 8, 17, 9, 4, 1, 11],
+        "fail_total": 429,
+        "fail_nums": [2, 1, 2, 3, 6, 10, 13, 11, 12, 24, 20, 28, 37, 39, 43, 61, 37, 32, 15, 11, 7, 6, 2, 2, 2, 3, 0, 0, 0, 0],
+        "ok_total": 726
+    },
+    "prepos": [["br", "cr", "er", "cq", "cp", "do", "eo", "fo", "fn", "fp", "fq"], ["en", "bq", "bp", "co", "bn", "dn", "fm", "gm", "gn", "gp", "hp", "gr", "fr", "ir", "dp", "dq"]],
+    "hasbook": false,
+    "issingle": true,
+    "xuandians": [],
+    "sms_count": 0,
     "edit_count": 0,
+    "enable_answer": true,
+    "name": "\u5409\u7965\u52bf",
+    "nexterrorurl": "",
+    "ans_count": 5,
+    "userid": 1,
     "layoutnumber": 1,
+    "sx": 10,
+    "bookinfos": [{
+        "pinyin": "",
+        "bookname": "\u5929\u9053\u916c\u52e4",
+        "nodename": "\u4e00",
+        "bookid": 25664,
+        "bookurl": 25664
+    }, {
+        "pinyin": "guanzipu",
+        "bookname": "\u5b98\u5b50\u8c31\uff0d\u5434\u6e05\u6e90\u89e3\u8bf4",
+        "nodename": "\u4e2d\u53772",
+        "bookid": 6,
+        "bookurl": "guanzipu"
+    }, {
+        "pinyin": "",
+        "bookname": "\u56f4\u68cb\u6b7b\u6d3b\u5927\u5168",
+        "nodename": "\u5b98\u5b50\u8c31\uff0d\u5434\u6e05\u6e90\u89e3\u8bf4",
+        "bookid": 1349,
+        "bookurl": 1349
+    }, {
+        "pinyin": "",
+        "bookname": "\u56f4\u68cb\u6b7b\u6d3b\u5927\u5168",
+        "nodename": "\u7384\u7384",
+        "bookid": 1349,
+        "bookurl": 1349
+    }, {
+        "pinyin": "xuanxuanqijin",
+        "bookname": "\u7384\u7384\u68cb\u7ecf-\u6865\u672c\u5b87\u592a\u90ce\u89e3\u8bf4",
+        "nodename": "\u89d2\u4e4b\u90e8",
+        "bookid": 5,
+        "bookurl": "xuanxuanqijin"
+    }],
+    "points": [],
+    "isguess": false,
+    "qtypename": "\u6b7b\u6d3b\u9898",
     "myan": null,
     "attr_type": 0,
+    "levelname": "1K"
 };
 var taskinfo = null;
 var myq = null;

@@ -92,17 +92,17 @@ class WeiqiPipeline(object):
                 sgf += ("[" + str(sign) + "]")
         if answers.__len__() > 0:
             for a in answers:
-                if a["st"] == "1" or a["ty"] == "2":  # 如果是待审核或者变化图的答案，则过滤掉
+                if a["st"] == "1" or a["ty"] == "2" or a["ty"] == "3":  # 如果是待审核或者变化图的答案，则过滤掉   2019.12.6新增，失败图也不要
                     continue
                 sgf += "("
                 for i, v in enumerate(a["pts"]):
-                    if black_first == 1:
-                        if i % 2 == 1:
+                    if black_first == "1":
+                        if i % 2 == 0:
                             sgf += (";B[" + v["p"] + "]")
                         else:
                             sgf += (";W[" + v["p"] + "]")
                     else:
-                        if i % 2 == 1:
+                        if i % 2 == 0:
                             sgf += (";W[" + v["p"] + "]")
                         else:
                             sgf += (";B[" + v["p"] + "]")

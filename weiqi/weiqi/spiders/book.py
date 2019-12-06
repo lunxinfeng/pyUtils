@@ -29,7 +29,8 @@ class BookSpider(scrapy.Spider):
 
     def start_requests(self):
         # start_urls = ['https://www.101weiqi.com/book/level/1']
-        start_urls = ['https://www.101weiqi.com/book/5071/']
+        # start_urls = ['https://www.101weiqi.com/book/5071/']
+        start_urls = ['https://www.101weiqi.com/book/xuanxuanqijin/']
         for url in start_urls:
             yield Request(url=url, callback=self.parse_2)
 
