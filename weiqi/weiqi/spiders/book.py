@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+import json
+
 import scrapy
 from selenium import webdriver
 from scrapy import Request
 import re
-import js2xml
-from lxml import etree
 
 from selenium.webdriver.chrome.options import Options
 from weiqi.items import WeiqiItem
@@ -29,8 +29,8 @@ class BookSpider(scrapy.Spider):
 
     def start_requests(self):
         # start_urls = ['https://www.101weiqi.com/book/level/1']
-        # start_urls = ['https://www.101weiqi.com/book/5071/']
-        start_urls = ['https://www.101weiqi.com/book/xuanxuanqijin/']
+        start_urls = ['https://www.101weiqi.com/book/shihuochidian/']
+        # start_urls = ['https://www.101weiqi.com/book/tianlongtu/', "https://www.101weiqi.com/book/219/"]
         for url in start_urls:
             yield Request(url=url, callback=self.parse_2)
 
@@ -83,66 +83,27 @@ class BookSpider(scrapy.Spider):
 
         # 获取棋谱相关信息
         scripts = response.css("script:contains('g_qq')::text").get()
-        # print("result:" + str(scripts.__len__()))
         # print("result:" + str(scripts))
-        parsed = js2xml.parse(str(scripts))
-        parsed = js2xml.pretty_print(parsed)
-        # print(parsed)
-        selector = etree.HTML(str(parsed))
-        # print(etree.tostring(parsed))
-        # prepos = selector.xpath("//property[@name='prepos']/array/array/string/text()")
-        # print(prepos)
-        title = selector.xpath("//property[@name='title']/string/text()")
-        status = selector.xpath("//property[@name='status']/number/@value")
-        prepos_b = selector.xpath("//property[@name='prepos']/array/array[1]/string/text()")
-        # print(prepos_b)
-        prepos_w = selector.xpath("//property[@name='prepos']/array/array[2]/string/text()")
-        # print(prepos_w)
 
-        signs = selector.xpath("//property[@name='signs']//string/text()")
-        print(signs)
+        list = re.findall(r"g_qq = ({.*?});var", str(scripts))
+        chess_json = json.loads(list[0])
 
-        answers_type = selector.xpath("//property[@name='answers']//property[@name='ty']/number/@value")
-        # print(answers_type)
-        answers = []
-        for index, value in enumerate(answers_type):
-            answer = {}
-            ty = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='ty']/number/@value")
-            answer["ty"] = str(ty[0])
-            st = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='st']/number/@value")
-            answer["st"] = str(st[0])
-
-            answer_pos = []
-
-            p = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='pts']//property[@name='p']/string/text()")
-            c = []
-            for i, v in enumerate(p):
-                s = selector.xpath("//property[@name='answers']/array/object[" + str(index + 1) + "]//property[@name='pts']/array/object[" + str(i + 1) + "]/property[@name='c']/string/text()")
-                if s is None or s.__len__() == 0:
-                    c.append("")
-                else:
-                    c.append(str(s[0]))
-            # print(p)
-            # print(c)
-
-            for i, v in enumerate(p):
-                answer_pos.append({"p": str(v), "c": str(c[i])})
-            # print(answer_pos)
-
-            answer["pts"] = answer_pos
-            answers.append(answer)
-
-        board_size = selector.xpath("//property[@name='lu']/number/@value")
-
-        black_first = selector.xpath("//property[@name='blackfirst']/boolean/text()")
-        if black_first[0] == 'true':
+        title = chess_json['title']
+        status = chess_json['status']
+        prepos = chess_json['prepos']
+        prepos_b = prepos[0]
+        prepos_w = prepos[1]
+        signs = chess_json['signs']
+        answers = chess_json['answers']
+        board_size = chess_json['lu']
+        black_first = chess_json['blackfirst']
+        if black_first:
             black_first = "1"
         else:
             black_first = "0"
 
-        qtypename = selector.xpath("//property[@name='qtypename']/string/text()")
-
-        levelname = selector.xpath("//property[@name='levelname']/string/text()")
+        qtypename = chess_json['qtypename']
+        levelname = chess_json['levelname']
 
         item["book_name"] = book_name
         item["book_sub_name"] = book_sub_name
@@ -150,11 +111,11 @@ class BookSpider(scrapy.Spider):
         item["prepos_b"] = prepos_b
         item["prepos_w"] = prepos_w
         item["answers"] = answers
-        item["board_size"] = board_size[0]
+        item["board_size"] = board_size
         item["black_first"] = black_first
-        item["qtypename"] = qtypename[0]
-        item["levelname"] = levelname[0]
-        item["status"] = status[0]
-        item["title"] = "" if title.__len__() == 0 else title[0]
+        item["qtypename"] = qtypename
+        item["levelname"] = levelname
+        item["status"] = status
+        item["title"] = "" if title.__len__() == 0 else title
         item["signs"] = signs
         yield item

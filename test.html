@@ -1,1475 +1,441 @@
 <!DOCTYPE html>
 <html>
-<head><title>朱顶鹤势 - 角之部 - 101围棋网</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="围棋死活题，围棋手筋题，围棋官子题"/>
-    <meta name="description" content="显示《玄玄棋经-桥本宇太郎解说》中的围棋死活题朱顶鹤势信息，题目标签:; 题目级别:4D+;题目质量:;"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no"/>
-    <link href="https://static2.101weiqi.com/static/images/apple_1442.png" rel="shortcut icon"/>
-    <link href="https://static2.101weiqi.com/static/images/apple_1442.png" rel="Bookmark"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="https://static2.101weiqi.com/static/images/apple_1142.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="https://static2.101weiqi.com/static/images/apple_1142.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="https://static2.101weiqi.com/static/images/apple_1442.png"/>
-    <link rel="apple-touch-icon" sizes="144x144" href="https://static2.101weiqi.com/static/images/apple_1442.png"/>
-    <link rel="stylesheet" href="https://static2.101weiqi.com/static/cache/71f131bfb57a2bccafcc3d58b5a3a5bf.css">
-    <link rel="stylesheet" href="https://static2.101weiqi.com/static/cache/c9b56a5813ca3420a72b987c8c0b8fed.css">
-    <style type="text/css">[ng-cloak] {
-        display: none !important
-    }</style>
-    <style>.zuoti_bg {
-        background: url(https://static2.101weiqi.com/static/images/bg-03.jpg) no-repeat;
-        background-size: 100% 100%;
-        padding-top: 10px;
-    }
-
-    .breadcrumb {
-        margin-bottom: 10px;
-    }
-
-    a {
-        cursor: pointer;
-    }
-
-    body {
-        font-family: '微软雅黑', Verdana, Arial, sans-serif;
-    }
-
-    .wrap {
-        width: 100%;
-        background-size: 1240px 902px;
-    }</style>
-</head>
-<body ng-app="wqapp">
-<nav class="navbar nav101" style="margin:0" id="whead" ng-controller="headctrl" ng-cloak>
-    <div class="container" id="headid">
-        <script>var hlinks = [{htype: 1, h: '/questionlib/', name: '题库'}, {
-            htype: 1,
-            h: '/playai/',
-            name: '训练营'
-        }, {htype: 1, h: '/play/', name: '对弈'}, {htype: 1, h: '/forum/', name: '讨论区'}, {
-            htype: 1,
-            h: '/book/',
-            name: '棋书'
-        }, {htype: 1, h: '/chessbook/', name: '棋谱'},];
-        var rightlinks = [{htype: 3, h: '/register/', name: '注册'}, {htype: 3, h: '/login/', name: '登录'}]</script>
-        <div class="navbar-header pull-left"><a class="navbar-brand" href="/"><img
-                src="https://static2.101weiqi.com/static/images/logo.png"></a></div>
-        <div class="pull-left" style="margin-left: 40px;">
-            <div class="navbar-item" ng-repeat="h in activelinks"><a ng-href="[[h.h]]" class="navbar-brand"
-                                                                     ng-if="h.htype == 1">
-                <div class="navdiv">[[h.name]]</div>
-            </a><a ng-href="[[h.h]]" class="navbar-brand" style="position: relative;" ng-if="h.htype == 2"
-                   title="[[h.name]]">
-                <div class="navdiv">
-                    <dd ng-if="h.icon == '@'">@</dd>
-                    <i ng-if="h.icon != '@'" class="glyphicon glyphicon-[[h.icon]]"></i></div>
-                <dd class="headnumber">[[h.number]]</dd>
-            </a></div>
-        </div>
-        <div class="pull-right" ng-if="hasright">
-            <div class="navbar-item" ng-repeat="h in rightlinks"><a ng-href="[[h.h]]" class="navbar-brand2"><span
-                    class="navspan">[[h.name]]</span></a></div>
-        </div>
-        <div class="toggleright" ng-if="hasmore">
-            <button type="button" class="navbar-toggle2" ng-click="showmore()"><span class="sr-only">101围棋网</span><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-        </div>
-        <div class="clear"></div>
-        <div class="width100 headsplit" ng-if="is_showmore">
-            <div class="col-xs-4 navmore-item" ng-repeat="h in morelinks"><a ng-href="[[h.h]]" class="morelink"><i
-                    ng-if="h.icon != '@'" class="glyphicon glyphicon-[[h.icon]]"></i>[[h.name]]</a></div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</nav>
-<div class="container tc-main zuoti_bg" id="main" ng-controller="QuestionCtrl" ng-cloak>
-    <ul class="breadcrumb">
-        <li><a href="/book/xuanxuanqijin/">玄玄棋经-桥本宇太郎解说</a></li>
-        <li><a href="/book/xuanxuanqijin/90/">角之部</a></li>
-        <li class="active">第38题&nbsp;朱顶鹤势</li>
-        <div class="huati_lei"><span class="previous"><a class="btn btn-info" id="prevq"
-                                                         href="/book/xuanxuanqijin/90/18351/"><span
-                class="nextquestion"> 上 一 题 </span></a></span>&nbsp;<span><a class="btn btn-info" id="nextq"
-                                                                             href="/book/xuanxuanqijin/90/18353/"><span
-                class="nextquestion"> 下 一 题 </span></a></span></div>
-    </ul>
-    <div ng-if="qq.is_public" ng-show="qq.is_share || qq.userid == udata.userid || udata.ismanager || leipage">
-        <div id="questionbody" class="zt_qipan pull-left" align="center">
-            <div ng-show="smallshow && !aligncenter" style="text-align:center;background-color: rgba(255,255,255,0.5);"
-                 id="smallqtitle" ng-style="qleftstyle"><span style="font-size:24px;padding-left:10px;"><span
-                    ng-if="qq.name">[[::qq.name]]</span>&nbsp;<span ng-if="qq.blackfirst">黑先</span><span
-                    ng-if="!qq.blackfirst">白先</span> [[qq.qtypename]]<small ng-if="show_level" ng-show="taskdo"
-                                                                            style="font-size:65%;color: #777;">&nbsp;[[::qq.levelname]]</small></span>
-                <div><span class="text-success">[[::q.title]]</span></div>
-            </div>
-            <div class="zuoti_box">
-                <div class="zt_left" id="qipandiv" ng-class="{'fixed':!smallshow && fixed}" ng-style="qleftstyle"
-                     style="margin-top:5px;">
-                    <div id="canvasdiv" ng-if="qq.qtype < 18">
-                        <stonecanvas sclass="qcanvas" qq="qq" wobjid="wobjid"></stonecanvas>
-                        <div ng-show="smallshow">
-                            <div ng-if="qq.qtype != 11" role="toolbar" align="center" class="operbtn"
-                                 style="width:100%; text-align:center;margin-bottom:2px;">
-                                <div class="btn-group" ng-show="taskdo">
-                                    <button ng-click="saveopenmusic()" class="btn btn-default"><span ng-if="!openmusic"
-                                                                                                     class="glyphicon glyphicon-volume-off"></span><span
-                                            ng-if="openmusic" class="glyphicon glyphicon-volume-up"></span></button>
-                                </div>
-                                <div class="btn-group " ng-if="aligncenter" style="margin-right:2px;">
-                                    <button class="btn"><span ng-if="qq.name">[[::qq.name]]</span>&nbsp;<span
-                                            ng-if="qq.blackfirst">黑先</span><span ng-if="!qq.blackfirst">白先</span>
-                                        [[qq.qtypename]]
-                                    </button>
-                                    <button class="btn btn-default" ng-click="setlayout()">取消居中</button>
-                                    <button class="btn btn-default" ng-click="rorate()">旋转棋盘[[curroratename]]</button>
-                                </div>
-                                <div class="btn-group" ng-show="taskdo">
-                                    <button ng-if="!issharepage"
-                                            ng-show="qq.qtype != 3 && (qq.ans_count || qq.qtype == 16)"
-                                            class="btn btn-default questionmode "
-                                            ng-class="{'activestone': st.play_mode === 1}" ng-click="entermode(1)">对战
-                                    </button>
-                                    <button ng-if="!issharepage" class="btn btn-default questionmode"
-                                            ng-class="{'activestone': st.play_mode === 3}" ng-click="entermode(3)">试下
-                                    </button>
-                                    <button ng-if="!issharepage" class="btn btn-default questionmode"
-                                            ng-class="{'activestone': st.play_mode === 5}" ng-click="entermode(5)">研究
-                                    </button>
-                                    <button ng-if="qq.qtype != 16 && qq.enable_answer"
-                                            class="btn btn-default questionmode"
-                                            ng-class="{'activestone': st.play_mode === 2}" ng-click="entermode(2)">提交答案
-                                    </button>
-                                </div>
-                                <div class="btn-group " ng-show="st.answerend && st.steps.length > 0"
-                                     ng-if="qq.qtype != 16" style="margin-left:2px;">
-                                    <button class="btn btn-default tprevstep" ng-click="tprevstep()">上一步</button>
-                                </div>
-                            </div>
-                            <div ng-if="st.play_mode == 1 || st.play_mode == 5" ng-show="st.stonecomment != ''"
-                                 class="stonecomment">[[st.stonecomment]]
-                            </div>
-                            <div class="width100" ng-if="qq.qtype === 11">
-                                <div style="margin-top:10px;align:center;">
-                                    <button class="btn btn-default" ng-click="playprogres()"><span
-                                            ng-if="!clone_playing" class="glyphicon glyphicon-play"> 播放演进过程</span><span
-                                            ng-if="clone_playing" class="glyphicon glyphicon-stop"> 播放中...</span>
-                                    </button>&nbsp;&nbsp;<button class="btn btn-default" ng-click="answerclone()"><span
-                                        ng-if="!clone_answering" class="glyphicon glyphicon-pencil"> 开始解答</span><span
-                                        ng-if="clone_answering" class="glyphicon glyphicon-list-alt"> 解答中...</span>
-                                </button>&nbsp;&nbsp;
-                                </div>
-                                <div style="margin-top:10px;"><span class="text-success">请按照顺序在棋盘上落子</span></div>
-                                <!--<div style="margin-top:10px;"></div>--></div>
-                            <div class="clear"></div>
-                            <div role="toolbar" align="center"
-                                 ng-if="st.play_mode == 1 && qq.qtype != 16 && !aligncenter"
-                                 style="text-align:center;margin-top:5px;width:100%;">
-                                <div ng-click="start_droppos()" ng-if="udata.islogin"><a><span
-                                        ng-if="st.isdroppos"><span
-                                        class="glyphicon glyphicon-flag"> </span> 落子确认开启，关闭</span><span
-                                        ng-if="!st.isdroppos">落子确认关闭中，开启</span></a></div>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-if="qq.qtype == 18" id="canvasdiv" class="width100"
-                         style="background: rgba(255,255,255,0.5);">
-                        <div class="col-md-12 selectcontent" ng-bind-html="qq.contenthtml"></div>
-                        <div class="clear"></div>
-                        <div class="col-md-12 selectoptiondiv">
-                            <div class=" selectoptionitem selectoptionnormal" ng-repeat="op in qq.options"
-                                 ng-click="selectoneoption(op)"
-                                 ng-class="{'selectoptionok':op.status == 2,'selectoptionfail':op.status == 1}"><span>[[op.indexname]].</span><span
-                                    ng-if="op.status == 2" style="padding-left:5px;padding-right:5px;"><i
-                                    class="fa fa-check" aria-hidden="true"></i></span><span style="padding-left:10px;">[[op.content]]</span>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div ng-if="qq.qtype == 19" id="canvasdiv" class="width100"
-                         style="background: rgba(255,255,255,0.5);">
-                        <div class="col-md-12 selectcontent" ng-bind-html="qq.contenthtml"></div>
-                        <div class="clear"></div>
-                        <div id="optionimagediv" class="col-md-12 " style="margin-bottom:20px;margin-top:20px;">
-                            <div ng-style="imagestyle" class="imageoption" ng-repeat="op in qq.options">
-                                <div class="imagetip" ng-if="op.status == 2"><i class="fa fa-check"
-                                                                                aria-hidden="true"></i></div>
-                                <div class="imagetip" ng-if="op.status == 1"><i class="fa fa-remove"
-                                                                                aria-hidden="true"></i></div>
-                                <img ng-click="selectoneoption(op)" ng-src="[[op.content]]"></div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div ng-if="qq.qtype == 20" id="canvasdiv" class="width100" style="background: rgba(255,255,255,0.5);">
-            <canvasdiff diff="qq.diff" docount="taskinfo.qcount"></canvasdiff>
-            <div class="clear"></div>
-        </div>
-        <div id="operdiv" class="zt_right" ng-class="{'col-md-12 clear':smallshow || aligncenter}" ng-style="operstyle"
-             style="padding-left:20px;"><h2 ng-show="!smallshow"><span ng-if="qq.name">[[::qq.name]]&nbsp;</span><span
-                ng-if="qq.blackfirst">黑先</span><span ng-if="!qq.blackfirst">白先</span> [[qq.qtypename]]<small
-                ng-if="show_level" ng-show="taskdo">&nbsp;[[::qq.levelname]]</small></h2>
-            <p class="text-success"><span ng-if="qq.title">[[::qq.title]] &nbsp;&nbsp;</span><span ng-if="!issharepage"
-                                                                                                   ng-show="udata.userid == qq.userid || udata.iseditor"><span
-                    ng-show="taskdo"><a ng-if="qq.qtype < 18" ng-href="/changeqstone/2601/" target="_blank">编辑题目</a><a
-                    ng-if="qq.qtype == 18" ng-href="/inputtxt/2601/" target="_blank">编辑题目</a><a ng-if="qq.qtype == 19"
-                                                                                                ng-href="/inputimage/2601/"
-                                                                                                target="_blank">编辑题目</a><a
-                    ng-if="qq.qtype == 20" ng-href="/inputdiff/2601/" target="_blank">编辑题目</a></span></span></p>
-            <div ng-if="!issharepage"><p ng-show="taskdo" ng-if="qq.sms_count > 0 || qq.edit_count > 0"><a
-                    ng-if="qq.sms_count > 0" ng-href="/similarly/[[qq.id]]/" target="_blank">有[[qq.sms_count]]道类似题目</a>
-                &nbsp;&nbsp;<a ng-if="qq.edit_count > 0" ng-href="/qchange/[[qq.id]]/" target="_blank">有[[qq.edit_count]]条修改记录</a>
-            </p>
-                <p ng-if="qq.islei" ng-show="taskdo">本题属于 <a href="/lei/">死活题擂台</a></p></div>
-            <div class="width100" ng-if="taskdo && myan && !issharepage">
-                <div class="answerbody" ng-if="qq.attr_type != 2">
-                    <div class="col-md-12"><b>我的解答</b> &nbsp;&nbsp;&nbsp;&nbsp;<span
-                            ng-if="myan.result == 1">正确</span><span ng-if="myan.result == 2">错误</span><span
-                            ng-if="myan.result == 4">待批改</span>&nbsp;&nbsp;[[myan.lasttime]]
-                    </div>
-                    <div class="col-md-12 answer">&nbsp;&nbsp;&nbsp;&nbsp; [[myan.stepindex]]/[[myan.stepcount]] &nbsp;&nbsp;<div
-                            class="btn-group">
-                        <button class="btn btn-default steppos" title="第一步" ng-click="gotofirst(myan)"><span
-                                class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
-                        <button class="btn btn-default prevstep" ng-click="gotostep(myan,-1)" title="上一步"><span
-                                class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
-                        <button class="btn btn-default nextstep" ng-click="gotostep(myan,1)" title="下一步"><span
-                                class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
-                        <button class="btn btn-default steppos" ng-click="gotoend(myan)" title="最后一步"><span
-                                class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
-                    </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="answerbody" ng-if="qq.attr_type == 2">&nbsp;<b>我的解答</b> &nbsp;&nbsp;&nbsp;&nbsp;<span
-                        ng-if="myan.result == 1">正确</span><span ng-if="myan.result == 2">错误</span>&nbsp;&nbsp;[[
-                    myan.selectval ]]&nbsp;&nbsp;[[myan.lasttime]]
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="width100" ng-if="!issharepage"><p ng-if="qq.ineb && taskdo"><span ng-if="remove_erroreok"
-                                                                                          style="color:blue;">已经清除</span><a
-                    ng-if="!remove_erroreok" ng-click="removeerror()">从错题本中删除</a></p>
-                <p><span ng-if="qq.userid != 1">由<a ng-href="/u/[[qq.username]]/" target="_blank">[[qq.username]]</a>提供&nbsp;</span><span
-                        ng-show="taskdo"><span ng-if="qq.orgid == 0">编号：Q-[[qq.publicid]]</span><span
-                        ng-if="qq.orgid != 0">内部编号：[[qq.publicid]]</span><span ng-if="qq.qtype === 6">&nbsp;来源于：<a
-                        ng-href="/chessbook/chess/[[qq.chessid]]/?step=[[qq.chessstep]]">[[qq.chessblack]] VS [[qq.chesswhite]]</a></span><span
-                        ng-if="qq.taskresult.ok_total > 10 || qq.taskresult.fail_total > 10">&nbsp; <a
-                        ng-click="showresultinfo()"><span ng-if="is_showresult">隐藏</span> [[qq.taskresult.ok_total]] 对 / [[qq.taskresult.fail_total]] 错</a></span></span>
-                </p></div>
-            <div class="width100">
-                <div class="boxwei" ng-show="is_showresult">
-                    <div id="resultchart" style="min-width:200px;height:300px;margin 0 auto;"></div>
-                </div>
-            </div>
-            <div class="width100" ng-if="qq.isguess"><p>请找出此局面下的最佳一手<span ng-show="taskdo">，本题录自 <a
-                    ng-href="/chessbook/chess/[[qq.chessid]]/?step=[[qq.chessstep]]">[[qq.chessblack]] VS [[qq.chesswhite]]</a> 对局</span>
-            </p></div>
-            <p><span ng-if="qq.qtype < 18"><a class="rototq" ng-click="rorate()">旋转棋盘[[curroratename]]</a>&nbsp;<a
-                    ng-click="setlayout()"><span ng-if="!aligncenter">棋盘居中</span><span ng-if="aligncenter">取消棋盘居中</span></a>&nbsp;&nbsp;<a
-                    ng-click="start_droppos()"><span ng-if="st.isdroppos"><span
-                    class="glyphicon glyphicon-flag"> </span> 落子确认开启，关闭</span><span
-                    ng-if="!st.isdroppos">落子确认关闭中，开启</span></a></span><span
-                    ng-if="qq.status === 0 && qq.userid === udata.userid && !issharepage">&nbsp;&nbsp;<a
-                    ng-click="removequestion()" style="color:red;">  淘汰此题</a><span style="padding-left:10px;color:blue">[[removeqtip]]</span></span>
-            </p>
-            <p class="bor" ng-if="qq.qtype < 18"></p>
-            <div class="width100" ng-if="qq.qtype != 16 && qq.qtype < 18 && qq.attr_type == 2">
-                <div class="text-success" style="margin-top:10px;">本题为选择题，请选择一个选项
-                    <table class="table table-condensed">
-                        <tr ng-repeat="p in st.options track by $index"
-                            ng-class="{'okoption':p.answer == 1,'failoption':p.answer == 2}">
-                            <td><label><input type="radio" name="option_[[::qq.id]]" ng-model="st.opanswerindex"
-                                              value="[[p.opindex]]"> [[p.indexname]]. &nbsp;[[p.content]]</label></td>
-                        </tr>
-                    </table>
-                    <p><a class="btn btn-success" ng-click="submitqoption()">提交</a></p></div>
-            </div>
-            <div ng-if="qq.qtype != 11 && qq.qtype < 18" class="width100">
-                <div ng-show="!smallshow" style="margin-bottom:10px;" class="operbtn">
-                    <div class="btn-group" ng-show="taskdo">
-                        <button ng-click="saveopenmusic()" class="btn btn-default"><span ng-if="!openmusic"
-                                                                                         class="glyphicon glyphicon-volume-off"></span><span
-                                ng-if="openmusic" class="glyphicon glyphicon-volume-up"></span></button>
-                    </div>
-                    <div class="btn-group" ng-show="taskdo">
-                        <button ng-if="!issharepage" ng-show="qq.qtype != 3 && (qq.ans_count || qq.qtype == 16)"
-                                class="btn btn-default questionmode " ng-class="{'activestone': st.play_mode === 1}"
-                                ng-click="entermode(1)">对战
-                        </button>
-                        <button ng-if="!issharepage" class="btn btn-default questionmode"
-                                ng-class="{'activestone': st.play_mode === 3}" ng-click="entermode(3)">试下
-                        </button>
-                        <button ng-if="!issharepage" class="btn btn-default questionmode"
-                                ng-class="{'activestone': st.play_mode === 5}" ng-click="entermode(5)">研究
-                        </button>
-                        <button ng-if="qq.qtype != 16 && qq.enable_answer" class="btn btn-default questionmode"
-                                ng-class="{'activestone': st.play_mode === 2}" ng-click="entermode(2)">提交答案
-                        </button>
-                    </div>
-                    <div class="btn-group " ng-show="st.answerend && st.steps.length > 0" ng-if="qq.qtype != 16"
-                         style="margin-left:2px;">
-                        <button class="btn btn-default tprevstep" ng-click="tprevstep()">上一步</button>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div ng-if="st.play_mode == 1 || st.play_mode == 5" ng-show="st.stonecomment != ''"
-                     class="stonecomment">[[st.stonecomment]]
-                </div>
-                <div id="submitgo" ng-if="st.play_mode === 2 || st.play_mode === 5 || st.play_mode === 3 "
-                     class="answerbody tijiao_daan" style="width:100%;float:left;padding-left:10px;">
-                    <div class="btn-group qipan" ng-if="st.stepobjs.length > 0">
-                        <button class="btn btn-default" ng-click="browfirst()" title="第一步"><span
-                                class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
-                        <button class="btn btn-default" ng-click="browstep(-1)" title="上一步"><span
-                                class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
-                        <button class="btn btn-default" ng-click="browstep(1)" title="下一步"><span
-                                class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
-                        <button class="btn btn-default" ng-click="browend()" title="最后一步"><span
-                                class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
-                        <span ng-if="!issharepage && st.inputsimple && qq.enable_answer" style="padding-left:20px;"><a
-                                class="btn btn-primary" ng-click="submit_answer()">提交解答</a></span></div>
-                    <div class="clear"></div>
-                    <div ng-if="st.stepobjs.length > 0">
-                        <div class="stepitem" ng-repeat="s in st.stepobjs"><span ng-click="browposstep($index)"
-                                                                                 class="stepstone"
-                                                                                 ng-class="{'blackstone':s.isblack,'whitestone':!s.isblack}">[[$index + 1]]</span><input
-                                ng-show="!st.inputsimple" ng-if="st.play_mode === 2" type="text" ng-model="s.text"><span
-                                class="steptip" style="line-height:25px;">&nbsp;&nbsp;[[s.ptname]] &nbsp;&nbsp;<a
-                                ng-click="deleteanpt($index)">删除</a></span></div>
-                    </div>
-                    <div class="clear"></div>
-                    <div ng-if="st.play_mode === 2 || st.play_mode === 5 || st.play_mode === 3">
-                        <div ng-if="st.stepobjs.length === 0">请直接在棋盘上落子</div>
-                        <div id="submitgobody" style="margin-left:25px;"
-                             ng-if="st.stepobjs.length > 0 && (st.play_mode === 2 || st.play_mode === 5) && qq.enable_answer">
-                            <div ng-if="!st.inputsimple"><label class="radio"><input type="radio" name="answertype"
-                                                                                     ng-model="qsubmit.answertype"
-                                                                                     value="1"> 此为正解图</label><label
-                                    class="radio"><input type="radio" name="answertype" ng-model="qsubmit.answertype"
-                                                         value="2"> 此为变化图</label><label class="radio"><input
-                                    type="radio" name="answertype" ng-model="qsubmit.answertype" value="3">
-                                此为失败图</label><label class="checkbox" ng-class="{'weidoutip':qsubmit.isweidouanswer}"
-                                                    ng-if="!issharepage && st.play_mode === 2"><input type="checkbox"
-                                                                                                      name="weidou_answer"
-                                                                                                      ng-model="qsubmit.isweidouanswer">
-                                请求其他棋友审核，将花费30围豆</label></div>
-                            <span ng-if="!issharepage && !st.inputsimple"><a ng-if="caninput" class="btn btn-primary"
-                                                                             ng-click="submit_answer()">提交解答</a><span
-                                    ng-if="!caninput">注册三天之后，以及在 <a
-                                    href="/guan/">棋力测试</a> 中有通关记录的棋友才能提交答案。</span></span><span ng-if="issharepage"><span
-                                ng-if="!qshobj.cansubmit">注意：题目有限制范围，您无法提交解答。</span><span ng-if="qshobj.cansubmit"><a
-                                class="btn btn-primary" ng-click="submit_answer()">提交解答</a></span></span></div>
-                    </div>
-                </div>
-                <div ng-if="qq.qtype != 16 && show_allanswer" class="width100" ng-show="taskdo" id="answerbody"><p><a
-                        ng-click="show_answer()"><span ng-if="!is_showanswer"><i
-                        class="fa fa-plus-square-o"></i> 显示</span><span ng-if="is_showanswer"><i
-                        class="fa fa-minus-square-o"></i> 隐藏</span>答案([[answer_count]])</a></p>
-                    <div id="answerdiv" ng-show="is_showanswer">
-                        <div class="answerbody" ng-if="ok_answers.length > 0">正解答案
-                            <div ng-repeat="an in ok_answers" ng-include="'answer_item_renderer'"></div>
-                        </div>
-                        <div class="answerbody" ng-if="change_answers.length > 0">变化答案
-                            <div ng-repeat="an in change_answers" ng-include="'answer_item_renderer'"></div>
-                        </div>
-                        <div class="answerbody" ng-if="fail_answers.length > 0">失败答案
-                            <div ng-repeat="an in fail_answers" ng-include="'answer_item_renderer'"></div>
-                        </div>
-                    </div>
-                    <div ng-if="has_init_answer"><p><a ng-click="show_audit_answer()"><span ng-if="!is_showauditanswer"><i
-                            class="fa fa-plus-square-o"></i> 显示</span><span ng-if="is_showauditanswer"><i
-                            class="fa fa-minus-square-o"></i> 隐藏</span>待审核答案</a>([[audit_answer_count]])</p>
-                        <div ng-show="is_showauditanswer">
-                            <div class="answerbody" ng-if="init_ok_answers.length > 0">正解答案
-                                <div ng-repeat="an in init_ok_answers" ng-include="'answer_item_renderer'"></div>
-                            </div>
-                            <div class="answerbody" ng-if="init_change_answers.length > 0">变化答案
-                                <div ng-repeat="an in init_change_answers" ng-include="'answer_item_renderer'"></div>
-                            </div>
-                            <div class="answerbody" ng-if="init_fail_answers.length > 0">失败答案
-                                <div ng-repeat="an in init_fail_answers" ng-include="'answer_item_renderer'"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <p ng-if="disuse_count > 0"><a ng-click="showdisuse()"><span ng-if="!is_showdisuse"><i
-                            class="fa fa-plus-square-o"></i> </span><span ng-if="is_showdisuse"><i
-                            class="fa fa-minus-square-o"></i> </span>有[[disuse_count]]条答案被淘汰</a></p>
-                    <div class="answerbody" ng-if="is_showdisuse"><span class="pull-left " ng-if="disuedoing"><i
-                            class="fa fa-spinner fa-spin fa-x fa-fw"></i></span>
-                        <div ng-if="!disuedoing"><p style="padding-left:10px;"> 被淘汰的答案</p>
-                            <div ng-repeat="an in disuse_answers" ng-include="'answer_item_renderer'"></div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="width100" ng-if="qq.qtype === 11 && !smallshow">
-                <div style="margin-top:10px;align:center;">
-                    <button class="btn btn-default" ng-click="playprogres()"><span ng-if="!clone_playing"
-                                                                                   class="glyphicon glyphicon-play"> 播放演进过程</span><span
-                            ng-if="clone_playing" class="glyphicon glyphicon-stop"> 播放中...</span></button>&nbsp;&nbsp;<button
-                        class="btn btn-default" ng-click="answerclone()"><span ng-if="!clone_answering"
-                                                                               class="glyphicon glyphicon-pencil"> 开始解答</span><span
-                        ng-if="clone_answering" class="glyphicon glyphicon-list-alt"> 解答中...</span></button>&nbsp;&nbsp;
-                </div>
-                <div style="margin-top:10px;"><span class="text-success">请按照顺序在棋盘上落子</span></div>
-                <!--<div style="margin-top:10px;"></div>--></div>
-            <div class="width100" ng-show="taskdo" ng-if="!issharepage">
-                <div class="zt_jies" ng-if="qq.specs.length > 0 || qq.bookinfos.length > 0" style="margin-bottom:5px;">
-                    <p>本题收录于：</p><span ng-repeat="item in qq.bookinfos track by $index"><a
-                        ng-href="/book/[[::item.bookurl]]/">[[::item.bookname]]</a><span ng-if="item.nodename"
-                                                                                         style="display: inline;">[[item.nodename]]章节</span></span><span
-                        ng-repeat="item in qq.specs track by $index"><a ng-href="/spec/[[::item.pinyin]]/">[[::item.name]]</a> &nbsp;围棋知识点专辑</span>
-                    <div class="width100" style="margin-top:5px;"><p class="bor"></p></div>
-                </div>
-            </div>
-            <div class="width100" ng-if="!issharepage"><p class="alert alert-danger" ng-if="qq.status === 1">本题已经被<span
-                    ng-if="qq.taotaiid > 0">&nbsp;<a ng-href="/q/[[qq.taotaiid]]/">Q-[[qq.taotaiid]]</a> &nbsp;</span>淘汰
-            </p>
-                <p ng-if="qq.status === 0" class="alert alert-info">本题尚未入库</p></div>
-            <div class="width100" ng-show="taskdo" ng-if="!issharepage"><p
-                    ng-if="udata.hasbook > 0 || udata.hasspec > 0"><span ng-if="udata.hasbook > 0"><a
-                    ng-click="show_my_books()">添加此题到我的棋书中</a> &nbsp;&nbsp;<span
-                    style="color:blue;">[[addbooktip]]</span> &nbsp;</span><span ng-if="udata.hasspec > 0"><a
-                    ng-click="show_my_specs()">添加此题到围棋知识点专辑中</a> &nbsp;&nbsp;<span
-                    style="color:blue;">[[addspectip]]</span></span></p>
-                <div class="width100">
-                    <div ng-show="is_showmybooks" class="qfloatdiv"><span class="pull-left " ng-if="bookdoing"><i
-                            class="fa fa-spinner fa-spin fa-x fa-fw"></i></span>
-                        <div class="width50" ng-repeat="b in mybooks">
-                            <div class="mybookitem">
-                                <div ng-click="showchapter(b)"><span ng-if="!b.showchapter"><i
-                                        class="fa fa-plus-square-o"></i></span><span ng-if="b.showchapter"><i
-                                        class="fa fa-minus-square-o"></i></span>&nbsp;<span ng-if="b.hasselect"
-                                                                                            style="padding-left: 3px;padding-right: 30x;color:blue;"><i
-                                        class="fa fa-check"></i></span>[[b.bookname]]
-                                </div>
-                                <div class="mybookchapter" ng-if="b.showchapter"><label class="checkbox"
-                                                                                        ng-repeat="c in b.chapters"
-                                                                                        style="margin-top: 2px;margin-bottom: 2px;"><input
-                                        type="checkbox" class="chapter" ng-model="c.isin" ng-change="chapterchange(b)">
-                                    [[c.name]]</label></div>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="pull-right" style="margin-right:20px;"><a ng-click="addtobook()"
-                                                                              class="btn btn-success">保存到棋书</a>&nbsp;&nbsp;<a
-                                class="btn" ng-click="closemybooks()">取消</a></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div ng-show="is_showmyspecs" class="qfloatdiv"><span class="pull-left " ng-if="specdoing"><i
-                            class="fa fa-spinner fa-spin fa-x fa-fw"></i></span>
-                        <div class="col-md-4" ng-repeat="b in myspecs"><label class="checkbox"><input type="checkbox"
-                                                                                                      class="specitem"
-                                                                                                      ng-model="b.isin">
-                            [[b.name]]</label></div>
-                        <div class="clear"></div>
-                        <div class="pull-right" style="margin-right:20px;"><a ng-click="addtospec()"
-                                                                              class="btn btn-success">保存到围棋知识点专辑</a>&nbsp;&nbsp;<a
-                                class="btn" ng-click="closemyspecs()">取消</a></div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-                <div class="width100" style="margin-bottom:10px;"
-                     ng-if="qq.qtype != 11 && qq.qtype != 16 && qq.qtype < 18">
-                    <div ng-if="qq.userid == udata.userid || udata.iseditor ">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li ng-class="{'active':st.attr_type2 === 0}"><a ng-click="openoption(0)">无选点选项</a></li>
-                            <li ng-if="qq.qtype == 4 || qq.qtype == 13 || qq.qtype == 14 || qq.qtype == 15"
-                                ng-class="{'active':st.attr_type2 === 1}"><a ng-click="openoption(1)">选点管理</a></li>
-                            <li ng-class="{'active':st.attr_type2 === 2}"><a ng-click="openoption(2)">选择项管理</a></li>
-                        </ul>
-                        <div class="tab-content" ng-show="is_showoption">
-                            <div role="tabpanel" class="tab-pane" ng-class="{'active':st.attr_type2 === 0}"><p
-                                    class="text-success">无选点，无选择项 &nbsp;&nbsp;&nbsp;<a ng-click="savenopoint()"
-                                                                                       class="btn btn-success">确定</a>
-                            </p></div>
-                            <div role="tabpanel" class="tab-pane" ng-class="{'active':st.attr_type2 === 1}">
-                                <div>用鼠标直接在棋盘上选中一点，也可以&nbsp;<a ng-click="genpoint()">从答案中自动生成选点</a>
-                                    <p class="text-info">提示：每个选点的分值满分为10分，满分点为正确的选点</p></div>
-                                <table class="table table-condensed">
-                                    <tr class="pointitem" ng-repeat="p in st.xuandians">
-                                        <td class="pointname">[[p.name]]</td>
-                                        <td class="zuobiao">[[p.ptname]]</td>
-                                        <td>分值：<input type="text" size="5" ng-model="p.score"></td>
-                                        <td><a ng-click="removepoint($index)">删除</a></td>
-                                    </tr>
-                                </table>
-                                <div class="clear"></div>
-                                <div class="pull-right" style="margin-right:20px;"><a
-                                        ng-click="randompoint()">随机排列顺序</a>&nbsp;&nbsp;<a ng-click="savepoint()"
-                                                                                          class="btn btn-success">保存选点</a>&nbsp;&nbsp;<a
-                                        class="btn" ng-click="closebluepoint()">关闭</a></div>
-                                <div class="clear"></div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" ng-class="{'active':st.attr_type2 === 2}"><p><a
-                                    ng-click="newoption()">增加选项</a></p>
-                                <table class="table">
-                                    <tr ng-repeat="p in st.options">
-                                        <td>[[p.indexname]].</td>
-                                        <td><input type="text" placeholder="选项文本内容" class="optiontext"
-                                                   ng-model="p.content"></td>
-                                        <td><label><input type="radio" name="optionok" ng-model="st.okindex"
-                                                          value="[[p.opindex]]"> 属于正确答案</label></td>
-                                        <td><a ng-click="optiondel($index)">删除</a></td>
-                                    </tr>
-                                </table>
-                                <div class="clear"></div>
-                                <div class="pull-right" style="margin-right:20px;"><a ng-click="saveselect()"
-                                                                                      class="btn btn-success">保存选择项</a>&nbsp;&nbsp;<a
-                                        class="btn" ng-click="closeselect()">关闭</a></div>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="play_pinglun width100" ng-if="taskdo"><p class="bor"></p>
-                <p ng-if="comments.length > 0"><a ng-click="showcomment()" ng-if="!is_showcomment"><i
-                        class="fa fa-plus-square-o"></i> 显示评论列表</a><a ng-click="showcomment()" ng-if="is_showcomment"><i
-                        class="fa fa-minus-square-o"></i> 隐藏评论列表</a><span style="padding-left:5px;">([[comments.length]])</span>
-                </p>
-                <div id="topicdiv" style="border-radius:10px; background:rgba(255,255,255,0.5);margin-bottom:10px;">
-                    <table class="table table-hover" ng-if="is_showcomment">
-                        <tr ng-repeat="s in comments track by $index" ng-mouseover="over_comment(s)"
-                            ng-mouseout="out_comment(s)">
-                            <td class="head"><img ng-show="!s.ishide" style="width:60px;height:60px;"
-                                                  ng-src="https://static2.101weiqi.com/file/[[s.headpath]]"></td>
-                            <td class="commentblock">
-                                <h6 ng-show="!s.ishide"><span class="pull-left"><a ng-href="/u/[[::s.username]]/">[[::s.username]]</a> 写于 [[::s.updatestr]]</span><span
-                                        class="pull-right text-info" style="margin-right:10px;"><span ng-if="s.dou > 0"
-                                                                                                      class="rightdropmenu"><span
-                                        ng-if="s.doustatus == 2" class="glyphicon glyphicon-ok">[[::s.douname]]赢取[[s.dou]]围豆 </span><span
-                                        ng-if="s.doustatus != 2"><span uib-dropdown on-toggle="show_douname(s)"
-                                                                       class="dropdown"
-                                                                       ng-if="udata.userid == s.userid || udata.ismanager"><a
-                                        uib-dropdown-toggle id="dLabel_[[::s.id]]"><span
-                                        class="glyphicon glyphicon-star"></span>[[::s.dou]]围豆 <i class="caret"></i></a><ul
-                                        class="dropdown-menu" uib-dropdown-menu role="menu"
-                                        aria-labelledby="dLabel_[[::s.id]]"><li role="menuitem"
-                                                                                ng-repeat="un in dounames"
-                                                                                ng-if="un != udata.username"><a
-                                        ng-click="douwin(s,un)">向 [[un]] 支付[[::s.dou]]围豆</a></li><li role="menuitem"
-                                                                                                     ng-if="udata.ismanager"><a
-                                        ng-click="canceldouwin(s)">取消</a></li></ul></span><span class="dropdown"
-                                                                                                ng-if="udata.userid !== s.userid && !udata.ismanager"><i
-                                        class="glyphicon glyphicon-star"></i>[[::s.dou]]围豆</span></span></span><span
-                                        ng-if="isintopic">[[$index + 1]]楼&nbsp;</span><span
-                                        ng-if="udata.userid === s.userid || udata.isoper || udata.ismanager"><span
-                                        ng-if="s.dou === 0" ng-show="s.isover"><a
-                                        ng-click="removecomment(s)">删除</a></span></span></span></h6>
-                                <div class="clear"></div>
-                                <div ng-show="!s.ishide" style="margin-top:10px;" class="width100 breakword ">
-                                    <div ng-bind-html="s.contentHtml"></div>
-                                </div>
-                                <span class="pull-right" ng-show="s.ishide" style="color:green;">已经删除，<a
-                                        ng-click="restorecomment(s)">撤销</a> | <a
-                                        ng-click="destorycomment(s)">关闭</a></span></td>
-                        </tr>
-                    </table>
-                    <div ng-if="udata.islogin" style="margin-top:20px;"><p>我的评论 </p>
-                        <div><textarea ng-model="newc.commenttext" name="content" rows="5"
-                                       class="form-control col-md-12"></textarea></div>
-                        <div class="clear"></div>
-                        <div style="margin-left:25px;" ng-if="!issharepage"><label class="checkbox"><input
-                                type="checkbox" name="weidou_q" ng-model="newc.weidoubox"> <span>使用围豆进行提问</span></label>
-                            <div ng-if="newc.weidoubox" style="margin-left:20px;margin-bottom:5px;">围豆数量(至少30个)：<input
-                                    type="text" ng-model="newc.weidounumber" size="5"> &nbsp;我的围豆总数：[[::udata.dou]]&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                    href="https://doc.101weiqi.com/member/weidou/">关于围豆</a></div>
-                        </div>
-                        <div style="margin-top:10px;" ng-if="caninput"><a class="addcomment btn btn-success"
-                                                                          ng-click="addcomment()">添加评论</a></div>
-                        <div style="margin-top:10px;" ng-if="!caninput">注册三天之后，以及在 <a href="/guan/">棋力测试</a>
-                            中有通关记录的棋友才能发言。
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-        <script type="text/ng-template" id="answer_item_renderer">
-            <div class="answer">
-                <div class="col-md-12 answershort " ng-class="{'answerdisuse':an.ty === 4,'destanswer':an.isdest}"><span
-                        class="badge">[[::an.nu]]</span>&nbsp;&nbsp;[[an.stepindex]]/[[an.stepcount]]&nbsp;&nbsp;<div
-                        class="btn-group" curindex="0">
-                    <button class="btn btn-default steppos" title="第一步" ng-click="gotofirst(an)"><span
-                            class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
-                    <button class="btn btn-default prevstep" ng-click="gotostep(an,-1)" title="上一步"><span
-                            class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button>
-                    <button class="btn btn-default nextstep" ng-click="gotostep(an,1)" title="下一步"><span
-                            class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
-                    <button class="btn btn-default steppos" ng-click="gotoend(an)" title="最后一步"><span
-                            class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
-                </div>
-                    <span class="answername" style="padding-left:5px;"><span ng-if="an.username != 'admin' ">由<a
-                            ng-href="/u/[[::an.username]]/" target="_blank">[[::an.username]]</a>提供&nbsp;</span><span
-                            ng-if="udata.islogin && an.username == udata.username"><span
-                            ng-if="an.st == 1 || an.ty == 4"><a ng-click="removeanswer(an)">  删除</a>&nbsp;</span></span><a
-                            ng-click="show_pinjia(an)"><span ng-if="an.showpinjia">隐藏</span>评价</a></span></div>
-                <div class="clear"></div>
-                <div class="col-md-12" ng-if="an.showpinjia">
-                    <form autocomplete="off" style="margin-left:25px;"><label class="radio"><input type="radio"
-                                                                                                   name="an_[[::an.id]]"
-                                                                                                   ng-model="an.v"
-                                                                                                   value="1">属于正解答案
-                        ([[an.ok_count]])</label><label class="radio"><input type="radio" name="an_[[::an.id]]"
-                                                                             ng-model="an.v" value="2">属于变化答案
-                        ([[an.change_count]])</label><label class="radio"><input type="radio" name="an_[[::an.id]]"
-                                                                                 ng-model="an.v" value="3">属于失败答案
-                        ([[an.bad_count]])</label><label class="radio"><input type="radio" name="an_[[::an.id]]"
-                                                                              ng-model="an.v" value="4">答案有误
-                        ([[an.error_count]])</label></form>
-                    <a ng-click="submitacomment(an)">提交</a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue">[[an.submittip]]</span>
-                </div>
-                <div ng-if="an.isdest" class="answertip text-info col-md-12 ">[[an.showtip]]</div>
-                <div class="clear"></div>
-            </div></script>
-    </div>
-    <div style="text-align:center;margin-bottom:20px;" class="col-md-12"
-         ng-if="!qq.is_share && qq.userid != udata.userid && !udata.ismanager && !leipage"><p class="text-success">
-        本题非共享，不能查看</p></div>
-    <div style="text-align:center;margin-bottom:20px;" class="col-md-12" ng-if="!qq.is_public"><p class="text-success">
-        本题不公开，不能查看</p></div>
-    <input type='hidden' name='csrfmiddlewaretoken'
-           value='v6NFlnM3Ny5OnJU8UVqTuHsQIlC2njQ5k4jsIIPI5utIgBnqFMtuOBvqHje9FBxI'/>
-    <audio id="stoneaudio">
-        <source src="https://static2.101weiqi.com/static/media/newfirststone.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="eat1audio">
-        <source src="https://static2.101weiqi.com/static/media/neweat1.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="eat2audio">
-        <source src="https://static2.101weiqi.com/static/media/neweat2.mp3" type="audio/mpeg">
-    </audio>
-    <div class="clear"></div>
-</div>
-<footer id="myfooter">
-    <div class="container tc-main" style="margin-bottom: 10px;">
-        <div class="spliter"></div>
-        <span class="pull-left">© 2012-2019 101weiqi.com, all rights reserved</span><span class="pull-right"
-                                                                                          style="padding-right:10px;"><a
-            href="https://doc.101weiqi.com/">101帮助</a></span></div>
-    <input type="hidden" id="curuser" value="" login="/"></footer>
-<script type="text/ng-template" id="canvasdiff.html">
-    <div class="col-md-12 "><span ng-if="diff.isfinish">恭喜，查找完成</span><span ng-if="!diff.isfinish"><span
-            ng-if="diff.allowclick"><span ng-if="diff.hastwo">共有[[diff.totalcount]]处不同，请在图中找出来</span><span
-            ng-if="!diff.hastwo">[[diff.desc]]</span></span><span
-            ng-if="!diff.allowclick">查找错误，请等待3秒钟再找</span></span><span style="padding-left:20px;">[[diff.okcount]] / [[diff.totalcount]]</span>
-    </div>
-    <div class="diffshowimage" ng-style="canvasstyle"><img ng-src="[[diff.firstimgurl]]" ng-click="no_click()">
-        <div class="diffshowpositem" ng-repeat="d in diff.diffs" ng-class="{'diffactive':d.isok}" ng-style="d.posstyle"
-             ng-click="do_click(d)"></div>
-    </div>
-    <div class="diffshowimage" ng-style="canvasstyle" ng-if="diff.hastwo"><img ng-src="[[diff.secondimgurl]]"
-                                                                               ng-click="no_click()">
-        <div class="diffshowpositem" ng-repeat="d in diff.diffs" ng-class="{'diffactive':d.isok}" ng-style="d.posstyle"
-             ng-click="do_click(d)"></div>
-    </div></script>
-<script type="text/javascript">var is_secure = true;</script>
-<script type="text/javascript"
-        src="https://static2.101weiqi.com/static/cache/d3bc3b8805393ecf2a9e0f6d938a7e61.js"></script>
 <script>var static_server = "https://static2.101weiqi.com";
 var g_userdata = {"islogin": false};
 var g_qq = {
-    "username": "admin",
+    "status": 2,
     "pos_y1": 0,
     "pos_y2": 8,
     "islei": false,
     "myoper": {"mystar": false, "tags": [], "mytags": []},
-    "signs": [],
-    "taotaiid": 0,
+    "layoutnumber": 1,
     "qshids": [],
     "orgid": 0,
-    "vv": 4,
-    "disuse": 5,
+    "vv": 1,
+    "signs": [],
     "vote": 4.3,
+    "bookinfos": [{
+        "pinyin": "",
+        "bookname": "qq11ww11\u6b7b\u6d3b\u624b\u7b4b\u8bad\u7ec3.\u521d\u7ea7",
+        "nodename": "\u521d\u7ea7\u624b\u7b4b(\u57fa\u7840)",
+        "bookid": 26028,
+        "bookurl": 26028
+    }, {
+        "pinyin": "",
+        "bookname": "\u4e70\u83dc\u5927\u5988\u4e4b\u4e66",
+        "nodename": "\u9ebb\u5587\u53ed\ud83d\udce2\uff08\u9ebbxx\uff09",
+        "bookid": 29217,
+        "bookurl": 29217
+    }, {
+        "pinyin": "shihuochidian",
+        "bookname": "\u56f4\u68cb\u6b7b\u6d3b\u8f9e\u5178-\u6fd1\u8d8a\u5baa\u4f5c",
+        "nodename": "\u7834\u773c\uff08\u88c5\u5012\u6251\uff09\u7684\u624b\u7b4b",
+        "bookid": 1,
+        "bookurl": "shihuochidian"
+    }, {
+        "pinyin": "",
+        "bookname": "\u300a\u65e5\u672c\u68cb\u9662-\u624b\u7b4b\u5927\u4e8b\u5178\u300b",
+        "nodename": "\u7b2c\u4e09\u7ae0",
+        "bookid": 469,
+        "bookurl": 469
+    }, {
+        "pinyin": "",
+        "bookname": "\u5c0f\u7b1b\u56f4\u68cb\u5b9e\u9a8c\u5ba4\u9898\u76ee",
+        "nodename": "\u5355\u5143\u7efc\u5408\u7ec3\u4e60\uff083\uff09",
+        "bookid": 4832,
+        "bookurl": 4832
+    }, {
+        "pinyin": "",
+        "bookname": "\u56f4\u68cb\u521d\u7ea7\u6b7b\u6d3b1200",
+        "nodename": "\u7834\u773c\u6025\u6240",
+        "bookid": 1499,
+        "bookurl": 1499
+    }],
     "qtype": 1,
-    "specs": [],
+    "id": 15659,
     "fine_status": 0,
-    "publicid": 2601,
-    "title": "",
+    "points": [],
+    "publicid": 15659,
+    "title": "\u9ed1\u5148\u767d\u6b7b\uff08\u521d\u7ea7\uff09",
     "ineb": false,
     "comments": [{
-        "username": "reico",
-        "showcontent": "<a href=\"/u/roboter/\" target=\"_blank\">@roboter</a>\uff0c\u53d8\u5316\u7b54\u6848\uff086\uff09\u6709\u8bef\u5427\uff1f\u767d\u53ea\u8981\u7ee7\u7eed\u8d703.2\u4f4d\uff0c\u9ed1\u59823.4\u4f4d\u7834\u773c\uff0c\u5219\u767d1.1\u63d0\u3001\u9ed16.1\u6253\uff0c\u767d3.1\u540e\u6210\u52ab\u6d3b",
-        "douname": null,
-        "headpath": "headicon_128.png",
-        "userid": 242,
-        "updated": 1398817515,
-        "doustatus": 0,
-        "id": 34268,
-        "dou": 0
-    }, {
-        "username": "roboter",
-        "showcontent": "\u55ef\uff0c\u8c22\u8c22<a href=\"/u/reico/\" target=\"_blank\">@reico</a> \u8865\u5145",
-        "douname": null,
-        "headpath": "headicon_128.png",
-        "userid": 2,
-        "updated": 1398859171,
-        "doustatus": 0,
-        "id": 34307,
-        "dou": 0
-    }, {
-        "username": "\u7231\u4e50\u5955",
-        "showcontent": "\u6b63\u89e37\u7684\u9ed19\u5e76\u4e0d\u552f\u4e00\uff0c\u8fd9\u7c7b\u7b54\u6848\u771f\u4e0d\u9002\u5408\u653e\u8fdb\u6b63\u89e3",
+        "username": "Seimeitaek",
+        "showcontent": "\u611f\u89c9\u4e0d\u6b628K\u52a0 \u7ea65K",
         "douname": "",
         "headpath": "headicon_128.png",
-        "userid": 2768,
-        "updated": 1433773298,
+        "userid": 3133,
+        "updated": 1457691081,
         "doustatus": 0,
-        "id": 74075,
+        "id": 117420,
         "dou": 0
     }, {
-        "username": "roboter",
-        "showcontent": "\u597d\u7684\uff0c\u89e3\u7b547\u8c03\u6574\u4e3a\u53d8\u5316\u5427",
+        "username": "\u6211\u53eb\u5c0fQ",
+        "showcontent": "\u6c42\u5ba1\u6838\u7b54\u6848",
+        "douname": "",
+        "headpath": "head/2019/9/1/54120_89716_52_20.png",
+        "userid": 54120,
+        "updated": 1488458010,
+        "doustatus": 0,
+        "id": 180429,
+        "dou": 0
+    }, {
+        "username": "\u866b\u866b\u548c\u946b\u54e5",
+        "showcontent": "\uff0c\u5947\u602a\u4e86\uff0c\u8fd9\u9053\u9898\u76ee\u600e\u4e48\u8fd9\u4e48\u96be\uff1f",
         "douname": "",
         "headpath": "headicon_128.png",
-        "userid": 2,
-        "updated": 1433773716,
+        "userid": 153175,
+        "updated": 1524314956,
         "doustatus": 0,
-        "id": 74077,
+        "id": 301072,
         "dou": 0
     }, {
-        "username": "\u9ebb\u96c0\u7ae5\u5b50",
-        "showcontent": "\u732a\u9876\u9e64\u52bf",
+        "username": "csdengxm",
+        "showcontent": "\u7c7b\u4f3c\u4e8e\u91d1\u9e21\u72ec\u7acb",
         "douname": "",
-        "headpath": "head/2018/8/27/6979_76443_18_13.png",
-        "userid": 6979,
-        "updated": 1533253577,
+        "headpath": "headicon_128.png",
+        "userid": 163157,
+        "updated": 1525159095,
         "doustatus": 0,
-        "id": 346013,
+        "id": 305056,
+        "dou": 0
+    }, {
+        "username": "w_32101263111523",
+        "showcontent": "1,2\u5fc5\u7136\uff0c3\u53ea\u8981\u4e0d\u5728\u5de6\u9762\u6253\u5c31\u884c \u4e0d\u96be \u6ca1\u67095k",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 200915,
+        "updated": 1533261193,
+        "doustatus": 0,
+        "id": 346123,
+        "dou": 0
+    }, {
+        "username": "w_32101263111523",
+        "showcontent": "\u53f3\u9762 \u8bf4\u53cd\u4e86",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 200915,
+        "updated": 1533261208,
+        "doustatus": 0,
+        "id": 346124,
+        "dou": 0
+    }, {
+        "username": "Ashley2008",
+        "showcontent": "\u7b80\u5355",
+        "douname": "",
+        "headpath": "head/2018/1/16/138549_13759_36_16.png",
+        "userid": 138549,
+        "updated": 1563111100,
+        "doustatus": 0,
+        "id": 465435,
+        "dou": 0
+    }, {
+        "username": "\u6210\u660a\u6cfd",
+        "showcontent": "\u65e0\u96be\u5ea6\u7684\u9898\u5440",
+        "douname": "",
+        "headpath": "headicon_128.png",
+        "userid": 208479,
+        "updated": 1567049675,
+        "doustatus": 0,
+        "id": 496510,
         "dou": 0
     }],
-    "id": 2601,
-    "options": [],
+    "specs": [],
+    "lu": 19,
     "max_levelname": "",
     "hasspec": false,
     "blackfirst": true,
     "luozis": [],
-    "status": 2,
+    "username": "admin",
     "pos_x2": 18,
-    "pos_x1": 9,
+    "pos_x1": 8,
     "andata": {
-        "0": {"c": 0, "subs": [1, 13, 45], "pt": "", "f": 0, "tip": "", "o": 0, "p": 0, "u": 0, "aids": [], "id": 0},
-        "1": {"c": 0, "subs": [2], "pt": "ob", "f": 1, "tip": "", "o": 0, "p": 0, "u": 0, "aids": [728851], "id": 1},
-        "2": {"c": 0, "subs": [3], "pt": "pb", "f": 1, "tip": "", "o": 0, "p": 1, "u": 0, "aids": [728851], "id": 2},
-        "3": {"c": 0, "subs": [4], "pt": "qa", "f": 1, "tip": "", "o": 0, "p": 2, "u": 0, "aids": [728851], "id": 3},
-        "4": {"c": 0, "subs": [5], "pt": "oc", "f": 1, "tip": "", "o": 0, "p": 3, "u": 0, "aids": [728851], "id": 4},
-        "5": {"c": 0, "subs": [6], "pt": "sc", "f": 1, "tip": "", "o": 0, "p": 4, "u": 0, "aids": [728851], "id": 5},
-        "6": {"c": 0, "subs": [7], "pt": "sb", "f": 1, "tip": "", "o": 0, "p": 5, "u": 0, "aids": [728851], "id": 6},
-        "7": {"c": 0, "subs": [8], "pt": "ra", "f": 1, "tip": "", "o": 0, "p": 6, "u": 0, "aids": [728851], "id": 7},
-        "8": {"c": 0, "subs": [9], "pt": "nc", "f": 1, "tip": "", "o": 0, "p": 7, "u": 0, "aids": [728851], "id": 8},
-        "9": {"c": 0, "subs": [10], "pt": "na", "f": 1, "tip": "", "o": 0, "p": 8, "u": 0, "aids": [728851], "id": 9},
-        "10": {"c": 0, "subs": [11], "pt": "oa", "f": 1, "tip": "", "o": 0, "p": 9, "u": 0, "aids": [728851], "id": 10},
-        "11": {
-            "c": 0,
-            "subs": [12],
-            "pt": "pa",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 10,
-            "u": 0,
-            "aids": [728851],
-            "id": 11
-        },
-        "12": {
-            "c": 0,
-            "subs": [],
-            "pt": "qb",
-            "f": 1,
-            "tip": "\u6210\u52ab",
-            "o": 0,
-            "p": 11,
-            "u": 0,
-            "aids": [728851],
-            "id": 12
-        },
-        "13": {
+        "0": {"c": 0, "subs": [1, 13], "pt": "", "f": 0, "tip": "", "o": 0, "p": 0, "u": 0, "aids": [], "id": 0},
+        "1": {
             "c": 1,
-            "subs": [14],
-            "pt": "sc",
+            "subs": [2],
+            "pt": "qa",
             "f": 1,
             "tip": "",
             "o": 1,
             "p": 0,
             "u": 0,
-            "aids": [141889, 234649, 181601, 3399, 76608, 75608],
-            "id": 13
+            "aids": [189777, 595043, 267205, 75474, 87884, 229232, 512200],
+            "id": 1
         },
-        "14": {
+        "2": {
             "c": 1,
-            "subs": [15, 22],
-            "pt": "sb",
+            "subs": [3, 7, 15, 16],
+            "pt": "rb",
             "f": 1,
             "tip": "",
             "o": 1,
-            "p": 13,
+            "p": 1,
             "u": 0,
-            "aids": [141889, 234649, 181601, 3399, 76608, 75608],
-            "id": 14
+            "aids": [189777, 595043, 267205, 75474, 87884, 229232, 512200],
+            "id": 2
         },
-        "15": {
+        "3": {"c": 0, "subs": [4], "pt": "oa", "f": 1, "tip": "", "o": 0, "p": 2, "u": 0, "aids": [189777], "id": 3},
+        "4": {"c": 0, "subs": [5], "pt": "na", "f": 1, "tip": "", "o": 0, "p": 3, "u": 0, "aids": [189777], "id": 4},
+        "5": {"c": 0, "subs": [6], "pt": "nc", "f": 1, "tip": "", "o": 0, "p": 4, "u": 0, "aids": [189777], "id": 5},
+        "6": {"c": 0, "subs": [], "pt": "pa", "f": 1, "tip": "", "o": 0, "p": 5, "u": 0, "aids": [189777], "id": 6},
+        "7": {
             "c": 1,
-            "subs": [16, 28],
-            "pt": "ra",
-            "f": 0,
-            "tip": "",
-            "o": 1,
-            "p": 14,
-            "u": 0,
-            "aids": [141889, 181601, 3399, 76608, 75608],
-            "id": 15
-        },
-        "16": {
-            "c": 0,
-            "subs": [17],
-            "pt": "pb",
-            "f": 0,
-            "tip": "",
-            "o": 1,
-            "p": 15,
-            "u": 0,
-            "aids": [141889, 3399, 76608, 75608],
-            "id": 16
-        },
-        "17": {
-            "c": 0,
-            "subs": [18, 39],
-            "pt": "qa",
-            "f": 0,
-            "tip": "",
-            "o": 1,
-            "p": 16,
-            "u": 0,
-            "aids": [141889, 3399, 76608, 75608],
-            "id": 17
-        },
-        "18": {
-            "c": 0,
-            "subs": [19, 38],
-            "pt": "qd",
-            "f": 0,
-            "tip": "",
-            "o": 1,
-            "p": 17,
-            "u": 0,
-            "aids": [141889, 3399],
-            "id": 18
-        },
-        "19": {
-            "c": 0,
-            "subs": [20],
-            "pt": "qb",
-            "f": 0,
-            "tip": "",
-            "o": 1,
-            "p": 18,
-            "u": 0,
-            "aids": [141889],
-            "id": 19
-        },
-        "20": {
-            "c": 0,
-            "subs": [21],
+            "subs": [8],
             "pt": "na",
             "f": 0,
             "tip": "",
             "o": 1,
-            "p": 19,
+            "p": 2,
             "u": 0,
-            "aids": [141889],
-            "id": 20
+            "aids": [595043, 267205, 75474, 512200],
+            "id": 7
         },
-        "21": {"c": 0, "subs": [], "pt": "ob", "f": 0, "tip": "", "o": 1, "p": 20, "u": 0, "aids": [141889], "id": 21},
-        "22": {
-            "c": 0,
-            "subs": [23],
-            "pt": "na",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 14,
-            "u": 0,
-            "aids": [234649],
-            "id": 22
-        },
-        "23": {
-            "c": 0,
-            "subs": [24],
-            "pt": "pb",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 22,
-            "u": 0,
-            "aids": [234649],
-            "id": 23
-        },
-        "24": {
-            "c": 0,
-            "subs": [25],
-            "pt": "qa",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 23,
-            "u": 0,
-            "aids": [234649],
-            "id": 24
-        },
-        "25": {
-            "c": 0,
-            "subs": [26],
-            "pt": "ra",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 24,
-            "u": 0,
-            "aids": [234649],
-            "id": 25
-        },
-        "26": {
-            "c": 0,
-            "subs": [27],
-            "pt": "pa",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 25,
-            "u": 0,
-            "aids": [234649],
-            "id": 26
-        },
-        "27": {"c": 0, "subs": [], "pt": "qb", "f": 1, "tip": "", "o": 0, "p": 26, "u": 0, "aids": [234649], "id": 27},
-        "28": {
+        "8": {
             "c": 1,
-            "subs": [29],
-            "pt": "oc",
-            "f": 0,
-            "tip": "",
-            "o": 0,
-            "p": 15,
-            "u": 0,
-            "aids": [181601],
-            "id": 28
-        },
-        "29": {
-            "c": 1,
-            "subs": [30],
-            "pt": "qb",
-            "f": 0,
-            "tip": "",
-            "o": 0,
-            "p": 28,
-            "u": 0,
-            "aids": [181601],
-            "id": 29
-        },
-        "30": {
-            "c": 1,
-            "subs": [31],
-            "pt": "qc",
-            "f": 0,
-            "tip": "",
-            "o": 0,
-            "p": 29,
-            "u": 0,
-            "aids": [181601],
-            "id": 30
-        },
-        "31": {
-            "c": 1,
-            "subs": [32],
-            "pt": "na",
-            "f": 0,
-            "tip": "",
-            "o": 0,
-            "p": 30,
-            "u": 0,
-            "aids": [181601],
-            "id": 31
-        },
-        "32": {
-            "c": 1,
-            "subs": [33],
+            "subs": [9, 12],
             "pt": "oa",
             "f": 0,
             "tip": "",
-            "o": 0,
-            "p": 31,
+            "o": 1,
+            "p": 7,
             "u": 0,
-            "aids": [181601],
-            "id": 32
+            "aids": [595043, 267205, 512200],
+            "id": 8
         },
-        "33": {
+        "9": {
             "c": 1,
-            "subs": [34],
-            "pt": "qa",
-            "f": 0,
-            "tip": "",
-            "o": 0,
-            "p": 32,
-            "u": 0,
-            "aids": [181601],
-            "id": 33
-        },
-        "34": {
-            "c": 1,
-            "subs": [35],
+            "subs": [10],
             "pt": "nc",
             "f": 0,
             "tip": "",
-            "o": 0,
-            "p": 33,
-            "u": 0,
-            "aids": [181601],
-            "id": 34
-        },
-        "35": {
-            "c": 1,
-            "subs": [36],
-            "pt": "pb",
-            "f": 0,
-            "tip": "",
-            "o": 0,
-            "p": 34,
-            "u": 0,
-            "aids": [181601],
-            "id": 35
-        },
-        "36": {
-            "c": 1,
-            "subs": [37],
-            "pt": "ob",
-            "f": 0,
-            "tip": "",
-            "o": 0,
-            "p": 35,
-            "u": 0,
-            "aids": [181601],
-            "id": 36
-        },
-        "37": {"c": 1, "subs": [], "pt": "pa", "f": 0, "tip": "", "o": 0, "p": 36, "u": 0, "aids": [181601], "id": 37},
-        "38": {
-            "c": 0,
-            "subs": [],
-            "pt": "na",
-            "f": 0,
-            "tip": "\u606d\u559c\u7b54\u5bf9",
             "o": 1,
-            "p": 18,
+            "p": 8,
             "u": 0,
-            "aids": [3399],
-            "id": 38
+            "aids": [595043, 512200],
+            "id": 9
         },
-        "39": {
-            "c": 0,
-            "subs": [40],
-            "pt": "na",
-            "f": 0,
-            "tip": "",
-            "o": 1,
-            "p": 17,
-            "u": 0,
-            "aids": [76608, 75608],
-            "id": 39
-        },
-        "40": {
-            "c": 0,
-            "subs": [41],
-            "pt": "ob",
-            "f": 0,
-            "tip": "",
-            "o": 1,
-            "p": 39,
-            "u": 0,
-            "aids": [76608, 75608],
-            "id": 40
-        },
-        "41": {"c": 0, "subs": [42], "pt": "oc", "f": 0, "tip": "", "o": 1, "p": 40, "u": 0, "aids": [75608], "id": 41},
-        "42": {"c": 0, "subs": [43], "pt": "nc", "f": 0, "tip": "", "o": 1, "p": 41, "u": 0, "aids": [75608], "id": 42},
-        "43": {"c": 0, "subs": [44], "pt": "oa", "f": 0, "tip": "", "o": 1, "p": 42, "u": 0, "aids": [75608], "id": 43},
-        "44": {"c": 0, "subs": [], "pt": "pa", "f": 0, "tip": "", "o": 1, "p": 43, "u": 0, "aids": [75608], "id": 44},
-        "45": {"c": 0, "subs": [46], "pt": "pa", "f": 1, "tip": "", "o": 0, "p": 0, "u": 0, "aids": [511741], "id": 45},
-        "46": {
-            "c": 0,
-            "subs": [47],
-            "pt": "ob",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 45,
-            "u": 0,
-            "aids": [511741],
-            "id": 46
-        },
-        "47": {
-            "c": 0,
-            "subs": [48],
-            "pt": "sc",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 46,
-            "u": 0,
-            "aids": [511741],
-            "id": 47
-        },
-        "48": {
-            "c": 0,
-            "subs": [49],
-            "pt": "sb",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 47,
-            "u": 0,
-            "aids": [511741],
-            "id": 48
-        },
-        "49": {
-            "c": 0,
-            "subs": [50],
-            "pt": "ra",
-            "f": 1,
-            "tip": "",
-            "o": 0,
-            "p": 48,
-            "u": 0,
-            "aids": [511741],
-            "id": 49
-        },
-        "50": {"c": 0, "subs": [], "pt": "qb", "f": 1, "tip": "", "o": 0, "p": 49, "u": 0, "aids": [511741], "id": 50}
+        "10": {"c": 1, "subs": [11], "pt": "ma", "f": 0, "tip": "", "o": 0, "p": 9, "u": 0, "aids": [595043], "id": 10},
+        "11": {"c": 1, "subs": [], "pt": "lb", "f": 0, "tip": "", "o": 0, "p": 10, "u": 0, "aids": [595043], "id": 11},
+        "12": {"c": 0, "subs": [], "pt": "ma", "f": 0, "tip": "", "o": 1, "p": 8, "u": 0, "aids": [267205], "id": 12},
+        "13": {"c": 0, "subs": [14], "pt": "qb", "f": 1, "tip": "", "o": 0, "p": 0, "u": 0, "aids": [468731], "id": 13},
+        "14": {"c": 0, "subs": [], "pt": "rb", "f": 1, "tip": "", "o": 0, "p": 13, "u": 0, "aids": [468731], "id": 14},
+        "15": {"c": 0, "subs": [], "pt": "nc", "f": 0, "tip": "", "o": 1, "p": 2, "u": 0, "aids": [87884], "id": 15},
+        "16": {"c": 0, "subs": [], "pt": "ma", "f": 0, "tip": "", "o": 1, "p": 2, "u": 0, "aids": [229232], "id": 16}
     },
-    "is_public": true,
-    "sy": 9,
+    "edit_count": 0,
     "answers": [{
-        "username": "\u6e05\u6cc9\u674e\u5955\u6db5",
-        "change_count": 0,
-        "ty": 1,
-        "userid": 445634,
-        "id": 1047319,
-        "ok_count": 1,
+        "username": "\u73ae\u73ae2019",
+        "change_count": 1,
+        "ty": 2,
+        "nu": 23,
+        "userid": 527129,
+        "st": 1,
+        "ok_count": 0,
         "error_count": 0,
         "bad_count": 0,
         "v": 0,
-        "st": 1,
-        "pts": [{"p": "ob", "c": ""}, {"p": "pb", "c": ""}, {"p": "qa", "c": ""}, {"p": "oc", "c": ""}, {
-            "p": "sc",
-            "c": ""
-        }, {"p": "nc", "c": ""}, {"p": "sb", "c": ""}, {"p": "oa", "c": ""}, {"p": "ra", "c": ""}, {
-            "p": "qb",
-            "c": ""
-        }, {"p": "qd", "c": ""}, {"p": "pa", "c": ""}, {"p": "sd", "c": ""}, {"p": "sa", "c": ""}, {
-            "p": "ra",
-            "c": ""
+        "pts": [{"p": "qa", "c": ""}, {"p": "rb", "c": ""}, {
+            "p": "lf",
+            "c": "\u5982\u679c\u9ed1\u68cb\u4e0d\u7406......"
+        }, {"p": "na", "c": "\u767d\u68cb\u5c31\u8d70O19\u3002"}, {
+            "p": "nc",
+            "c": "\u9ed1\u68cb\u6536\u6c14"
+        }, {
+            "p": "pa",
+            "c": "\u767d\u68cb\u5c31\u8d70Q19\uff0c\u8fd9\u6837\u5c31\u6210\u4e86\u6253\u52ab\uff0c\u9ed1\u68cb\u5931\u8d25"
         }],
-        "nu": 17
+        "id": 1081583
     }, {
-        "username": "sarsdeep",
+        "username": "Jinning",
         "change_count": 0,
         "ty": 3,
-        "userid": 486129,
-        "id": 995693,
+        "nu": 22,
+        "userid": 12805,
+        "st": 1,
         "ok_count": 0,
         "error_count": 0,
         "bad_count": 1,
         "v": 0,
-        "st": 1,
-        "pts": [{"p": "ob", "c": ""}, {"p": "pb", "c": ""}, {"p": "qa", "c": ""}, {"p": "oc", "c": ""}, {
-            "p": "sc",
-            "c": ""
-        }, {"p": "sb", "c": ""}, {"p": "ra", "c": ""}, {"p": "nc", "c": ""}, {"p": "na", "c": ""}, {
-            "p": "oa",
-            "c": ""
-        }, {"p": "pa", "c": ""}, {"p": "qb", "c": ""}, {"p": "ob", "c": ""}],
-        "nu": 16
+        "pts": [{"p": "pa", "c": ""}, {"p": "qb", "c": ""}, {"p": "nc", "c": ""}, {"p": "qa", "c": ""}],
+        "id": 1047198
     }, {
-        "username": "2009mayuzi",
+        "username": "wx_4117440112116",
         "change_count": 0,
         "ty": 1,
-        "userid": 148179,
-        "id": 861869,
+        "nu": 20,
+        "userid": 52983,
+        "st": 1,
         "ok_count": 1,
         "error_count": 0,
         "bad_count": 0,
         "v": 0,
-        "st": 1,
-        "pts": [{"p": "sc", "c": ""}, {"p": "sb", "c": ""}, {"p": "ob", "c": ""}, {"p": "pb", "c": ""}, {
-            "p": "qd",
-            "c": ""
-        }, {"p": "qc", "c": ""}, {"p": "qa", "c": ""}, {"p": "pa", "c": ""}, {"p": "ra", "c": ""}],
-        "nu": 15
+        "pts": [{"p": "pa", "c": ""}],
+        "id": 979406
     }, {
-        "username": "apadasai",
+        "username": "w_14113511111420",
         "change_count": 0,
-        "ty": 2,
-        "userid": 41332,
-        "id": 819942,
+        "ty": 1,
+        "nu": 19,
+        "userid": 228398,
+        "st": 1,
         "ok_count": 1,
         "error_count": 0,
         "bad_count": 0,
         "v": 0,
-        "st": 1,
-        "pts": [{"p": "ob", "c": ""}, {"p": "pb", "c": ""}, {"p": "sc", "c": ""}, {"p": "sb", "c": ""}, {
-            "p": "qd",
+        "pts": [{"p": "qa", "c": ""}, {"p": "rb", "c": ""}, {"p": "oa", "c": ""}, {"p": "na", "c": ""}, {
+            "p": "pa",
             "c": ""
-        }, {"p": "qc", "c": ""}, {"p": "qa", "c": ""}, {"p": "pa", "c": ""}, {"p": "ra", "c": ""}, {
-            "p": "oc",
+        }, {"p": "qb", "c": ""}, {"p": "pa", "c": ""}, {"p": "pb", "c": ""}, {"p": "nc", "c": ""}, {
+            "p": "sa",
             "c": ""
-        }, {"p": "na", "c": ""}, {"p": "oa", "c": ""}, {"p": "nc", "c": ""}],
-        "nu": 14
+        }],
+        "id": 967433
     }, {
-        "username": "QQde\u5bc6\u7801",
+        "username": "djfhvk",
         "change_count": 0,
         "ty": 3,
-        "userid": 4323,
-        "id": 728851,
+        "nu": 3,
+        "userid": 4568,
+        "st": 2,
         "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 10,
+        "error_count": 1,
+        "bad_count": 12,
         "v": 0,
-        "st": 2,
-        "pts": [{"p": "ob", "c": ""}, {"p": "pb", "c": ""}, {"p": "qa", "c": ""}, {"p": "oc", "c": ""}, {
-            "p": "sc",
-            "c": ""
-        }, {"p": "sb", "c": ""}, {"p": "ra", "c": ""}, {"p": "nc", "c": ""}, {"p": "na", "c": ""}, {
-            "p": "oa",
-            "c": ""
-        }, {"p": "pa", "c": ""}, {"p": "qb", "c": "\u6210\u52ab"}],
-        "nu": 13
-    }, {
-        "username": "presento",
-        "change_count": 0,
-        "ty": 1,
-        "userid": 3530,
-        "id": 141889,
-        "ok_count": 11,
-        "error_count": 0,
-        "bad_count": 0,
-        "v": 0,
-        "st": 2,
-        "pts": [{"p": "sc", "c": " "}, {"p": "sb", "c": " "}, {"p": "ra", "c": " "}, {"p": "pb", "c": " "}, {
-            "p": "qa",
-            "c": " "
-        }, {"p": "qd", "c": " "}, {"p": "qb", "c": " "}, {"p": "na", "c": " "}, {"p": "ob", "c": " "}],
-        "nu": 4
-    }, {
-        "username": "\u5e7b\u706d\u6653\u8679",
-        "change_count": 0,
-        "ty": 3,
-        "userid": 13002,
-        "id": 234649,
-        "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 21,
-        "v": 0,
-        "st": 2,
-        "pts": [{"p": "sc", "c": " "}, {"p": "sb", "c": " "}, {"p": "na", "c": " "}, {"p": "pb", "c": " "}, {
-            "p": "qa",
-            "c": " "
-        }, {"p": "ra", "c": " "}, {"p": "pa", "c": " "}, {"p": "qb", "c": " "}],
-        "nu": 8
-    }, {
-        "username": "reico",
-        "change_count": 25,
-        "ty": 2,
-        "userid": 242,
-        "id": 181601,
-        "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 0,
-        "v": 0,
-        "st": 2,
-        "pts": [{"p": "sc", "c": " "}, {"p": "sb", "c": " "}, {"p": "ra", "c": " "}, {"p": "oc", "c": " "}, {
-            "p": "qb",
-            "c": " "
-        }, {"p": "qc", "c": " "}, {"p": "na", "c": " "}, {"p": "oa", "c": " "}, {"p": "qa", "c": " "}, {
+        "pts": [{"p": "qa", "c": " "}, {"p": "rb", "c": " "}, {"p": "oa", "c": " "}, {"p": "na", "c": " "}, {
             "p": "nc",
             "c": " "
-        }, {"p": "pb", "c": " "}, {"p": "ob", "c": " "}, {"p": "pa", "c": " "}],
-        "nu": 7
+        }, {"p": "pa", "c": " "}],
+        "id": 189777
+    }, {
+        "username": "xvcv",
+        "change_count": 20,
+        "ty": 2,
+        "nu": 13,
+        "userid": 77703,
+        "st": 2,
+        "ok_count": 2,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "pts": [{"p": "qa", "c": ""}, {"p": "rb", "c": ""}, {"p": "na", "c": ""}, {"p": "oa", "c": ""}, {
+            "p": "nc",
+            "c": ""
+        }, {"p": "ma", "c": ""}, {"p": "lb", "c": ""}],
+        "id": 595043
+    }, {
+        "username": "25qf",
+        "change_count": 0,
+        "ty": 1,
+        "nu": 7,
+        "userid": 9928,
+        "st": 2,
+        "ok_count": 14,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "pts": [{"p": "qa", "c": " "}, {"p": "rb", "c": " "}, {"p": "na", "c": " "}, {"p": "oa", "c": " "}, {
+            "p": "ma",
+            "c": " "
+        }],
+        "id": 267205
     }, {
         "username": "admin",
         "change_count": 0,
         "ty": 1,
+        "nu": 1,
         "userid": 1,
-        "id": 3399,
-        "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 0,
-        "v": 0,
         "st": 2,
-        "pts": [{"p": "sc", "c": ""}, {"p": "sb", "c": ""}, {"p": "ra", "c": ""}, {"p": "pb", "c": ""}, {
-            "p": "qa",
-            "c": ""
-        }, {"p": "qd", "c": ""}, {"p": "na", "c": "\u606d\u559c\u7b54\u5bf9"}],
-        "nu": 1
-    }, {
-        "username": "admin",
-        "change_count": 0,
-        "ty": 1,
-        "userid": 1,
-        "id": 76608,
-        "ok_count": 0,
+        "ok_count": 2,
         "error_count": 0,
-        "bad_count": 0,
+        "bad_count": 1,
         "v": 0,
-        "st": 2,
-        "pts": [{"p": "sc", "c": ""}, {"p": "sb", "c": ""}, {"p": "ra", "c": ""}, {"p": "pb", "c": ""}, {
-            "p": "qa",
-            "c": ""
-        }, {"p": "na", "c": ""}, {"p": "ob", "c": ""}],
-        "nu": 3
+        "pts": [{"p": "qa", "c": ""}, {"p": "rb", "c": ""}, {"p": "na", "c": ""}],
+        "id": 75474
     }, {
-        "username": "admin",
-        "change_count": 0,
-        "ty": 1,
-        "userid": 1,
-        "id": 75608,
-        "ok_count": 0,
-        "error_count": 0,
-        "bad_count": 0,
-        "v": 0,
-        "st": 2,
-        "pts": [{"p": "sc", "c": ""}, {"p": "sb", "c": ""}, {"p": "ra", "c": ""}, {"p": "pb", "c": ""}, {
-            "p": "qa",
-            "c": ""
-        }, {"p": "na", "c": ""}, {"p": "ob", "c": ""}, {"p": "oc", "c": ""}, {"p": "nc", "c": ""}, {
-            "p": "oa",
-            "c": ""
-        }, {"p": "pa", "c": ""}],
-        "nu": 2
-    }, {
-        "username": "QQde\u5bc6\u7801",
+        "username": "kenny",
         "change_count": 0,
         "ty": 3,
-        "userid": 4323,
-        "id": 511741,
+        "nu": 9,
+        "userid": 23199,
+        "st": 2,
         "ok_count": 0,
         "error_count": 0,
         "bad_count": 10,
         "v": 0,
+        "pts": [{"p": "qb", "c": " "}, {"p": "rb", "c": " "}],
+        "id": 468731
+    }, {
+        "username": "haoran",
+        "change_count": 0,
+        "ty": 1,
+        "nu": 2,
+        "userid": 3,
         "st": 2,
-        "pts": [{"p": "pa", "c": ""}, {"p": "ob", "c": ""}, {"p": "sc", "c": ""}, {"p": "sb", "c": ""}, {
-            "p": "ra",
+        "ok_count": 16,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "pts": [{"p": "qa", "c": " "}, {"p": "rb", "c": " "}, {"p": "nc", "c": " "}],
+        "id": 87884
+    }, {
+        "username": "almighty",
+        "change_count": 0,
+        "ty": 1,
+        "nu": 5,
+        "userid": 5147,
+        "st": 2,
+        "ok_count": 21,
+        "error_count": 0,
+        "bad_count": 0,
+        "v": 0,
+        "pts": [{"p": "qa", "c": " "}, {"p": "rb", "c": " "}, {"p": "ma", "c": " "}],
+        "id": 229232
+    }, {
+        "username": "\u6211\u53eb\u5c0fQ",
+        "change_count": 0,
+        "ty": 1,
+        "nu": 12,
+        "userid": 54120,
+        "st": 2,
+        "ok_count": 25,
+        "error_count": 0,
+        "bad_count": 1,
+        "v": 0,
+        "pts": [{"p": "qa", "c": ""}, {"p": "rb", "c": ""}, {"p": "na", "c": ""}, {"p": "oa", "c": ""}, {
+            "p": "nc",
             "c": ""
-        }, {"p": "qb", "c": ""}],
-        "nu": 9
+        }],
+        "id": 512200
     }],
     "is_share": true,
-    "lu": 19,
-    "min_levelname": "1K",
+    "min_levelname": "",
     "taskresult": {
-        "ok_nums": [2, 2, 2, 1, 0, 0, 2, 0, 1, 1, 1, 0, 1, 4, 1, 3, 6, 1, 2, 3, 5, 5, 6, 13, 10, 23, 38, 13, 14, 22],
-        "fail_total": 640,
-        "fail_nums": [19, 4, 5, 10, 14, 11, 8, 11, 15, 20, 12, 19, 24, 22, 26, 32, 28, 38, 48, 44, 34, 40, 26, 31, 26, 31, 22, 12, 5, 3],
-        "ok_total": 182
+        "ok_nums": [206, 91, 94, 118, 115, 149, 198, 216, 173, 137, 203, 170, 166, 120, 187, 156, 85, 91, 58, 44, 29, 35, 24, 30, 18, 16, 23, 9, 4, 8],
+        "ok_total": 2973,
+        "fail_nums": [51, 81, 142, 200, 174, 226, 318, 255, 139, 117, 115, 70, 34, 17, 19, 11, 8, 4, 2, 0, 1, 1, 0, 3, 1, 0, 0, 0, 0, 0],
+        "fail_total": 1989
     },
-    "prepos": [["am", "bm", "cm", "dn", "eo", "ep", "eq", "dr", "fr"], ["bn", "cp", "dp", "br", "cr"]],
+    "qtypename": "\u6b7b\u6d3b\u9898",
     "hasbook": false,
     "issingle": true,
     "xuandians": [],
-    "sms_count": 0,
-    "edit_count": 0,
-    "enable_answer": true,
-    "name": "\u6731\u9876\u9e64\u52bf",
+    "sms_count": 1,
     "nexterrorurl": "",
+    "sy": 9,
+    "enable_answer": true,
+    "name": null,
+    "attr_type": 0,
     "ans_count": 12,
     "userid": 1,
-    "layoutnumber": 1,
-    "sx": 10,
-    "bookinfos": [{
-        "pinyin": "shihuochidian",
-        "bookname": "\u56f4\u68cb\u6b7b\u6d3b\u8f9e\u5178-\u6fd1\u8d8a\u5baa\u4f5c",
-        "nodename": "\u4e00.\u4e8c\u8def\u7684\u624b\u7b4b",
-        "bookid": 1,
-        "bookurl": "shihuochidian"
-    }, {
-        "pinyin": "",
-        "bookname": "\u4e2d\u6781\u3010\u4e0b\u3011",
-        "nodename": "",
-        "bookid": 25567,
-        "bookurl": 25567
-    }, {
-        "pinyin": "",
-        "bookname": "\u56f4\u68cb\u9ad8\u7ea7\u6b7b\u6d3b1200",
-        "nodename": "\u6b63\u786e\u6b21\u5e8f",
-        "bookid": 2158,
-        "bookurl": 2158
-    }, {
-        "pinyin": "",
-        "bookname": "\u56f4\u68cb\u9ad8\u7ea7\u6b7b\u6d3b1200",
-        "nodename": "\u4e00\u8def\u5999\u624b",
-        "bookid": 2158,
-        "bookurl": 2158
-    }, {
-        "pinyin": "",
-        "bookname": "\u5929\u9053\u916c\u52e4",
-        "nodename": "\u56db",
-        "bookid": 25664,
-        "bookurl": 25664
-    }, {
-        "pinyin": "tomzhongji",
-        "bookname": "\u6c64\u59c6\u4e2d\u7ea7\u6b7b\u6d3b",
-        "nodename": "201-400",
-        "bookid": 215,
-        "bookurl": "tomzhongji"
-    }, {
-        "pinyin": "tianlongtu",
-        "bookname": "\u5929\u9f99\u56fe",
-        "nodename": "\u7b2c2\u90e8\u5206",
-        "bookid": 2,
-        "bookurl": "tianlongtu"
-    }, {"pinyin": "", "bookname": "\u96be\uff01", "nodename": "", "bookid": 26392, "bookurl": 26392}, {
-        "pinyin": "",
-        "bookname": "\u6050\u9f99\u56ed",
-        "nodename": "\u4e09\u89d2\u9f99  \u6e10\u6e10\u957f\u5927",
-        "bookid": 27318,
-        "bookurl": 27318
-    }, {
-        "pinyin": "",
-        "bookname": "\u56f4\u68cb\u6b7b\u6d3b\u5927\u5168",
-        "nodename": "\u7384\u7384",
-        "bookid": 1349,
-        "bookurl": 1349
-    }, {
-        "pinyin": "",
-        "bookname": "\u56f4\u68cb\u6b7b\u6d3b\u5927\u5168",
-        "nodename": "\u5929\u9f99\u56fe",
-        "bookid": 1349,
-        "bookurl": 1349
-    }, {
-        "pinyin": "daquan",
-        "bookname": "\u56f4\u68cb\u6b7b\u6d3b\u5927\u5168",
-        "nodename": "TOM\u7f51\u6b7b\u6d3b\u9898\u4e2d\u7ea7",
-        "bookid": 42,
-        "bookurl": "daquan"
-    }, {
-        "pinyin": "xuanxuanqijin",
-        "bookname": "\u7384\u7384\u68cb\u7ecf-\u6865\u672c\u5b87\u592a\u90ce\u89e3\u8bf4",
-        "nodename": "\u89d2\u4e4b\u90e8",
-        "bookid": 5,
-        "bookurl": "xuanxuanqijin"
-    }],
-    "points": [],
+    "taotaiid": 0,
+    "is_public": true,
+    "sx": 11,
+    "disuse": 10,
     "isguess": false,
-    "qtypename": "\u6b7b\u6d3b\u9898",
+    "prepos": [["cs", "ds", "dr", "dq", "dp", "do", "co", "bp", "cm", "bm"], ["ar", "bs", "cr", "cq", "cp", "bo", "bn"]],
     "myan": null,
-    "attr_type": 0,
-    "levelname": "4D+"
+    "options": [],
+    "levelname": "8K+"
 };
 var taskinfo = null;
 var myq = null;
