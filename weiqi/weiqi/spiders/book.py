@@ -86,7 +86,8 @@ class BookSpider(scrapy.Spider):
         # print("result:" + str(scripts))
 
         list = re.findall(r"g_qq = ({.*?});var", str(scripts))
-        chess_json = json.loads(list[0])
+        data = filter_emoji(list[0])
+        chess_json = json.loads(data)
 
         title = chess_json['title']
         status = chess_json['status']
@@ -119,3 +120,12 @@ class BookSpider(scrapy.Spider):
         item["title"] = "" if title.__len__() == 0 else title
         item["signs"] = signs
         yield item
+
+
+def filter_emoji(desstr, restr=''):
+    #过滤表情
+    try:
+        res = re.compile(u'[\U00010000-\U0010ffff]')
+    except re.error:
+        res = re.compile(u'[\uD800-\uDBFF][\uDC00-\uDFFF]')
+    return res.sub(restr, desstr)

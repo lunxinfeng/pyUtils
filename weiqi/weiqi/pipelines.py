@@ -92,7 +92,7 @@ class WeiqiPipeline(object):
                 sgf += ("[" + str(sign) + "]")
         if answers.__len__() > 0:
             for a in answers:
-                if a["st"] == "1" or a["ty"] == "2" or a["ty"] == "3":  # 如果是待审核或者变化图的答案，则过滤掉   2019.12.6新增，失败图也不要
+                if a["st"] == 1 or a["ty"] == 2 or a["ty"] == 3:  # 如果是待审核或者变化图的答案，则过滤掉   2019.12.6新增，失败图也不要
                     continue
                 sgf += "("
                 for i, v in enumerate(a["pts"]):
@@ -109,19 +109,19 @@ class WeiqiPipeline(object):
 
                     if v["c"] is not None and v["c"] != "":  # C标签非空
                         if a["pts"].__len__() == i + 1:  # 最后一步
-                            if a["ty"] == "1":
+                            if a["ty"] == 1:
                                 sgf += ("C[" + v["c"] + "【正解图】]")
 
-                            if a["ty"] == "3":
+                            if a["ty"] == 3:
                                 sgf += ("C[" + v["c"] + "【失败图】]")
                         else:
                             sgf += ("C[" + v["c"] + "]")
                     else:
                         if a["pts"].__len__() == i + 1:
-                            if a["ty"] == "1":
+                            if a["ty"] == 1:
                                 sgf += "C[【正解图】]"
 
-                            if a["ty"] == "3":
+                            if a["ty"] == 3:
                                 sgf += "C[【失败图】]"
 
                 sgf += ")"
